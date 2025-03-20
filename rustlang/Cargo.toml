@@ -1,0 +1,14 @@
+[workspace]
+# resolver = "1"
+# resolver = "2"
+resolver = "3"
+members = [
+    "crates/data-structures-and-algorithms",
+    "crates/macros",
+    "crates/turbofish",
+    "crates/macros",
+    "crates/traits",
+    "crates/iterators",
+    "crates/closures",
+    "crates/attributes",
+]
