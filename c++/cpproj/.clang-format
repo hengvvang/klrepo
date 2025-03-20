@@ -1,0 +1,129 @@
+# C++ Coding Style --Rust-like
+
+
+
+Language: Cpp
+# 指定格式化规则适用于 C++ 语言
+
+# 缩进与空格
+IndentWidth: 4
+# 设置缩进宽度为 4 个空格，用于代码块（如函数体、循环体）的缩进
+UseTab: Never
+# 禁止使用制表符（Tab）进行缩进，一律使用空格代替
+TabWidth: 4
+# 设置制表符宽度为 4 个空格（仅在处理已有制表符时生效，因 UseTab: Never 已禁用制表符）
+ContinuationIndentWidth: 4
+# 设置续行缩进宽度为 4 个空格，例如换行的函数参数或长表达式
+AccessModifierOffset: 0
+# 设置访问修饰符（例如 public、private）的偏移量为 0，使其与类或结构体对齐
+NamespaceIndentation: None
+# 禁止对命名空间内的内容进行缩进，保持与外层对齐
+IndentCaseLabels: false
+# 禁止对 switch 语句中的 case 标签进行额外缩进，使其与 switch 对齐
+
+# 行长与换行
+ColumnLimit: 100
+# 限制每行的最大字符数为 100，超过时触发换行
+PenaltyExcessCharacter: 30
+# 对每超出列限制（100）的字符设置 30 的惩罚值，影响换行决策的优先级
+PenaltyLineBreakBeforeFirstCall: 10
+# 对在函数调用链的第一个调用前换行设置 10 的惩罚值，鼓励类似 Rustfmt 的链式调用换行风格
+BreakBeforeBinaryOperators: All
+# 在所有二元运算符（例如 +、-、*、/）前换行，而非之后
+BreakBeforeTernaryOperators: true
+# 在三元运算符（?:）前换行，而不是之后
+AlwaysBreakAfterReturnType: None
+# 不强制在函数声明的返回类型后换行，保持灵活性
+
+# 大括号与代码块
+BreakBeforeBraces: Attach
+# 将大括号附加到前一个语句的末尾，例如 if (cond) { 而非换行
+BraceWrapping:
+  AfterClass: false
+  # 不在类定义后的大括号前换行，例如 class A {
+  AfterControlStatement: false
+  # 不在控制语句（例如 if、for）后的大括号前换行，例如 if (cond) {
+  AfterFunction: true
+  # 在函数定义后的大括号前换行，例如 void foo() {
+  AfterNamespace: false
+  # 不在命名空间定义后的大括号前换行，例如 namespace ns {
+  BeforeCatch: false
+  # 不在 try-catch 块的 catch 关键字前换行，例如 } catch (...) {
+  BeforeElse: false
+  # 不在 if-else 语句的 else 关键字前换行，例如 } else {
+  SplitEmptyRecord: false
+  # 不将空记录（例如空类或结构体）拆分为多行，例如 class A {};
+AllowShortBlocksOnASingleLine: Always
+# 允许短代码块（例如单行块）与大括号在同一行，例如 if (cond) { foo(); }
+AllowShortFunctionsOnASingleLine: None
+# 禁止将短函数定义写在单行，要求函数体始终换行
+AllowShortIfStatementsOnASingleLine: Never
+# 禁止将短 if 语句写在单行，例如 if (cond) foo();
+AllowShortLoopsOnASingleLine: Never
+# 禁止将短循环（例如 for、while）写在单行，例如 for (;;) foo();
+
+# 参数与对齐
+AlignAfterOpenBracket: Align
+# 在换行时对齐括号后的参数或列表项，例如函数参数或数组初始化
+AlignOperands: Align
+# 在换行时对齐二元或三元运算符的操作数，例如 a + b
+BinPackArguments: false
+# 如果函数调用参数超过列限制，不将多个参数打包到一行，逐个换行
+BinPackParameters: false
+# 如果函数声明参数超过列限制，不将多个参数打包到一行，逐个换行
+MaxEmptyLinesToKeep: 1
+# 限制连续空行的最大数量为 1，删除多余空行
+SpaceBeforeParens: Never
+# 在函数调用或声明的括号前不加空格，例如 foo() 而非 foo ()
+SpaceAfterControlStatementKeyword: true
+# 在控制语句关键字（例如 if、for、while）后加空格，例如 if (cond)
+
+# 逗号与尾随逗号
+SpaceBeforeComma: false
+# 在逗号前不加空格，例如 a,b 而非 a ,b
+SpaceAfterComma: true
+# 在逗号后加空格，例如 a, b 而非 a,b
+TrailingComma: Always
+# 在多行列表（例如参数列表、初始化列表）中始终添加尾随逗号，例如 {1, 2, }（需 Clang 17 或更高版本）
+
+# 指针与引用
+PointerAlignment: Left
+# 将指针符号 (*) 对齐到左侧，例如 int* ptr 而非 int *ptr
+ReferenceAlignment: Left
+# 将引用符号 (&) 对齐到左侧，例如 int& ref 而非 int &ref
+
+# 运算符与表达式空格
+SpaceBeforeAssignmentOperators: true
+# 在赋值运算符（例如 =、+=）前加空格，例如 a = b 而非 a=b
+SpaceAfterCStyleCast: true
+# 在 C 风格强制转换后加空格，例如 (int) x 而非 (int)x
+SpaceAroundBinaryOperators: true
+# 在二元运算符周围加空格，例如 a + b 而非 a+b
+SpaceBeforeInitializerList: false
+# 在初始化列表前不加空格，例如 {1, 2, 3} 而非 { 1, 2, 3 }
+SpaceInEmptyParentheses: false
+# 在空括号内不加空格，例如 foo() 而非 foo( )
+SpacesAroundRanges: false
+# 在范围-based for 循环的冒号周围不加空格，例如 for (auto x : vec) 而非 for (auto x : vec)
+
+# 类与命名空间
+IndentNamespaceDeclarations: false
+# 不对命名空间声明进行缩进，例如 namespace ns 与外层对齐
+IndentAccessModifiers: false
+# 不对访问修饰符（例如 public、private）进行缩进，与类对齐
+ClassIndent: 0
+# 将类内容的缩进设置为 0，不对类内部额外缩进
+
+# 注释
+ColumnLimitForComments: 80
+# 将注释的列限制设置为 80，超出部分可能被截断（需 Clang 支持）
+WrapComments: false
+# 禁止自动将长注释换行到下一行，保持单行格式
+
+# 其他细节
+SpaceBeforeCpp11BracedList: false
+# 在 C++11 花括号初始化列表前不加空格，例如 vector<int>{1, 2} 而非 vector<int> {1, 2}
+SpaceAfterTemplateKeyword: false
+# 在 template 关键字后不加空格，例如 template<typename T> 而非 template <typename T>
+PackConstructorInitializers: false
+# 不将构造函数初始化列表打包到一行，例如每个初始化项换行显示

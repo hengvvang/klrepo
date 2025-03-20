@@ -1,0 +1,251 @@
+{
+  // 配置文件版本，固定为2.0.0
+  "version": "2.0.0",
+  // 定义所有任务列表
+  "tasks": [
+    {
+      // 任务标签，用于在VSCode中显示和引用
+      "label": "cmake debug init",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，使用CMake配置Debug构建
+      "command": "cmake",
+      // 命令参数
+      "args": [
+        // 指定源代码目录（当前工作区根目录）
+        "-S", "${workspaceFolder}",
+        // 指定构建输出目录（build/debug）
+        "-B", "${workspaceFolder}/build/debug",
+        // 设置构建类型为Debug
+        "-DCMAKE_BUILD_TYPE=Debug",
+        // 使用Ninja作为生成器，提高构建速度
+        "-G", "Ninja"
+      ],
+      // 定义任务组，标记为构建任务
+      "group": {
+        // 任务类型为构建
+        "kind": "build",
+        // 设置为默认构建任务（按Ctrl+Shift+B触发）
+        "isDefault": true
+      },
+      // 问题匹配器，用于解析编译错误和警告（使用MSCompile匹配器，兼容Clang）
+      "problemMatcher": ["$msCompile"],
+      // 任务描述，说明用途
+      "detail": "Configure CMake for Debug build using Ninja."
+    },
+    {
+      // 任务标签，用于构建Release版本
+      "label": "cmake release init",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，使用CMake配置Release构建
+      "command": "cmake",
+      // 命令参数
+      "args": [
+        // 指定源代码目录（当前工作区根目录）
+        "-S", "${workspaceFolder}",
+        // 指定构建输出目录（build/release）
+        "-B", "${workspaceFolder}/build/release",
+        // 设置构建类型为Release
+        "-DCMAKE_BUILD_TYPE=Release",
+        // 使用Ninja作为生成器
+        "-G", "Ninja"
+      ],
+      // 定义任务组，标记为构建任务
+      "group": "build",
+      // 问题匹配器，用于解析编译错误和警告（使用MSCompile匹配器）
+      "problemMatcher": ["$msCompile"],
+      // 任务描述，说明用途
+      "detail": "Configure CMake for Release build using Ninja."
+    },
+    {
+      // 任务标签，用于运行Ninja构建项目
+      "label": "ninja build",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，使用Ninja构建项目
+      "command": "ninja",
+      // 命令参数
+      "args": [
+        // 指定构建目录（build/debug）
+        "-C", "${workspaceFolder}/build/debug"
+      ],
+      // 定义任务组，标记为构建任务
+      "group": "build",
+      // 依赖于"cmake debug init"任务，确保先配置CMake
+      "dependsOn": ["cmake debug init"],
+      // 问题匹配器，用于解析编译错误和警告（使用MSCompile匹配器）
+      "problemMatcher": ["$msCompile"],
+      // 任务描述，说明用途
+      "detail": "Run Ninja to build(debug) the project after CMake configuration."
+    },
+      {
+      // 任务标签，用于运行Ninja构建项目
+      "label": "ninja build --release",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，使用Ninja构建项目
+      "command": "ninja",
+      // 命令参数
+      "args": [
+        // 指定构建目录（build/release）
+        "-C", "${workspaceFolder}/build/release"
+      ],
+      // 定义任务组，标记为构建任务
+      "group": "build",
+      // 依赖于"cmake release init"任务，确保先配置CMake
+      "dependsOn": ["cmake release init"],
+      // 问题匹配器，用于解析编译错误和警告（使用MSCompile匹配器）
+      "problemMatcher": ["$msCompile"],
+      // 任务描述，说明用途
+      "detail": "Run Ninja to build(release) the project after CMake configuration."
+    },
+
+    {
+      // 任务标签，用于运行主程序
+      "label": "ninja run",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，运行主程序
+      "command": "${workspaceFolder}/build/debug/bin/MyProject",
+      // 命令参数（根据需要添加程序运行参数）
+      "args": [],
+      // 定义任务组，标记为构建任务
+      "group": "build",
+      // 依赖于"ninja build"任务，确保先构建项目
+      "dependsOn": ["ninja build"],
+      // 问题匹配器，运行程序不产生编译错误，留空
+      "problemMatcher": [],
+      // 任务描述，说明用途
+      "detail": "Run the main program after building(debug) it."
+    },
+    {
+      // 任务标签，用于运行主程序
+      "label": "ninja run --release",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，运行主程序
+      "command": "${workspaceFolder}/build/release/bin/MyProject",
+      // 命令参数（根据需要添加程序运行参数）
+      "args": [],
+      // 定义任务组，标记为构建任务
+      "group": "build",
+      // 依赖于"ninja build --release"任务，确保先构建项目
+      "dependsOn": ["ninja build --release"],
+      // 问题匹配器，运行程序不产生编译错误，留空
+      "problemMatcher": [],
+      // 任务描述，说明用途
+      "detail": "Run the main program after building(release) it."
+    },
+    {
+      // 任务标签，用于清理构建目录
+      "label": "ninja clean",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，使用Ninja清理构建
+      "command": "ninja",
+      // 命令参数
+      "args": [
+        // 指定构建目录（build/debug）
+        "-C", "${workspaceFolder}/build/debug",
+        // 清理构建产物
+        "clean"
+      ],
+      // 定义任务组，标记为构建任务
+      "group": "build",
+      // 问题匹配器，清理任务不产生编译错误，留空
+      "problemMatcher": [],
+      // 任务描述，说明用途
+      "detail": "Clean the build/debug directory to remove all generated files."
+    },
+    {
+      // 任务标签，用于清理构建目录
+      "label": "ninja clean --release",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，使用Ninja清理构建
+      "command": "ninja",
+      // 命令参数
+      "args": [
+        // 指定构建目录（build/release）
+        "-C", "${workspaceFolder}/build/release",
+        // 清理构建产物
+        "clean"
+      ],
+      // 定义任务组，标记为构建任务
+      "group": "build",
+      // 问题匹配器，清理任务不产生编译错误，留空
+      "problemMatcher": [],
+      // 任务描述，说明用途
+      "detail": "Clean the build/release directory to remove all generated files."
+    },
+    {
+      // 任务标签，用于运行单元测试
+      "label": "ninja test",
+      // 任务类型，shell表示在终端中执行命令
+      "type": "shell",
+      // 执行的命令，使用ctest运行测试
+      "command": "ctest",
+      // 命令参数
+      "args": [
+        // 指定构建类型为Debug
+        "-C", "Debug",
+        // 指定测试目录（build/debug）
+        "--test-dir", "${workspaceFolder}/build/debug"
+      ],
+      // 定义任务组，标记为测试任务
+      "group": "test",
+      // 依赖于"ninja build"任务，确保先构建项目
+      "dependsOn": ["ninja build"],
+      // 问题匹配器，测试通常不产生编译错误，留空
+      "problemMatcher": [],
+      // 任务描述，说明用途
+      "detail": "Run all unit tests using ctest after building(debug) the project."
+    },
+    {
+      "label": "delete build folder",
+      "type": "shell",
+      // linux
+      // "command": "rm",
+      // "args": ["-r f", "build"],
+      // wsl (windows subsystem for linux)
+      // "command": "wsl",
+      // "args": ["rm", "-rf", "build"],
+      // windows powershell
+      "command": "powershell",
+      "args": ["Remove-Item", "-Recurse", "-Force", "build"],
+      "group": "none",
+      "dependsOn": [],
+      "problemMatcher": [],
+      "detail": "Delete whole build folder"
+    },
+    {
+      "label": "delete debug folder",
+      "type": "shell",
+      // "command": "rm",
+      // "args": ["-r f", "build/debug"],
+      // "command": "wsl",
+      // "args": ["rm", "-rf", "build/debug"],
+      "command": "powershell",
+      "args": ["Remove-Item", "-Recurse", "-Force", "build/debug"],
+      "group": "none",
+      "dependsOn": [],
+      "problemMatcher": [],
+      "detail": "Delete whole debug folder"
+    },
+    {
+      "label": "delete release folder",
+      "type": "shell",
+      // "command": "rm",
+      // "args": ["-r f", "build/release"],
+      // "command": "wsl",
+      // "args": ["rm", "-rf", "build/release"],
+      "command": "powershell",
+      "args": ["Remove-Item", "-Recurse", "-Force", "build/release"],
+      "group": "none",
+      "dependsOn": [],
+      "problemMatcher": [],
+      "detail": "Delete whole release folder"
+    }
+  ]
+}

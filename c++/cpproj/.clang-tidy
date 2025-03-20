@@ -1,0 +1,30 @@
+# 启用检查规则
+# - 禁用所有默认检查（-*）
+# - 启用 modernize-* 检查（如使用 C++11/14/17/20 特性）
+# - 启用 performance-* 检查（如性能优化建议）
+# - 启用 readability-* 检查（如代码可读性改进）
+Checks: '-*,modernize-*,performance-*,readability-*'
+
+# 指定检查的头文件范围（匹配所有头文件）
+HeaderFilterRegex: '.*'
+
+# 配置具体检查规则
+CheckOptions:
+  # modernize-use-auto: 启用 auto 类型推导
+  - key: modernize-use-auto.RemoveStars
+    value: 'true'
+  # modernize-use-nullptr: 使用 nullptr 替代 NULL 或 0
+  - key: modernize-use-nullptr.Cast
+    value: 'true'
+  # performance-unnecessary-value-param: 检查不必要的按值传递
+  - key: performance-unnecessary-value-param.AllowedTypes
+    value: ''
+  # readability-identifier-naming: 检查命名风格
+  - key: readability-identifier-naming.ClassCase
+    value: 'CamelCase'
+  - key: readability-identifier-naming.FunctionCase
+    value: 'camelBack'
+  - key: readability-identifier-naming.VariableCase
+    value: 'camelBack'
+  - key: readability-identifier-naming.PrivateMemberSuffix
+    value: '_'

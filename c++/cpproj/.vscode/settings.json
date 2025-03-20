@@ -1,0 +1,63 @@
+{
+  // 编辑器设置  
+  // -------------Editor Font Style-----------------
+  "editor.fontSize": 15,
+  "editor.fontFamily": "Consolas",
+  // "editor.fontFamily": "Monaspace Krypton",
+  // "editor.fontFamily": "Monaspace Krypton Var", 
+  // "editor.fontFamily": "Monaspace Krypton Frozen", 
+  // -------------Buffer Font Style-----------------
+  "buffer_font_family": "Consolas",
+  // "buffer_font_family": "Monaspace Krypton",
+  // "buffer_font_family": "Monaspace Krypton Var",
+  // "buffer_font_family": "Monaspace Krypton Frozen",
+  // -------------Terminal Font Style----------------
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontFamily": "Consolas",
+  // "terminal.integrated.fontFamily": "Monaspace Krypton",
+  // "terminal.integrated.fontFamily": "Monaspace Krypton Var",
+  // "terminal.integrated.fontFamily": "Monaspace Krypton Frozen",
+
+  // C/C++ 扩展设置
+  // 指定默认的 C++ 编译器路径（使用 Clang++）
+  // "C_Cpp.default.compilerPath": "/usr/bin/clang++",  
+  // 指定默认的 C++ 标准为 C++20，与 CMake 配置一致
+  "C_Cpp.default.cppStandard": "c++20",
+  // 指定 IntelliSense 模式为 Linux Clang x64，与 Clang 工具链兼容
+  "C_Cpp.default.intelliSenseMode": "linux-clang-x64",
+
+  // Clangd 扩展设置
+  // 配置 Clangd 的额外参数
+  "clangd.arguments": [
+    // 启用后台索引，提高代码补全和跳转性能
+    "--background-index",
+    // 指定编译命令文件路径（build/compile_commands.json），供 Clangd 使用
+    "--compile-commands-dir=${workspaceFolder}/build",
+    // 启用头文件插入检查（Include What You Use），确保头文件使用正确
+    "--header-insertion=iwyu",
+    // 启用 Clang-Tidy 静态分析，检查代码质量
+    "--clang-tidy",
+    // 指定 Clang-Tidy 检查规则（根据 .clang-tidy 文件配置）
+    "--clang-tidy-checks=-*,modernize-*,performance-*,readability-*"
+  ],
+
+  // 编辑器设置
+  // 在保存文件时自动格式化代码
+  "editor.formatOnSave": true,
+  // 指定默认的代码格式化工具为 Clang-Format（通过 Clangd 扩展）
+  "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+
+  // 文件关联设置
+  // 将 .hpp 文件关联为 C++ 文件，确保正确的高亮和补全
+  "files.associations": {
+    "*.hpp": "cpp"
+  },
+
+  // CMake 扩展设置
+  // 启用 CMake Tools 扩展的自动配置
+  // "cmake.configureOnOpen": true,
+  // 指定 CMake 构建目录，与 tasks.json 和 launch.json 一致
+  // "cmake.buildDirectory": "${workspaceFolder}/build",
+  // 指定默认的 CMake 构建任务（与 tasks.json 中的 "cmake debug init" 一致）
+  "cmake.defaultBuildTask": "cmake debug init"
+}

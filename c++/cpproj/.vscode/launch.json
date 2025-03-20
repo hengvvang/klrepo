@@ -1,0 +1,55 @@
+{
+  // 配置文件版本，固定为0.2.0
+  "version": "0.2.0",
+  // 定义所有调试配置列表
+  "configurations": [
+    {
+      // 调试配置名称，在VSCode调试面板中显示
+      "name": "Debug Main Program",
+      // 调试器类型，使用LLDB（Clang推荐的调试器）
+      "type": "lldb",
+      // 请求类型，launch表示启动调试
+      "request": "launch",
+      // 要调试的程序路径（主程序的可执行文件）
+      "program": "${workspaceFolder}/build/debug/bin/MyProject",
+      // 程序运行参数（根据需要添加）
+      "args": [],
+      // 工作目录，设置为项目根目录
+      "cwd": "${workspaceFolder}",
+      // 在启动调试前运行的任务，确保先构建项目
+      "preLaunchTask": "ninja build"
+    },
+    {
+      // 调试配置名称，用于调试特定模块（示例：core模块）
+      "name": "Debug Core Module",
+      // 调试器类型，使用LLDB
+      "type": "lldb",
+      // 请求类型，launch表示启动调试
+      "request": "launch",
+      // 要调试的程序路径（主程序，假设core模块在主程序中）
+      "program": "${workspaceFolder}/build/debug/bin/MyProject",
+      // 程序运行参数（根据需要添加）
+      "args": [],
+      // 工作目录，设置为项目根目录
+      "cwd": "${workspaceFolder}",
+      // 在启动调试前运行的任务，确保先构建项目
+      "preLaunchTask": "ninja build",
+    },
+    {
+      // 调试配置名称，用于调试单元测试
+      "name": "Debug Unit Tests",
+      // 调试器类型，使用LLDB
+      "type": "lldb",
+      // 请求类型，launch表示启动调试
+      "request": "launch",
+      // 要调试的程序路径（测试可执行文件）
+      "program": "${workspaceFolder}/build/debug/bin/tests",
+      // 程序运行参数（根据需要添加）
+      "args": [],
+      // 工作目录，设置为项目根目录
+      "cwd": "${workspaceFolder}",
+      // 在启动调试前运行的任务，确保先构建项目
+      "preLaunchTask": "ninja build"
+    },
+  ]
+}
