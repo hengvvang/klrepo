@@ -1,13 +1,6 @@
-以下是对 WSL（Windows Subsystem for Linux）的全面总结和优化输出。我将整合之前的内容，补充所有未覆盖的细节，并优化结构，使其更清晰、详实且易于阅读。这是一个完整的指南，涵盖了 WSL 的每个方面，包括命令、功能、配置和高级用法。
+# WSL  -->  Windows Subsystem for Linux
 
----
-
-# Windows Subsystem for Linux (WSL) 完整指南
-
-**当前日期**：2025 年 3 月 20 日
-**目标**：提供 WSL 的所有知识点，详细到每个命令、参数、用法和相关细节。
-
----
+# Windows Subsystem for Linux (WSL)
 
 ## 一、WSL 概述
 ### 1.1 定义与背景
