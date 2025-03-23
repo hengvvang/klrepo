@@ -673,3 +673,223 @@ message(STATUS "Flags: ${CMAKE_CXX_FLAGS}")
 
 ## 总结
 通过按功能分类，每个变量的含义和作用都得到了细致讲解。如果仍有疑问或需要更具体的使用案例，请告诉我，我会进一步补充！
+CMake 提供了大量的内置变量，用于控制构建过程的各个方面，包括输出目录、编译选项、路径搜索等。这些变量可以分为几大类，我将按类别详细介绍所有与 CMAKE_RUNTIME_OUTPUT_DIRECTORY 类似的主要变量，涵盖其作用、默认值、使用场景以及如何设置。以下是分类和详细说明：
+
+一、输出目录相关变量
+这些变量用于控制生成文件的输出路径，主要与可执行文件、库文件等相关。
+	1	CMAKE_RUNTIME_OUTPUT_DIRECTORY
+	◦	作用: 指定所有可执行文件（由 add_executable 创建）的输出目录。
+	◦	默认值: ${CMAKE_BINARY_DIR}（构建目录根目录）。
+	◦	示例: set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+	◦	说明: 影响 .exe（Windows）、无扩展名可执行文件（Linux/macOS）等的输出位置。
+	2	CMAKE_LIBRARY_OUTPUT_DIRECTORY
+	◦	作用: 指定所有动态库（由 add_library(... SHARED) 创建）的输出目录。
+	◦	默认值: ${CMAKE_BINARY_DIR}。
+	◦	示例: set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+	◦	说明: 适用于 .so（Linux）、.dll（Windows）、.dylib（macOS）等动态库。
+	3	CMAKE_ARCHIVE_OUTPUT_DIRECTORY
+	◦	作用: 指定所有静态库（由 add_library(... STATIC) 创建）和导入库的输出目录。
+	◦	默认值: ${CMAKE_BINARY_DIR}。
+	◦	示例: set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+	◦	说明: 适用于 .a（Linux/macOS）、.lib（Windows）等静态库。
+	4	CMAKE_RUNTIME_OUTPUT_DIRECTORY_
+	◦	作用: 为特定构建配置（如 DEBUG, RELEASE）指定可执行文件的输出目录。
+	◦	默认值: 未定义，继承 CMAKE_RUNTIME_OUTPUT_DIRECTORY。
+	◦	示例: set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/bin/debug")
+	◦	说明: 在多配置生成器（如 Visual Studio）中生效， 是大写配置名。
+	5	CMAKE_LIBRARY_OUTPUT_DIRECTORY_
+	◦	作用: 为特定构建配置指定动态库的输出目录。
+	◦	默认值: 未定义，继承 CMAKE_LIBRARY_OUTPUT_DIRECTORY。
+	◦	示例: set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/lib/release")
+	◦	说明: 同上，用于动态库的多配置支持。
+	6	CMAKE_ARCHIVE_OUTPUT_DIRECTORY_
+	◦	作用: 为特定构建配置指定静态库的输出目录。
+	◦	默认值: 未定义，继承 CMAKE_ARCHIVE_OUTPUT_DIRECTORY。
+	◦	示例: set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/lib/debug")
+	◦	说明: 同上，用于静态库的多配置支持。
+
+二、项目和路径相关变量
+这些变量定义了项目的基本路径和构建环境。
+	7	CMAKE_BINARY_DIR
+	◦	作用: 指定构建目录的根路径（运行 cmake 时指定的目录）。
+	◦	默认值: 当前工作目录（如 ./build）。
+	◦	示例: 只读，通常用于构造其他路径，如 ${CMAKE_BINARY_DIR}/bin。
+	◦	说明: 所有输出文件的默认根目录。
+	8	CMAKE_SOURCE_DIR
+	◦	作用: 指定源代码根目录（包含顶层 CMakeLists.txt 的目录）。
+	◦	默认值: 项目源目录。
+	◦	示例: 只读，用于引用源文件，如 ${CMAKE_SOURCE_DIR}/src/main.c。
+	◦	说明: 与 CMAKE_BINARY_DIR 区分，用于区分源代码和构建输出。
+	9	CMAKE_CURRENT_BINARY_DIR
+	◦	作用: 当前 CMakeLists.txt 文件对应的构建目录。
+	◦	默认值: ${CMAKE_BINARY_DIR} 的子目录（对于子目录中的 CMakeLists.txt）。
+	◦	示例: 只读，常用在多级目录项目中。
+	◦	说明: 用于定位当前构建上下文。
+	10	CMAKE_CURRENT_SOURCE_DIR
+	◦	作用: 当前 CMakeLists.txt 文件所在的源目录。
+	◦	默认值: 当前处理的源目录。
+	◦	示例: 只读，如 ${CMAKE_CURRENT_SOURCE_DIR}/include。
+	◦	说明: 用于定位当前源文件。
+	11	PROJECT_BINARY_DIR
+	◦	作用: 当前项目的构建目录（由 project() 定义）。
+	◦	默认值: 与 CMAKE_BINARY_DIR 相同（顶层项目）。
+	◦	示例: 只读，通常用于子项目。
+	◦	说明: 在多项目中区分不同项目的构建路径。
+	12	PROJECT_SOURCE_DIR
+	◦	作用: 当前项目的源目录。
+	◦	默认值: 与 CMAKE_SOURCE_DIR 相同（顶层项目）。
+	◦	示例: 只读，如 ${PROJECT_SOURCE_DIR}/src。
+	◦	说明: 用于定位项目源代码。
+
+三、编译器和标志相关变量
+这些变量控制编译器选项和行为。
+	13	CMAKE_C_FLAGS
+	◦	作用: 指定 C 编译器的标志。
+	◦	默认值: 空，或由环境变量 CFLAGS 提供。
+	◦	示例: set(CMAKE_C_FLAGS "-Wall -O2")
+	◦	说明: 全局影响所有 C 文件的编译。
+	14	CMAKE_CXX_FLAGS
+	◦	作用: 指定 C++ 编译器的标志。
+	◦	默认值: 空，或由环境变量 CXXFLAGS 提供。
+	◦	示例: set(CMAKE_CXX_FLAGS "-std=c++11 -g")
+	◦	说明: 全局影响所有 C++ 文件。
+	15	CMAKE_C_FLAGS_
+	◦	作用: 为特定配置指定 C 编译器标志。
+	◦	默认值: 未定义，继承 CMAKE_C_FLAGS。
+	◦	示例: set(CMAKE_C_FLAGS_DEBUG "-g -O0")
+	◦	说明: 如 DEBUG, RELEASE 等。
+	16	CMAKE_CXX_FLAGS_
+	◦	作用: 为特定配置指定 C++ 编译器标志。
+	◦	默认值: 未定义，继承 CMAKE_CXX_FLAGS。
+	◦	示例: set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+	◦	说明: 同上，针对 C++。
+	17	CMAKE_EXE_LINKER_FLAGS
+	◦	作用: 指定可执行文件的链接器标志。
+	◦	默认值: 空，或由环境变量 LDFLAGS 提供。
+	◦	示例: set(CMAKE_EXE_LINKER_FLAGS "-static")
+	◦	说明: 影响 add_executable 的链接。
+	18	CMAKE_SHARED_LINKER_FLAGS
+	◦	作用: 指定动态库的链接器标志。
+	◦	默认值: 空。
+	◦	示例: set(CMAKE_SHARED_LINKER_FLAGS "-shared")
+	◦	说明: 影响 add_library(... SHARED)。
+	19	CMAKE_STATIC_LINKER_FLAGS
+	◦	作用: 指定静态库的链接器标志。
+	◦	默认值: 空。
+	◦	示例: set(CMAKE_STATIC_LINKER_FLAGS "-static")
+	◦	说明: 影响 add_library(... STATIC)。
+	20	CMAKE__COMPILER
+	◦	作用: 指定某种语言的编译器（如 CMAKE_C_COMPILER, CMAKE_CXX_COMPILER）。
+	◦	默认值: 系统默认编译器（如 gcc, g++）。
+	◦	示例: set(CMAKE_C_COMPILER "clang")
+	◦	说明: 在 project() 之前设置。
+
+四、安装相关变量
+这些变量控制 make install 的安装路径。
+	21	CMAKE_INSTALL_PREFIX
+	◦	作用: 指定安装的根目录。
+	◦	默认值: /usr/local（Unix）或 c:/Program Files/${PROJECT_NAME}（Windows）。
+	◦	示例: set(CMAKE_INSTALL_PREFIX "/opt/myapp")
+	◦	说明: 影响所有安装目标。
+	22	CMAKE_INSTALL_BINDIR
+	◦	作用: 指定可执行文件的安装子目录（相对于 CMAKE_INSTALL_PREFIX）。
+	◦	默认值: bin。
+	◦	示例: set(CMAKE_INSTALL_BINDIR "executables")
+	◦	说明: 如 /usr/local/bin。
+	23	CMAKE_INSTALL_LIBDIR
+	◦	作用: 指定库文件的安装子目录。
+	◦	默认值: lib。
+	◦	示例: set(CMAKE_INSTALL_LIBDIR "libraries")
+	◦	说明: 如 /usr/local/lib。
+	24	CMAKE_INSTALL_INCLUDEDIR
+	◦	作用: 指定头文件的安装子目录。
+	◦	默认值: include。
+	◦	示例: set(CMAKE_INSTALL_INCLUDEDIR "headers")
+	◦	说明: 如 /usr/local/include。
+
+五、查找路径相关变量
+这些变量控制 CMake 查找文件（如库、头文件）的路径。
+	25	CMAKE_PREFIX_PATH
+	◦	作用: 指定查找外部依赖的前缀路径。
+	◦	默认值: 空。
+	◦	示例: set(CMAKE_PREFIX_PATH "/usr/local;/opt")
+	◦	说明: 用于 find_package, find_library 等。
+	26	CMAKE_INCLUDE_PATH
+	◦	作用: 指定查找头文件的额外路径。
+	◦	默认值: 空。
+	◦	示例: set(CMAKE_INCLUDE_PATH "/usr/include")
+	◦	说明: 影响 find_file。
+	27	CMAKE_LIBRARY_PATH
+	◦	作用: 指定查找库文件的额外路径。
+	◦	默认值: 空。
+	◦	示例: set(CMAKE_LIBRARY_PATH "/usr/lib")
+	◦	说明: 影响 find_library。
+
+六、构建类型和系统相关变量
+这些变量描述构建环境和类型。
+	28	CMAKE_BUILD_TYPE
+	◦	作用: 指定构建类型（如 Debug, Release）。
+	◦	默认值: 空（单配置生成器需手动设置）。
+	◦	示例: set(CMAKE_BUILD_TYPE "Release")
+	◦	说明: 在单配置生成器（如 Make）中生效。
+	29	CMAKE_SYSTEM_NAME
+	◦	作用: 指定目标系统名称。
+	◦	默认值: 当前系统（如 Linux, Windows）。
+	◦	示例: 只读，或通过工具链文件设置。
+	◦	说明: 用于交叉编译。
+	30	CMAKE_HOST_SYSTEM_NAME
+	◦	作用: 指定主机系统名称。
+	◦	默认值: 当前系统。
+	◦	示例: 只读。
+	◦	说明: 与目标系统区分。
+
+七、其他常用变量
+	31	CMAKE_MODULE_PATH
+	◦	作用: 指定查找 CMake 模块的路径。
+	◦	默认值: 空。
+	◦	示例: set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+	◦	说明: 用于自定义 find_package 模块。
+	32	CMAKE_GENERATOR
+	◦	作用: 指定生成器类型。
+	◦	默认值: 根据系统（如 Unix Makefiles, Visual Studio）。
+	◦	示例: 只读，运行 cmake -G "Ninja" 设置。
+	◦	说明: 决定构建系统类型。
+
+八、如何使用这些变量
+	•	设置变量: 使用 set() 命令，如 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin")。
+	•	读取变量: 使用 ${} 引用，如 ${CMAKE_BINARY_DIR}。
+	•	命令行设置: cmake -D<变量名>=<值> ..。
+	•	属性设置: 对特定目标使用 set_target_properties。
+
+完整示例
+cmake_minimum_required(VERSION 3.10)
+project(MyProject)
+
+# 输出目录
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+
+# 多配置
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/bin/debug")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/bin/release")
+
+# 编译器标志
+set(CMAKE_C_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-std=c++11")
+
+# 安装路径
+set(CMAKE_INSTALL_PREFIX "/opt/myapp")
+set(CMAKE_INSTALL_BINDIR "bin")
+
+# 查找路径
+set(CMAKE_PREFIX_PATH "/usr/local")
+
+# 构建类型
+set(CMAKE_BUILD_TYPE "Release")
+
+# 添加目标
+add_executable(my_app main.c)
+add_library(my_lib SHARED lib.c)
+
+以上涵盖了 CMake 中所有主要的内置变量，按类别详细分类。如果你需要更深入的某个变量或具体用法的解释，请告诉我！
