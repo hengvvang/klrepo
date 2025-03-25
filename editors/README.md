@@ -5,7 +5,7 @@ Repository
 |
 |--editors
 |   |--vscode
-|   |   |--lauch.json.md
+|   |   |--launch.json.md
 |   |   |--settings.json.md
 |   |   |--tasks.json.md
 |   |

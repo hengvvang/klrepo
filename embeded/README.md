@@ -8,5 +8,14 @@ Repository
 |   |   |--hardware.md
 |   |   |--reg51.h.md
 |   |
+|   |--STC89C52RC
+|   |   |-assets
+|   |   |   |--images
+|   |   |-docs
+|   |   |   |--hardware.md
+|   |   |   |--reg51.h.md
+|   |   |-src
+|   |   |-docs
+|   |
 |   |--README.md        `*`
 ```
