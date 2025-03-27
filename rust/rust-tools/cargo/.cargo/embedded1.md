@@ -18,7 +18,7 @@
 1. `[build]` - 构建配置
 	•	用途: 定义全局构建行为，如指定交叉编译器、禁用标准库、优化构建过程。
 	•	类型: Table (表)
-子项
+```
 ├── [build]
 │   ├── jobs                             # Integer (整数)
 │   │   ├── 用途: 指定并行编译作业数
@@ -68,7 +68,9 @@
 │       ├── 示例: ["core", "alloc"]
 │       ├── 嵌入式场景: 构建无 std 的核心库
 │       └── 备注: 需 -Z build-std 标志
+```
 示例
+```
 [build]
 jobs = 4
 rustc = "/usr/local/bin/rustc-nightly"
@@ -76,14 +78,15 @@ rustflags = ["-C", "link-arg=-nostartfiles"]
 target = "thumbv7m-none-eabi"
 incremental = false
 build-std = ["core"]
+```
 嵌入式适用性
 	•	关键点: 嵌入式开发常需禁用标准库（std），使用 core 或 alloc，并指定目标（如 Cortex-M 的 thumbv* 系列）。
 	•	工具链: 确保安装嵌入式目标支持（如 rustup target add thumbv7m-none-eabi）。
 
-2. `[target]` - 目标平台配置
+1. `[target]` - 目标平台配置
 	•	用途: 为特定嵌入式目标（如 thumbv7m-none-eabi）定义交叉编译工具链和运行选项。
 	•	类型: Table (表)
-子项
+```
 ├── [target]
 │   └──                   # Table (内嵌表) - 如 thumbv7m-none-eabi
 │       ├── linker                       # String (字符串)
@@ -124,7 +127,9 @@ build-std = ["core"]
 │                   ├── 示例: "arm-none-eabi-ld"
 │                   ├── 嵌入式场景: 为特定库指定链接器
 │                   └── 备注: 优先于上级 linker
+```
 示例
+```
 [target.thumbv7m-none-eabi]
 linker = "arm-none-eabi-gcc"
 runner = ["qemu-system-arm", "-cpu", "cortex-m3"]
@@ -133,6 +138,7 @@ ar = "arm-none-eabi-ar"
 
 [target.thumbv7m-none-eabi.dependencies.heapless]
 rustflags = ["-C", "opt-level=s"]
+```
 嵌入式适用性
 	•	关键点: 配置交叉编译工具链（如 arm-none-eabi-*）和目标特定的优化。
 	•	工具链安装: 需安装嵌入式工具链（如 sudo apt install gcc-arm-none-eabi）。
@@ -140,7 +146,7 @@ rustflags = ["-C", "opt-level=s"]
 3. `[profile]` - 构建配置文件
 	•	用途: 优化嵌入式二进制（如减小大小、调整 panic 行为）。
 	•	类型: Table (表)
-子项
+```
 ├── [profile]
 │   └──                    # Table (内嵌表) - 如 dev, release
 │       ├── opt-level                    # Integer (整数) 或 String (字符串)
@@ -179,7 +185,9 @@ rustflags = ["-C", "opt-level=s"]
 │           ├── 示例: false
 │           ├── 嵌入式场景: 关闭以简化构建
 │           └── 备注: 嵌入式项目较小
+```
 示例
+```
 [profile.release]
 opt-level = "s"
 debug = 1
@@ -187,14 +195,15 @@ codegen-units = 1
 lto = "thin"
 panic = "abort"
 incremental = false
+```
 嵌入式适用性
 	•	关键点: 嵌入式设备内存和闪存有限，优先减小二进制大小（如 opt-level = "s"、panic = "abort"）。
 	•	调试: 适度保留调试信息（如 debug = 1）以支持开发。
 
-4. `[env]` - 环境变量
+3. `[env]` - 环境变量
 	•	用途: 设置嵌入式开发相关的环境变量（如调试工具路径）。
 	•	类型: Table (表)
-子项
+```
 ├── [env]
 │   └──                    # Table (内嵌表)
 │       ├── value                        # String (字符串)
@@ -213,18 +222,21 @@ incremental = false
 │           ├── 默认值: false
 │           ├── 示例: true
 │           └── 备注: 用于项目内路径
+```
 示例
+```
 [env]
 OPENOCD = { value = "/usr/bin/openocd", force = true }
 RUST_GDB = { value = "arm-none-eabi-gdb", force = true }
+```
 嵌入式适用性
 	•	关键点: 配置调试工具（如 OpenOCD、GDB）或嵌入式特定的变量。
 	•	工具支持: 常与 probe-rs 或 cargo-embed 等工具配合。
 
-5. `[term]` - 终端输出配置
+3. `[term]` - 终端输出配置
 	•	用途: 控制构建时的终端输出，便于调试。
 	•	类型: Table (表)
-子项
+```
 ├── [term]
 │   ├── quiet                            # Boolean (布尔值)
 │   │   ├── 用途: 是否禁用非错误输出
@@ -244,15 +256,19 @@ RUST_GDB = { value = "arm-none-eabi-gdb", force = true }
 │       ├── 示例: "always"
 │       ├── 嵌入式场景: 提高输出可读性
 │       └── 备注: 可选值 "always", "never"
+```
 示例
+```
 [term]
 verbose = true
 color = "always"
+```
 嵌入式适用性
 	•	关键点: 调试时启用 verbose 查看完整构建日志，生产时用 quiet 简化输出。
 
 综合示例
 以下是一个嵌入式开发中典型的 .cargo/config.toml，针对 Cortex-M3（如 STM32）：
+```
 [build]
 jobs = 4                            # 限制并行作业
 rustc = "/usr/local/bin/rustc-nightly"  # 使用 nightly
@@ -280,7 +296,7 @@ RUST_GDB = { value = "arm-none-eabi-gdb", force = true }  # GDB 调试器
 [term]
 verbose = true                      # 详细输出便于调试
 color = "always"                    # 启用颜色
-
+```
 嵌入式开发配置要点
 	1	目标选择:
 	◦	常见嵌入式目标：thumbv6m-none-eabi（Cortex-M0）、thumbv7m-none-eabi（Cortex-M3）、thumbv7em-none-eabihf（Cortex-M4F）。
