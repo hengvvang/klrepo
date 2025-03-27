@@ -7,6 +7,7 @@
 	•	适用场景：优化构建速度、指定工具链、启用增量编译等。
 树结构
 以下是 [build] 的完整树结构，包含所有可能的配置项及其元数据：
+```
 .cargo/config.toml
 ├── [build]                                      # Table (表) - 顶级表，定义构建配置
 │   ├── jobs                                     # Integer (整数)
@@ -87,7 +88,7 @@
 │       ├── 示例: ["core", "alloc"]
 │       ├── 适用场景: 自定义标准库（如嵌入式开发）
 │       └── 备注: 需要 -Z build-std 标志支持
-
+```
 详细配置项说明
 1. `jobs`
 	•	类型: Integer (整数)
@@ -273,6 +274,7 @@
 
 综合示例
 以下是一个完整的 [build] 配置示例，展示多种场景：
+```
 [build]
 jobs = 8                          # 并行编译 8 个作业
 rustc = "/usr/local/bin/rustc-nightly"  # 使用 nightly 编译器
@@ -285,7 +287,7 @@ target-dir = "/tmp/cargo-target"        # 输出到临时目录
 incremental = false                     # 关闭增量编译
 future-incompat-report = true           # 启用不兼容性报告
 build-std = ["core", "alloc"]           # 构建 core 和 alloc
-
+```
 使用场景分析
 	1	加速构建:
 	◦	配置：jobs、rustc-wrapper。
