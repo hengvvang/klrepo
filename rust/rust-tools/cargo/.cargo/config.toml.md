@@ -1,5 +1,3 @@
-好的！以下是对 .cargo/config.toml 的更深入介绍，我会进一步扩展每个配置项的细节，包括更复杂的用法、潜在的边缘情况、与嵌入式开发（特别是 STM32F103C8T6 和 probe-rs）的结合，以及一些高级技巧和优化建议。内容会非常详尽，确保你能全面掌握其功能。
-
 文件作用与优先级
 	•	作用：.cargo/config.toml 是 Cargo 的配置文件，用于自定义构建、运行、依赖管理等行为。它特别适合嵌入式开发，因为可以精确控制目标、工具链和运行流程。
 	•	优先级（从高到低）：
@@ -30,7 +28,7 @@ check-fmt = "check && fmt"
 	•	为 STM32 项目添加： [alias]
 	•	flash = "run --release"
 	•	reset = "run --release -- --reset"  # probe-rs 支持复位后运行
-	•	
+	•
 
 2. `[build]`
 深入说明：
