@@ -8,6 +8,7 @@
 	•	优先级：项目级配置（.cargo/config.toml）优先于全局配置（~/.cargo/config.toml），但命令行参数和环境变量可能覆盖配置文件。
 完整树结构
 以下是 .cargo/config.toml 的完整树形结构，涵盖所有已知配置项（截至 Rust 1.77，2023 年末），并补充可能的实验性或未广泛使用的选项。
+```
 .cargo/config.toml
 ├── [alias]                                      # Table - 定义 Cargo 命令别名
 │   └──                              # String 或 Array of Strings
@@ -389,7 +390,7 @@
 │       ├── 示例: "always"
 │       ├── 可选值: "auto", "always", "never"
 │       └── 备注: 等效于 --color
-
+```
 详细说明
 1. `[alias]`
 	•	用途：为 Cargo 命令定义快捷别名。
@@ -468,6 +469,7 @@
 
 综合示例
 以下是一个完整的 .cargo/config.toml 示例，涵盖多种配置场景：
+```
 [alias]
 b = "build"
 t = ["test", "--release"]
@@ -525,7 +527,7 @@ rustflags = ["-C", "target-cpu=cortex-a53"]
 [term]
 verbose = true
 color = "always"
-
+```
 补充内容
 	•	未记录的实验性选项：某些选项（如 [build].build-std）需要不稳定标志（如 -Z build-std），未来可能成为稳定选项。
 	•	优先级说明：
