@@ -7,6 +7,7 @@
 	•	动态性： 是用户定义的键，具体值取决于目标平台。
 树结构
 以下是 [target] 的完整树结构，包含所有可能的配置项及其元数据：
+```
 .cargo/config.toml
 ├── [target]                                     # Table (表) - 顶级表，定义目标平台配置
 │   └──                           # Table (内嵌表) - 动态命名的目标三元组，如 x86_64-unknown-linux-gnu
@@ -54,7 +55,7 @@
 │                   ├── 示例: "ld.gold"
 │                   ├── 适用场景: 为特定依赖使用不同的链接器
 │                   └── 备注: 优先级高于上级的 linker
-
+```
 详细配置项说明
 1. `linker`
 	•	类型: String (字符串)
@@ -157,6 +158,7 @@
 
 综合示例
 以下是一个完整的 [target] 配置示例，展示多种场景：
+```
 [target.aarch64-unknown-linux-gnu]
 linker = "aarch64-linux-gnu-gcc"                     # 使用交叉编译链接器
 runner = ["qemu-aarch64", "-cpu", "cortex-a53"]      # 使用 QEMU 运行 ARM 二进制
@@ -170,12 +172,13 @@ linker = "aarch64-linux-gnu-ld"                      # 为 serde 使用不同链
 
 [target.x86_64-unknown-linux-gnu]
 rustflags = ["-C", "target-cpu=native"]              # 本地目标优化
-
+```
 使用场景分析
 	1	交叉编译:
 	◦	配置：linker、ar、runner。
 	◦	示例：为 ARM 目标在 x86_64 主机上编译和测试。
-	◦	配置示例： [target.aarch64-unknown-linux-gnu]
+	◦	配置示例：
+[target.aarch64-unknown-linux-gnu]
 	◦	linker = "aarch64-linux-gnu-gcc"
 	◦	runner = "qemu-aarch64"
 	◦	
