@@ -6,6 +6,7 @@
 1. 基础：简单 trait 实现
 先回顾一个简单的 trait 实现，不带复杂约束。
 示例：无约束的 trait 实现
+```rust
 trait Printable {
     fn print(&self);
 }
@@ -24,6 +25,7 @@ fn main() {
     let item = Item { value: 42 };
     item.print(); // Value: 42
 }
+```
 	•	特点：
 	◦	Printable 无泛型或约束。
 	◦	Item 是具体类型，无需额外条件。
@@ -31,6 +33,7 @@ fn main() {
 2. 引入泛型 trait：单参数约束
 当 trait 带有泛型参数时，可以为实现类型添加约束。
 2.1 泛型 trait 定义
+```rust
 trait Processor {
     fn process(&self, input: T) -> T;
 }
@@ -49,11 +52,13 @@ fn main() {
     let w = Worker { factor: 2 };
     println!("Processed: {}", w.process(5)); // Processed: 10
 }
+```
 	•	关键点：
 	◦	Processor 是一个泛型 trait，T 是输入和输出的类型。
 	◦	impl Processor for Worker 为 Worker 实现 Processor，特化为 i32。
 2.2 为所有类型实现
 使用泛型实现 trait。
+```rust
 impl Processor for Worker
 where
     T: std::ops::Mul + std::marker::Copy,
@@ -67,9 +72,11 @@ fn main() {
     let w = Worker { factor: 2 };
     println!("Processed: {}", w.process(5)); // 报错：i32 未实现 Mul
 }
+```
 	•	问题：self.factor 是 i32，而 T 是泛型类型，无法直接相乘。
 	•	改进：需要约束 T 与 i32 的兼容性。
 修正版本
+```rust
 struct Worker {
     factor: T,
 }
@@ -87,6 +94,7 @@ fn main() {
     let w = Worker { factor: 2 };
     println!("Processed: {}", w.process(5)); // Processed: 10
 }
+```
 	•	约束：
 	◦	Mul：T 支持乘法。
 	◦	Copy：确保 T 可复制。
@@ -96,6 +104,7 @@ fn main() {
 当 trait 和实现类型都带有多个约束时，复杂度增加。我们将逐步添加约束。
 3.1 trait 带多个泛型参数和约束
 定义一个复杂的 trait。
+```rust
 trait Transformer
 where
     I: std::fmt::Debug,
@@ -103,11 +112,13 @@ where
 {
     fn transform(&self, input: I) -> O;
 }
+```
 	•	约束：
 	◦	I: Debug：输入类型必须可调试打印。
 	◦	O: Display：输出类型必须可显示打印。
 3.2 为具体类型实现
 为一个具体类型实现这个 trait。
+```rust
 struct Converter {
     scale: f64,
 }
@@ -122,12 +133,14 @@ fn main() {
     let c = Converter { scale: 2.5 };
     println!("Transformed: {}", c.transform(3)); // Transformed: 7.5
 }
+```
 	•	特点：
 	◦	i32 满足 Debug。
 	◦	f64 满足 Display。
 	◦	无需额外约束，因为具体类型已满足 trait 的要求。
 3.3 为泛型类型实现
 为泛型类型添加实现。
+```rust
 struct GenericConverter {
     scale: T,
 }
@@ -147,6 +160,7 @@ fn main() {
     let c = GenericConverter { scale: 2.0 };
     println!("Transformed: {}", c.transform(3.0)); // Transformed: 6
 }
+```
 	•	约束解析：
 	◦	trait 约束：
 	▪	I: Debug：来自 trait 定义。
@@ -159,6 +173,7 @@ fn main() {
 4. 生命周期与多约束结合
 当 trait 和类型涉及引用时，需引入生命周期。
 4.1 带生命周期的 trait
+```rust
 trait RefTransformer<'a, I, O>
 where
     I: std::fmt::Debug + 'a,
@@ -192,6 +207,7 @@ fn main() {
     let input = 3.0;
     println!("Transformed: {}", c.transform(&input)); // Transformed: 6
 }
+```
 	•	约束解析：
 	◦	trait 约束：
 	▪	I: Debug + 'a。
@@ -204,6 +220,7 @@ fn main() {
 5. 复杂场景：多重嵌套约束
 当 trait 和类型约束嵌套时，需仔细管理。
 示例：嵌套约束
+```rust
 trait ComplexTransformer
 where
     I: std::fmt::Debug + std::ops::Add,
@@ -235,6 +252,7 @@ fn main() {
     let result = w.transform(3);
     println!("Transformed: {}", result); // Transformed: 7
 }
+```
 	•	约束解析：
 	◦	trait 约束：
 	▪	I: Debug + Add：输入可调试和加法。
