@@ -2,7 +2,11 @@
 # resolver = "1"
 # resolver = "2"
 resolver = "3"
+
+# ------------------------------------
+
 members = [
+    # src
     "crates/data-structures-and-algorithms",
     "crates/macros",
     "crates/turbofish",
@@ -10,5 +14,50 @@ members = [
     "crates/traits",
     "crates/iterators",
     "crates/closures",
-    "crates/attributes", "crates/generics",
+    "crates/attributes",
+    "crates/generics",
+
+
+    # integration tests
+    # "tests",
+
+    # benches
+    # "benches",
+
+    # examples
+    # "examples",
+
 ]
+exclude = []
+
+# default-members = []
+
+# ------------------------------------
+
+[workspace.package]
+authors = ["hengvvang <hengvvang@gmail.com>"]
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/hengvvang/Repository.git"
+edition = "2024"
+
+
+[workspace.metadata]
+
+
+[workspace.dependencies]
+#
+#  Internal crates /  Workspace member crates
+#
+
+
+#
+#  External crates
+#
+
+
+# ------------------------------------
+[profile]
+[profile.dev]
+[profile.release]
+[profile.test]
+[profile.bench]

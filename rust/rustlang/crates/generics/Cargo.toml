@@ -1,6 +1,36 @@
 [package]
+# metadata
 name = "generics"
 version = "0.1.0"
 edition = "2024"
 
+# [lib]
+# name = "my_lib"
+# path = "src/lib.rs"
+# crate-type = ["lib", "cdylib", "staticlib"]   # lib --> .rlib  |  cdylib --> .so / .dll  |  staticlib --> .a
+# test = false
+# bench = false
+
+
+# [[bin]]
+# name = "main"
+# path = "src/main.rs"
+# test = false
+# bench = false
+#
+# [[bin]]
+# name = "my_app"
+# path = "src/bin/app.rs"
+# test = false
+# bench = false
+
+[[bin]]
+name = "impl"
+path = "src/impl.rs"
+test = false
+bench = false
+
+
 [dependencies]
+[dev-dependencies]
+[build-dependencies]
