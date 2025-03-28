@@ -1,9 +1,26 @@
-以下是对 `RUSTFLAGS` 所有标志的最终总结，旨在提供内容的概览（overview），帮助快速理解和回顾。总结分为五大模块，涵盖作用、缩写来源（含中英翻译）和常用选项，结构清晰，重点突出。翻译已移至缩写来源列，常用选项替代原翻译列，适合快速查阅和掌握整体内容。
+# RUSTFLAGS
+## **Overview Key Points**
 
----
-
-## **最终总结：RUSTFLAGS 标志内容概览**
-
+1. **分类与作用**：
+    - **通用编译器**：警告（`-D`、`-W`、`-A`、）、条件（`--cfg`）、版本（`--edition`）、输出（`--emit`）。
+    - **代码生成（****`-C`****）**：性能（`opt-level`）、调试（`debug-info`）、架构（`target-cpu`）。
+    - **链接相关**：库路径（`-L`）、链接库（`-l`）、外部 crate（`--extern`）。
+    - **调试诊断**：错误解释（`--explain`）、详细输出（`--verbose`）、格式（`--error-format`）。
+    - **不稳定（****`-Z`****）**：实验功能（`unstable-options`）、调试（`dump-mir`、 `time-passes`）。
+2. **缩写与翻译**：
+    - 缩写（如 `-D` = Deny、`-C` = Codegen）反映技术含义，翻译准确。
+    - 全称（如 `--verbose`、 `--explain`）直接表达功能，易于理解。
+    - 组合词（如 `--crate-type`、 `unstable-options`）清晰描述作用。
+3. **常用选项与场景**：
+    - **质量控制**：`-D warnings`、 `-W missing_docs`。
+    - **性能优化**：`-C opt-level=3`、 `-C target-cpu=native`。
+    - **调试分析**：`--verbose`、 `-Z time-passes`。
+    - **实验性功能**：`-Z unstable-options`、 `-F try_blocks`。
+    - **链接与 FFI**：`-L /path`、 `-l mylib`。
+4. **注意事项**：
+    - `-Z` 标志仅限 nightly 版本，需关注 Rust 版本更新。
+    - 命令行标志优先级高于 `RUSTFLAGS` 和 `.cargo/config.toml`。
+    - 部分标志（如 `-C incremental`、 `-Z sanitize`）可能影响性能，需权衡使用。
 ### **概览（Overview）**
 
 `RUSTFLAGS` 是 Rust 编译器的环境变量，用于控制编译行为，分为五大类：
@@ -30,7 +47,7 @@
 **关键点**：适用于所有项目，核心是代码管理和适配。
 
 |标志|作用|缩写来源（中英翻译）|常用选项|
-|-|-|-|-|
+|:-:|:-:|:-:|:-:|
 |`-D <warning>`|将警告升级为错误，强制修复|Deny（拒绝/禁止）|`-D unused`, `-D warnings`|
 |`-A <warning>`|禁用警告，防止显示|Allow（允许/准许）|`-A dead_code`, `-A nonstandard_style`|
 |`-W <warning>`|启用警告，即使默认未启用|Warn（警告/告诫）|`-W missing_docs`, `-W trivial_numeric_casts`|
@@ -110,28 +127,6 @@
 
 ---
 
-## **快速回顾要点（Overview Key Points）**
-
-1. **分类与作用**：
-    - **通用编译器**：警告（`-D`、`-A`、`-W`）、条件（`--cfg`）、版本（`--edition`）、输出（`--emit`）。
-    - **代码生成（****`-C`****）**：性能（`opt-level`）、调试（`debug-info`）、架构（`target-cpu`）。
-    - **链接相关**：库路径（`-L`）、链接库（`-l`）、外部 crate（`--extern`）。
-    - **调试诊断**：错误解释（`--explain`）、详细输出（`--verbose`）、格式（`--error-format`）。
-    - **不稳定（****`-Z`****）**：实验功能（`unstable-options`）、调试（`dump-mir`、 `time-passes`）。
-2. **缩写与翻译**：
-    - 缩写（如 `-D` = Deny、`-C` = Codegen）反映技术含义，翻译准确。
-    - 全称（如 `--verbose`、 `--explain`）直接表达功能，易于理解。
-    - 组合词（如 `--crate-type`、 `unstable-options`）清晰描述作用。
-3. **常用选项与场景**：
-    - **质量控制**：`-D warnings`、 `-W missing_docs`。
-    - **性能优化**：`-C opt-level=3`、 `-C target-cpu=native`。
-    - **调试分析**：`--verbose`、 `-Z time-passes`。
-    - **实验性功能**：`-Z unstable-options`、 `-F try_blocks`。
-    - **链接与 FFI**：`-L /path`、 `-l mylib`。
-4. **注意事项**：
-    - `-Z` 标志仅限 nightly 版本，需关注 Rust 版本更新。
-    - 命令行标志优先级高于 `RUSTFLAGS` 和 `.cargo/config.toml`。
-    - 部分标志（如 `-C incremental`、 `-Z sanitize`）可能影响性能，需权衡使用。
 
 ---
 
@@ -141,7 +136,3 @@
 - **缩写联想**：如 `-D`（Deny，拒绝警告）、`-C`（Codegen，代码生成）、`-Z`（不稳定，实验性）。
 - **场景对应**：记住典型场景（如优化用 `-C opt-level`、调试用 `--verbose`）。
 - **常用选项快速参考**：常用选项直接关联实际应用，快速定位使用场景。
-
----
-
-此总结提供内容的全面概览，结构清晰，适合快速回顾和掌握。如需深入某个标志或场景，可进一步扩展！
