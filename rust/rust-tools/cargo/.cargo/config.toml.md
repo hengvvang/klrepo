@@ -8,7 +8,7 @@
 	•	优先级: 项目级配置覆盖全局配置，命令行参数和环境变量优先级更高。
 
 顶级配置项总览
-'''
+```
 .cargo/config.toml 的顶级表包括以下主要部分：
 	1	[alias] - 定义 Cargo 命令别名
 	2	[build] - 配置构建过程
@@ -22,14 +22,14 @@
 	10	[source] - 配置依赖源
 	11	[target] - 配置特定目标平台
 	12	[term] - 配置终端输出
-'''
+```
 以下按字母顺序逐一展开。
 
 1. `[alias]` - 命令别名
 	•	用途: 为 Cargo 命令定义快捷别名，提高效率。
 	•	类型: Table (表)
 子项
-'''
+```
 ├──                          # String (字符串) 或 Array of Strings (字符串数组)
 │   ├── 用途: 定义别名及其对应的命令
 │   ├── 默认值: 无
@@ -37,7 +37,7 @@
 │   ├── 适用场景: 简化常用命令
 │   └── 备注: 数组形式支持带参数的命令
 示例
-'''
+```
 [alias]
 b = "build"              # cargo b 等效于 cargo build
 t = ["test", "--release"] # cargo t 等效于 cargo test --release
@@ -46,7 +46,7 @@ t = ["test", "--release"] # cargo t 等效于 cargo test --release
 	•	用途: 控制 Cargo 的构建过程，如并行性、编译器和标志。
 	•	类型: Table (表)
 子项
-'''
+```
 ├── jobs                                 # Integer (整数)
 │   ├── 用途: 指定并行编译的作业数
 │   ├── 默认值: CPU 核心数
@@ -125,21 +125,21 @@ t = ["test", "--release"] # cargo t 等效于 cargo test --release
     ├── 示例: ["core", "alloc"]
     ├── 适用场景: 嵌入式开发
     └── 备注: 需 -Z build-std 支持
-'''
+```
 示例
-'''
+```
 [build]
 jobs = 8
 rustc-wrapper = "/usr/bin/sccache"
 rustflags = ["-C", "opt-level=2"]
 target = "aarch64-unknown-linux-gnu"
 incremental = false
-'''
+```
 3. `[cargo-new]` - 新项目配置
 	•	用途: 配置 cargo new 命令的默认行为。
 	•	类型: Table (表)
 子项
-'''
+```
 ├── name                                 # String (字符串)
 │   ├── 用途: 设置默认作者名
 │   ├── 默认值: git config user.name
@@ -166,20 +166,20 @@ incremental = false
     ├── 示例: "2021"
     ├── 适用场景: 设置新项目版本
     └── 备注: 可被 --edition 覆盖
-'''
+```
 示例
-'''
+```
 [cargo-new]
 name = "Alice"
 email = "alice@example.com"
 vcs = "none"
 edition = "2021"
-'''
+```
 4. `[env]` - 环境变量
 	•	用途: 定义构建过程中使用的环境变量。
 	•	类型: Table (表)
 子项
-'''
+```
 ├──                        # Table (内嵌表) - 动态命名的环境变量
 │   ├── value                            # String (字符串)
 │   │   ├── 用途: 环境变量的值
@@ -196,18 +196,18 @@ edition = "2021"
 │       ├── 默认值: false
 │       ├── 示例: true
 │       └── 备注: 用于路径变量
-'''
+```
 示例
-'''
+```
 [env]
 RUST_LOG = { value = "debug", force = true }
 PATH = { value = "./bin", relative = true }
-'''
+```
 5. `[http]` - HTTP 请求配置
 	•	用途: 控制 Cargo 的 HTTP 请求行为。
 	•	类型: Table (表)
 子项
-'''
+```
 ├── proxy                                # String (字符串)
 │   ├── 用途: 指定 HTTP 代理地址
 │   ├── 默认值: 无
@@ -244,19 +244,19 @@ PATH = { value = "./bin", relative = true }
     ├── 示例: true
     ├── 适用场景: 调试网络问题
     └── 备注: 输出到 stderr
-'''
+```
 示例
-'''
+```
 [http]
 proxy = "http://proxy.example.com:8080"
 timeout = 60
 debug = true
-'''
+```
 6. `[net]` - 网络配置
 	•	用途: 控制 Cargo 的网络行为。
 	•	类型: Table (表)
 子项
-'''
+```
 ├── retry                                # Integer (整数)
 │   ├── 用途: 网络请求失败重试次数
 │   ├── 默认值: 3
@@ -275,19 +275,19 @@ debug = true
     ├── 示例: true
     ├── 适用场景: 无网络环境构建
     └── 备注: 仅使用本地缓存
-'''
+```
 示例
-'''
+```
 [net]
 retry = 5
 git-fetch-with-cli = true
 offline = false
-'''
+```
 7. `[patch]` - 依赖补丁
 	•	用途: 为特定依赖指定补丁源。
 	•	类型: Table (表)
 子项
-'''
+```
 ├──                       # Table (内嵌表) - 如 crates-io
 │   └──                      # Table (内嵌表) - 依赖名称
 │       ├── git                          # String (字符串)
@@ -315,17 +315,17 @@ offline = false
 │           ├── 默认值: 无
 │           ├── 示例: "./local/serde"
 │           └── 备注: 优先于 git
-'''
+```
 示例
-'''
+```
 [patch.crates-io]
 serde = { git = "https://github.com/serde-rs/serde", branch = "main" }
-'''
+```
 8. `[profile]` - 构建配置文件
 	•	用途: 自定义构建模式（如 dev、release）的编译选项。
 	•	类型: Table (表)
 子项
-'''
+```
 ├──                        # Table (内嵌表) - 如 dev, release, test, bench
 │   ├── opt-level                        # Integer (整数) 或 String (字符串)
 │   │   ├── 用途: 优化级别
@@ -361,19 +361,19 @@ serde = { git = "https://github.com/serde-rs/serde", branch = "main" }
 │       ├── 默认值: true (dev), false (release)
 │       ├── 示例: false
 │       └── 备注: 影响构建速度
-'''
+```
 示例
-'''
+```
 [profile.release]
 opt-level = 3
 lto = "thin"
 panic = "abort"
-'''
+```
 9. `[registries]` - 自定义注册表
 	•	用途: 定义额外的依赖注册表。
 	•	类型: Table (表)
 子项
-'''
+```
 ├──                       # Table (内嵌表) - 自定义注册表名称
 │   ├── index                            # String (字符串)
 │   │   ├── 用途: 注册表索引 URL
@@ -391,19 +391,19 @@ panic = "abort"
 │       ├── 可选值: "git", "sparse"
 │       ├── 示例: "sparse"
 │       └── 备注: "sparse" 更快
-'''
+```
 示例
-'''
+```
 [registries.my-registry]
 index = "https://my-registry.com/index"
 token = "abc123"
 protocol = "sparse"
-'''
+```
 10. `[source]` - 依赖源配置
 	•	用途: 自定义或替换依赖源。
 	•	类型: Table (表)
 子项
-'''
+```
 ├──                         # Table (内嵌表) - 自定义源名称
 │   ├── replace-with                     # String (字符串)
 │   │   ├── 用途: 将此源替换为另一源
@@ -447,21 +447,21 @@ protocol = "sparse"
 │       ├── 可选值: "git", "sparse"
 │       ├── 示例: "sparse"
 │       └── 备注: "sparse" 更高效
-'''
+```
 示例
-'''
+```
 [source.my-mirror]
 replace-with = "crates-io"
 directory = "/path/to/mirror"
 
 [source.crates-io]
 protocol = "sparse"
-'''
+```
 11. `[target]` - 目标平台配置
 	•	用途: 为特定目标平台（如三元组）设置构建选项。
 	•	类型: Table (表)
 子项
-'''
+```
 ├──                       # Table (内嵌表) - 如 x86_64-unknown-linux-gnu
 │   ├── linker                           # String (字符串)
 │   │   ├── 用途: 指定链接器
@@ -500,9 +500,9 @@ protocol = "sparse"
 │               ├── 默认值: 无
 │               ├── 示例: "ld.gold"
 │               └── 备注: 优先于上级 linker
-'''
+```
 示例
-'''
+```
 [target.aarch64-unknown-linux-gnu]
 linker = "aarch64-linux-gnu-gcc"
 runner = "qemu-aarch64"
@@ -510,12 +510,12 @@ rustflags = ["-C", "target-cpu=cortex-a53"]
 
 [target.aarch64-unknown-linux-gnu.dependencies.serde]
 rustflags = ["-C", "opt-level=3"]
-'''
+```
 12. `[term]` - 终端输出配置
 	•	用途: 控制 Cargo 的终端输出行为。
 	•	类型: Table (表)
 子项
-'''
+```
 ├── quiet                                # Boolean (布尔值)
 │   ├── 用途: 是否禁用非错误输出
 │   ├── 默认值: false
@@ -534,16 +534,16 @@ rustflags = ["-C", "opt-level=3"]
     ├── 可选值: "auto", "always", "never"
     ├── 示例: "always"
     └── 备注: 控制输出颜色
-'''
+```
 示例
-'''
+```
 [term]
 verbose = true
 color = "always"
-'''
+```
 综合示例
 以下是一个完整的 .cargo/config.toml 示例，涵盖多种配置：
-'''
+```
 [alias]
 b = "build"
 t = ["test", "--release"]
@@ -593,7 +593,7 @@ rustflags = ["-C", "target-cpu=cortex-a53"]
 
 [term]
 verbose = true
-'''
+```
 补充说明
 	•	环境变量优先级: 大多数配置可被环境变量（如 RUSTFLAGS、CARGO_TARGET_DIR）覆盖。
 	•	动态键: 、 等是用户定义的键，具体值取决于上下文。
