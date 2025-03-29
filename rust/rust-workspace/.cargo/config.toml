@@ -1,0 +1,6 @@
+[build]
+rustflags = ["-A", "dead_code"]
+
+
+[cargo-new]
+vsc = "none"

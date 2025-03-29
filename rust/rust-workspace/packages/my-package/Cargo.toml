@@ -1,0 +1,47 @@
+[package]
+name = "my-package"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "my_package_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "my_package_main"
+path = "src/main.rs"
+
+[[bin]]
+name = "app1"
+path = "src/bin/app2.rs"
+
+[[bin]]
+name = "app2"
+path = "src/bin/app2.rs"
+
+[[test]]
+name = "test1"
+path = "tests/test1.rs"
+
+[[test]]
+name = "test2"
+path = "tests/test2.rs"
+
+[[example]]
+name = "example1"
+path = "examples/example1.rs"
+
+[[example]]
+name = "example2"
+path = "examples/example2.rs"
+
+[[bench]]
+name = "bench1"
+path = "benches/bench1.rs"
+
+[[bench]]
+name = "bench2"
+path = "benches/bench2.rs"
+
+
+[dependencies]
