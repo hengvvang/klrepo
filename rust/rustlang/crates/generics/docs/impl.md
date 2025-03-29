@@ -1,12 +1,11 @@
 # Rust 中的 `impl` 机制详解
 
-`impl` 是 Rust 中为**类型**定义方法或实现 `trait` 的核心工具。它从基础的具体类型实现，逐步扩展到泛型、约束、生命周期、特化和 `trait` 实现，功能层次丰富。本文将分层讲解 `impl` 的用法，并通过示例展示其灵活性和强大之处。
+- `impl` 是 Rust 中为**类型**定义方法或实现 `trait` 的核心工具。
+- 它从基础的具体类型实现，逐步扩展到泛型、约束、生命周期、特化和 `trait` 实现，功能层次丰富。
 
----
+## 为具体类型实现方法
 
-## 1. 基础层：为具体类型实现方法
-
-这是 `impl` 的最简单形式，直接为具体类型定义方法，不涉及泛型或约束。
+> 这是 `impl` 的最简单形式，直接为具体类型定义方法，不涉及泛型或约束。
 
 ### 定义与基本用法
 为结构体添加方法，通常包括构造器和实例操作。
@@ -20,7 +19,7 @@ struct Circle {
 impl Circle {
     // 关联函数（构造器）
     fn new(radius: f64) -> Self {
-        Circle { radius }
+        Self { radius }
     }
 
     // 实例方法
@@ -45,7 +44,7 @@ fn main() {
 
 ---
 
-## 2. 泛型层：支持任意类型
+## 泛型层：支持任意类型
 
 通过引入泛型参数，`impl` 可以为包含类型参数的类型实现方法，增强代码复用性。
 
@@ -60,7 +59,7 @@ struct Container<T> {
 
 impl<T> Container<T> {
     fn new(value: T) -> Self {
-        Container { value }
+        Self { value }
     }
 
     fn get(&self) -> &T {
@@ -86,7 +85,7 @@ fn main() {
 
 ---
 
-## 3. 约束层：限制泛型行为
+## 约束层：限制泛型行为
 
 通过 `trait` 约束，限制 `T` 的行为，确保方法逻辑有效。
 
@@ -103,7 +102,7 @@ struct Container<T> {
 
 impl<T: Display> Container<T> {
     fn new(value: T) -> Self {
-        Container { value }
+        Self { value }
     }
 
     fn print(&self) {
