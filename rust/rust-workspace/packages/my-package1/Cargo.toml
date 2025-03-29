@@ -3,45 +3,45 @@ name = "my-package1"
 version = "0.1.0"
 edition = "2024"
 
-[lib]
-name = "my_package1_lib"
-path = "src/lib.rs"
+# [lib]
+# name = "my_package1_lib"
+# path = "src/lib.rs"
 
-[[bin]]
-name = "my_package1_main"
-path = "src/main.rs"
+# [[bin]]
+# name = "my_package1_main"
+# path = "src/main.rs"
 
-[[bin]]
-name = "tool1"
-path = "src/bin/tool1.rs"
+# [[bin]]
+# name = "tool1"
+# path = "src/bin/tool1.rs"
 
-[[bin]]
-name = "tool2"
-path = "src/bin/tool2.rs"
+# [[bin]]
+# name = "tool2"
+# path = "src/bin/tool2.rs"
 
-[[test]]
-name = "test_a"
-path = "tests/test_a.rs"
+# [[test]]
+# name = "test_a"
+# path = "tests/test_a.rs"
 
-[[test]]
-name = "test_b"
-path = "tests/test_b.rs"
+# [[test]]
+# name = "test_b"
+# path = "tests/test_b.rs"
 
-[[example]]
-name = "example_a"
-path = "examples/example_a.rs"
+# [[example]]
+# name = "example_a"
+# path = "examples/example_a.rs"
 
-[[example]]
-name = "example_b"
-path = "examples/example_b.rs"
+# [[example]]
+# name = "example_b"
+# path = "examples/example_b.rs"
 
-[[bench]]
-name = "bench_a"
-path = "benches/bench1_a.rs"
+# [[bench]]
+# name = "bench_a"
+# path = "benches/bench_a.rs"
 
-[[bench]]
-name = "bench_b"
-path = "benches/bench_b.rs"
+# [[bench]]
+# name = "bench_b"
+# path = "benches/bench_b.rs"
 
 
 [dependencies]

@@ -13,7 +13,7 @@ struct Crate<'a> {
     path: &'a str,
 }
 fn main() {
-    let ws_example1 = Crate {
+    let ws_example2 = Crate {
         crate_type: CrateType::Example,
         name: "ws_example2",
         path: "examples/ws_example2.rs",

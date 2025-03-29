@@ -10,13 +10,13 @@ members = [
     "packages/my-package1",
 
     # integration tests
-    "tests/*",
+    # "tests/*",
 
     # benches
-    "benches/*",
+    # "benches/*",
 
     # examples
-    "examples/*",
+    # "examples/*",
 
 ]
 exclude = []
@@ -53,32 +53,60 @@ edition = "2024"
 [profile.test]
 [profile.bench]
 
+#
+#  这里可以配置 `root package`
+#  Things to note :
+#  - 一旦配置了 `root package` cargo将识别此 package下的 src/ tests/ examples/ benches/, 而不会识别工作空间定义的 package
+#  - 如要使用 工作空间的 package 可以使用 cargo 指令时 指定 -p my-packge
 
-[package]
-name = "rust-workspace"
-version = "0.0.0"
-edition = "2024"
 
-[[bench]]
-name = "ws_bench1"
-path = "benches/ws_bench1.rs"
+# --------------使用 root package------识别 root 目录下的 test---------
+#
+# PS D:\Repository\rust\rust-workspace> cargo build --test
+# error: "--test" takes one argument.
+# Available test targets:
+# ws_test1
+#     ws_test2
+#
 
-[[bench]]
-name = "ws_bench2"
-path = "benches/ws_bench2.rs"
 
-[[example]]
-name = "ws_example1"
-path = "examples/ws_example1.rs"
+# ---------------仅使用 workspace --------识别 members定义的 package
+#
+#  PS D:\Repository\rust\rust-workspace> cargo build --test
+#  error: "--test" takes one argument.
+#  Available test targets:
+#      test1
+#      test2
+#      test_a
+#      test_b
+#
 
-[[example]]
-name = "ws_example2"
-path = "examples/ws_example2.rs"
 
-[[test]]
-name = "ws_test1"
-path = "tests/ws_test1.rs"
+# [package]
+# name = "rust-workspace"
+# version = "0.0.0"
+# edition = "2024"
 
-[[test]]
-name = "ws_test2"
-path = "tests/ws_test2.rs"
+# [[bench]]
+# name = "ws_bench1"
+# path = "benches/ws_bench1.rs"
+
+# [[bench]]
+# name = "ws_bench2"
+# path = "benches/ws_bench2.rs"
+
+# [[example]]
+# name = "ws_example1"
+# path = "examples/ws_example1.rs"
+
+# [[example]]
+# name = "ws_example2"
+# path = "examples/ws_example2.rs"
+
+# [[test]]
+# name = "ws_test1"
+# path = "tests/ws_test1.rs"
+
+# [[test]]
+# name = "ws_test2"
+# path = "tests/ws_test2.rs"
