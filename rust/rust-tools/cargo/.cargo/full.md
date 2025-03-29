@@ -1,13 +1,5 @@
-我将综合之前的所有内容，并补充遗漏的部分，完整介绍 .cargo/config.toml 文件的所有配置项。我会以清晰的层次结构组织内容，使用树形结构展示配置项及其子项，并为每个配置项提供详细的元数据（用途、默认值、示例、适用场景、备注）。此外，我会优化输出格式，确保内容易读且逻辑分明。
-
 `.cargo/config.toml` 完整配置项详解
-概述
-	•	文件位置：.cargo/config.toml 通常位于项目根目录下的 .cargo 文件夹中，或者用户主目录下的 .cargo 文件夹中（全局配置）。
-	•	用途：这是 Rust Cargo 工具的配置文件，用于自定义构建、依赖解析、网络行为、命令别名等。
-	•	格式：基于 TOML（Tom’s Obvious, Minimal Language），所有配置以表（Table）形式组织。
-	•	优先级：项目级配置（.cargo/config.toml）优先于全局配置（~/.cargo/config.toml），但命令行参数和环境变量可能覆盖配置文件。
 完整树结构
-以下是 .cargo/config.toml 的完整树形结构，涵盖所有已知配置项（截至 Rust 1.77，2023 年末），并补充可能的实验性或未广泛使用的选项。
 ```
 .cargo/config.toml
 ├── [alias]                                      # Table - 定义 Cargo 命令别名
@@ -397,7 +389,7 @@
 	•	示例： [alias]
 	•	b = "build"
 	•	t = ["test", "--release"]
-	•	
+	•
 	•	备注：支持单命令（字符串）或带参数的命令（数组）。
 2. `[build]`
 	•	用途：控制全局构建行为。
@@ -407,65 +399,65 @@
 	•	target = "aarch64-unknown-linux-gnu"
 	•	rustflags = ["-C", "opt-level=2"]
 	•	build-std = ["core"]
-	•	
+	•
 3. `[cargo-new]`
 	•	用途：配置 cargo new 的默认值。
 	•	示例： [cargo-new]
 	•	name = "Alice"
 	•	vcs = "none"
-	•	
+	•
 4. `[env]`
 	•	用途：定义构建时的环境变量。
 	•	示例： [env]
 	•	RUST_LOG = { value = "debug", force = true }
-	•	
+	•
 5. `[http]`
 	•	用途：配置 HTTP 请求行为。
 	•	示例： [http]
 	•	proxy = "http://proxy.example.com:8080"
 	•	debug = true
-	•	
+	•
 6. `[net]`
 	•	用途：控制网络相关行为。
 	•	示例： [net]
 	•	retry = 5
 	•	offline = true
-	•	
+	•
 7. `[patch]`
 	•	用途：为依赖指定补丁源。
 	•	示例： [patch.crates-io]
 	•	serde = { git = "https://github.com/serde-rs/serde", branch = "main" }
-	•	
+	•
 8. `[profile]`
 	•	用途：自定义构建模式。
 	•	示例： [profile.release]
 	•	opt-level = 3
 	•	lto = "thin"
-	•	
+	•
 9. `[registries]`
 	•	用途：定义自定义依赖注册表。
 	•	示例： [registries.my-registry]
 	•	index = "https://my-registry.com/index"
 	•	token = "xyz123"
-	•	
+	•
 10. `[source]`
 	•	用途：自定义或替换依赖源。
 	•	示例： [source.my-mirror]
 	•	replace-with = "crates-io"
 	•	directory = "/path/to/mirror"
-	•	
+	•
 11. `[target]`
 	•	用途：为特定目标平台设置构建选项。
 	•	示例： [target.aarch64-unknown-linux-gnu]
 	•	linker = "aarch64-linux-gnu-gcc"
 	•	rustflags = ["-C", "target-cpu=cortex-a53"]
-	•	
+	•
 12. `[term]`
 	•	用途：控制终端输出。
 	•	示例： [term]
 	•	verbose = true
 	•	color = "always"
-	•	
+	•
 
 综合示例
 以下是一个完整的 .cargo/config.toml 示例，涵盖多种配置场景：
@@ -528,12 +520,3 @@ rustflags = ["-C", "target-cpu=cortex-a53"]
 verbose = true
 color = "always"
 ```
-补充内容
-	•	未记录的实验性选项：某些选项（如 [build].build-std）需要不稳定标志（如 -Z build-std），未来可能成为稳定选项。
-	•	优先级说明：
-	1	命令行参数（如 --target）。
-	2	环境变量（如 RUSTFLAGS）。
-	3	项目级 .cargo/config.toml。
-	4	全局 ~/.cargo/config.toml。
-	•	扩展性：随着 Rust 和 Cargo 的发展，配置项可能增加，建议参考官方文档：Cargo 配置。
-如果需要更深入的某部分分析或具体用例，请告诉我！

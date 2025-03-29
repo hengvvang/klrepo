@@ -1,6 +1,70 @@
-[build]
-rustflags = ["-A", "dead_code"]
-
-
+#########################################
+# 配置 cargo new 行为
 [cargo-new]
+name = "hengvvang"
+email = "hengvvang@gmail.com"
+edition = "2024"
 vsc = "none"
+
+#########################################
+# 定义 cargo 命令别名
+[alias]
+br = ["build", "--release"]
+rr = ["run", "--release"]
+#
+# workspace
+#
+# cargo build --bins
+bbs = ["build", "--bins"]
+# cargo build --lib
+# cargo build --examples
+bes = ["build", "--examples"]
+# cargo build --tests
+bts = ["build", "--tests"]
+
+#########################################
+# 配置构建过程
+[build]
+
+#
+#  配置 cargo 调用的工具
+#
+# rustc = "path/to/rustc"
+# rust-wrapper = "path/to/rust-wrapper"
+# rust-workspace-wrapper = "path/to/rust-wrapper"
+# rustdoc = "path/to/rustdoc"
+
+#
+# cargo 调用工具时传递参数
+#
+rustflags = ["-A", "dead_code", "-A", "unused"]
+# rustdocflags = ["--cfg", "docsrs"]
+
+#########################################
+# 配置构建模式
+[profile]
+
+
+#########################################
+#配置特定目标平台
+[target]
+
+
+#########################################
+# 指定构建输出文件夹
+[target-dir]
+
+
+#########################################
+# 配置依赖源
+[source]
+
+
+#########################################
+# 配置依赖补丁
+[patch]
+
+
+#########################################
+# 配置自定义注册表
+[registries]

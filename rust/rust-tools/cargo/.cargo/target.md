@@ -1,4 +1,4 @@
-我将深入分析 [target] 配置项，详细展开其所有子配置项的层级结构、用途、默认值、示例和适用场景，并优化输出格式以确保内容清晰易读。[target] 是 .cargo/config.toml 中用于为特定目标平台（通常是目标三元组，如 x86_64-unknown-linux-gnu）自定义构建选项的部分，非常适合交叉编译或特定硬件优化场景。
+[target] 是 .cargo/config.toml 中用于为特定目标平台（通常是目标三元组，如 x86_64-unknown-linux-gnu）自定义构建选项的部分，非常适合交叉编译或特定硬件优化场景。
 
 `[target]` 配置项详解
 概述
@@ -63,7 +63,7 @@
 	•	默认值: 系统默认链接器（通常由 rustc 根据目标选择，如 gcc 或 clang）。
 	•	示例: [target.aarch64-unknown-linux-gnu]
 	•	linker = "aarch64-linux-gnu-gcc"
-	•	
+	•
 	•	适用场景:
 	◦	交叉编译时需要使用特定工具链的链接器。
 	◦	解决默认链接器不兼容的问题（如需要 lld 而非 ld）。
@@ -78,10 +78,10 @@
 	•	示例:
 	◦	简单形式： [target.aarch64-unknown-linux-gnu]
 	◦	runner = "qemu-aarch64"
-	◦	
+	◦
 	◦	带参数： [target.aarch64-unknown-linux-gnu]
 	◦	runner = ["qemu-aarch64", "-cpu", "cortex-a53"]
-	◦	
+	◦
 	•	适用场景:
 	◦	在 x86_64 主机上运行 ARM 目标的测试（cargo test --target aarch64-unknown-linux-gnu）。
 	◦	嵌入式开发中模拟硬件环境。
@@ -95,7 +95,7 @@
 	•	默认值: 无。
 	•	示例: [target.x86_64-unknown-linux-gnu]
 	•	rustflags = ["-C", "target-cpu=native", "-C", "link-arg=-nostartfiles"]
-	•	
+	•
 	•	适用场景:
 	◦	优化特定平台的性能（如启用 native CPU 指令）。
 	◦	解决目标特定的链接问题（如移除标准启动文件）。
@@ -110,7 +110,7 @@
 	•	默认值: 系统默认（如 /usr/bin/ar）。
 	•	示例: [target.aarch64-unknown-linux-gnu]
 	•	ar = "/usr/local/bin/aarch64-ar"
-	•	
+	•
 	•	适用场景:
 	◦	交叉编译时使用特定工具链的 ar。
 	◦	自定义构建静态库的行为。
@@ -124,7 +124,7 @@
 	•	默认值: 无。
 	•	示例: [target.x86_64-unknown-linux-gnu]
 	•	rustdocflags = ["--cfg", "docsrs"]
-	•	
+	•
 	•	适用场景:
 	◦	为特定目标生成定制文档（如启用特定配置）。
 	◦	在 CI 中为 crates.io 准备文档。
@@ -143,7 +143,7 @@
 	▪	默认值: 无。
 	▪	示例: [target.x86_64-unknown-linux-gnu.dependencies.serde]
 	▪	rustflags = ["-C", "opt-level=3"]
-	▪	
+	▪
 	▪	适用场景: 单独优化某个依赖的性能。
 	▪	备注: 仅影响指定依赖，不影响其他 crate。
 	◦	linker:
@@ -152,7 +152,7 @@
 	▪	默认值: 无（继承上级 linker）。
 	▪	示例: [target.x86_64-unknown-linux-gnu.dependencies.serde]
 	▪	linker = "ld.gold"
-	▪	
+	▪
 	▪	适用场景: 为特定依赖解决链接问题。
 	▪	备注: 优先级高于上级的 linker。
 
@@ -181,22 +181,21 @@ rustflags = ["-C", "target-cpu=native"]              # 本地目标优化
 [target.aarch64-unknown-linux-gnu]
 	◦	linker = "aarch64-linux-gnu-gcc"
 	◦	runner = "qemu-aarch64"
-	◦	
+	◦
 	2	性能优化:
 	◦	配置：rustflags。
 	◦	示例：为特定 CPU 启用优化。
 	◦	配置示例： [target.x86_64-unknown-linux-gnu]
 	◦	rustflags = ["-C", "target-cpu=native"]
-	◦	
+	◦
 	3	依赖特定调整:
 	◦	配置：dependencies..rustflags。
 	◦	示例：为某个依赖启用更高的优化级别。
 	◦	配置示例： [target.x86_64-unknown-linux-gnu.dependencies.serde]
 	◦	rustflags = ["-C", "opt-level=3"]
-	◦	
+	◦
 
 注意事项
 	•	优先级：[target.] 的配置优先于 [build]，而 dependencies. 优先于其上层。
 	•	环境变量覆盖：RUSTFLAGS、RUSTDOCFLAGS 等环境变量会覆盖配置文件。
 	•	目标三元组：可通过 rustc --print target-list 查看所有支持的三元组。
-如果需要更具体的用例或某项配置的深入解释，请告诉我！

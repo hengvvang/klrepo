@@ -1,11 +1,20 @@
-以下是对 .cargo/config.toml 文件的全面介绍，综合了之前的所有内容，并补充了额外的配置项和细节。我将以清晰的层级结构组织内容，确保易读性和逻辑性。每个配置项都包含用途、类型、默认值、示例和适用场景等元数据，同时优化排版以提升可读性。
-
-`.cargo/config.toml` 完整指南
-概述
-	•	文件位置: .cargo/config.toml 通常位于项目根目录下的 .cargo 文件夹中，也可以放在用户主目录（如 ~/.cargo/config.toml）作为全局配置。
-	•	用途: 用于配置 Cargo（Rust 的构建工具和包管理器）的行为，涵盖构建、网络、依赖源、命令别名等多个方面。
-	•	格式: TOML（Tom’s Obvious, Minimal Language），键值对以表（Table）形式组织。
-	•	优先级: 项目级配置覆盖全局配置，命令行参数和环境变量优先级更高。
+# `.cargo/config.toml`
+优先级（从高到低）：
+- 命令行参数（例如 cargo build --target thumbv7m-none-eabi）。
+- 项目目录下的 .cargo/config.toml。
+- 用户主目录下的 ~/.cargo/config.toml。
+	- Cargo 默认值。
+## 概述
+    - 文件位置:
+        - 项目根目录
+    	- 用户主目录（如 ~/.cargo/config.toml）作为全局配置。
+	- 用途:
+    	- 用于配置 Cargo（Rust 的构建工具和包管理器）的行为，涵盖构建、网络、依赖源、命令别名等多个方面。
+	- 格式:
+    	- TOML（Tom’s Obvious, Minimal Language），键值对以表（Table）形式组织。
+	- 优先级:
+    	- 项目级配置覆盖全局配置
+    	- 命令行参数和环境变量优先级更高。
 
 顶级配置项总览
 ```

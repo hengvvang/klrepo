@@ -1,10 +1,11 @@
-我将深入分析 [build] 配置项，详细展开其所有子配置项的层级结构、用途、默认值、示例和适用场景，并优化输出格式以确保内容清晰易读。[build] 是 .cargo/config.toml 中用于控制 Cargo 构建过程的核心配置部分，适用于全局构建设置，例如并行性、编译器选择和标志设置。
+# [build]
+> [build] 是 .cargo/config.toml 中用于控制 Cargo 构建过程的核心配置部分，适用于全局构建设置，例如并行性、编译器选择和标志设置。
 
 `[build]` 配置项详解
 概述
-	•	用途：[build] 表用于配置 Cargo 的构建行为，包括并行编译作业数、编译器路径、标志和其他构建选项。它是全局性的，影响所有目标平台，除非被 [target.] 中的配置覆盖。
-	•	层级：[build] 是一个顶级表，直接包含键值对形式的子项。
-	•	适用场景：优化构建速度、指定工具链、启用增量编译等。
+	- 用途：[build] 表用于配置 Cargo 的构建行为，包括并行编译作业数、编译器路径、标志和其他构建选项。它是全局性的，影响所有目标平台，除非被 [target.] 中的配置覆盖。
+	- 层级：[build] 是一个顶级表，直接包含键值对形式的子项。
+	- 适用场景：优化构建速度、指定工具链、启用增量编译等。
 树结构
 以下是 [build] 的完整树结构，包含所有可能的配置项及其元数据：
 ```
@@ -91,18 +92,18 @@
 ```
 详细配置项说明
 1. `jobs`
-	•	类型: Integer (整数)
-	•	用途: 指定并行编译的作业数。
-	•	默认值: 当前 CPU 核心数（由 Cargo 检测）。
-	•	示例: [build]
-	•	jobs = 8
-	•	
-	•	适用场景:
-	◦	设置较小的值以减少内存使用（如在低内存设备上）。
-	◦	设置较大的值以加速构建（如在高性能服务器上）。
-	•	备注:
-	◦	设置为 0 表示无限制（不推荐，可能导致系统资源耗尽）。
-	◦	可通过 --jobs 或 CARGO_BUILD_JOBS 覆盖。
+	- 类型: Integer (整数)
+	- 用途: 指定并行编译的作业数。
+	- 默认值: 当前 CPU 核心数（由 Cargo 检测）。
+	- 示例: [build]
+	- jobs = 8
+	-
+	- 适用场景:
+	- 设置较小的值以减少内存使用（如在低内存设备上）。
+	- 设置较大的值以加速构建（如在高性能服务器上）。
+	- 备注:
+	- 设置为 0 表示无限制（不推荐，可能导致系统资源耗尽）。
+	- 可通过 --jobs 或 CARGO_BUILD_JOBS 覆盖。
 
 2. `rustc`
 	•	类型: String (字符串)
@@ -110,7 +111,7 @@
 	•	默认值: “rustc”（系统默认的 Rust 编译器）。
 	•	示例: [build]
 	•	rust delicate = "/usr/local/bin/rustc-nightly"
-	•	
+	•
 	•	适用场景:
 	◦	使用 nightly 版本测试新功能。
 	◦	在多版本 Rust 环境中指定特定编译器。
@@ -124,7 +125,7 @@
 	•	默认值: 无。
 	•	示例: [build]
 	•	rustc-wrapper = "/usr/bin/sccache"
-	•	
+	•
 	•	适用场景:
 	◦	使用 sccache 或 ccache 缓存编译结果，加速重复构建。
 	◦	在 CI 环境中减少构建时间。
@@ -138,7 +139,7 @@
 	•	默认值: 无。
 	•	示例: [build]
 	•	rustc-workspace-wrapper = "/usr/bin/sccache"
-	•	
+	•
 	•	适用场景:
 	◦	为工作区内的 crate 启用缓存，但不影响外部依赖。
 	◦	在大型工作区项目中优化构建。
@@ -152,7 +153,7 @@
 	•	默认值: 无。
 	•	示例: [build]
 	•	rustflags = ["-C", "link-arg=-s", "-W", "unused"]
-	•	
+	•
 	•	适用场景:
 	◦	全局启用特定的优化选项（如 -C opt-level=3）。
 	◦	添加警告或调试标志（如 -W unused）。
@@ -167,7 +168,7 @@
 	•	默认值: “rustdoc”（系统默认）。
 	•	示例: [build]
 	•	rustdoc = "/usr/local/bin/rustdoc-nightly"
-	•	
+	•
 	•	适用场景:
 	◦	使用特定版本的 rustdoc 生成文档。
 	◦	测试 nightly rustdoc 的新功能。
@@ -181,7 +182,7 @@
 	•	默认值: 无。
 	•	示例: [build]
 	•	rustdocflags = ["--cfg", "docsrs"]
-	•	
+	•
 	•	适用场景:
 	◦	为文档生成启用特定配置（如 docsrs 用于 crates.io）。
 	◦	添加文档生成选项（如 --html-in-header）。
@@ -195,7 +196,7 @@
 	•	默认值: 当前主机平台（如 x86_64-unknown-linux-gnu）。
 	•	示例: [build]
 	•	target = "aarch64-unknown-linux-gnu"
-	•	
+	•
 	•	适用场景:
 	◦	设置默认交叉编译目标，省去每次 --target 参数。
 	◦	嵌入式开发中指定无标准库目标（如 thumbv7m-none-eabi）。
@@ -209,7 +210,7 @@
 	•	默认值: “target”（项目根目录下的 target 文件夹）。
 	•	示例: [build]
 	•	target-dir = "/tmp/cargo-target"
-	•	
+	•
 	•	适用场景:
 	◦	将构建输出重定向到临时目录或共享位置。
 	◦	在多项目环境中避免冲突。
@@ -223,7 +224,7 @@
 	•	默认值: true（dev 模式），false（release 模式）。
 	•	示例: [build]
 	•	incremental = false
-	•	
+	•
 	•	适用场景:
 	◦	关闭增量编译以减少内存使用（适合低内存设备）。
 	◦	强制开启以加速开发迭代。
@@ -237,7 +238,7 @@
 	•	默认值: 无（相对于 target-dir）。
 	•	示例: [build]
 	•	dep-info-basedir = "/src"
-	•	
+	•
 	•	适用场景:
 	◦	调整增量编译的依赖跟踪路径（复杂项目结构）。
 	◦	在容器化环境中确保路径一致性。
@@ -250,7 +251,7 @@
 	•	默认值: false。
 	•	示例: [build]
 	•	future-incompat-report = true
-	•	
+	•
 	•	适用场景:
 	◦	检查代码是否与未来 Rust 版本兼容。
 	◦	在升级 Rust 版本前评估影响。
@@ -264,7 +265,7 @@
 	•	默认值: 无（使用预编译标准库）。
 	•	示例: [build]
 	•	build-std = ["core", "alloc"]
-	•	
+	•
 	•	适用场景:
 	◦	嵌入式开发中自定义标准库（如无 std 的环境）。
 	◦	测试标准库的修改版本。
@@ -295,27 +296,27 @@ build-std = ["core", "alloc"]           # 构建 core 和 alloc
 	◦	配置示例： [build]
 	◦	jobs = 16
 	◦	rustc-wrapper = "/usr/bin/sccache"
-	◦	
+	◦
 	2	交叉编译:
 	◦	配置：target、rustflags。
 	◦	示例：为 ARM 目标设置默认构建。
 	◦	配置示例： [build]
 	◦	target = "aarch64-unknown-linux-gnu"
 	◦	rustflags = ["-C", "target-cpu=cortex-a53"]
-	◦	
+	◦
 	3	嵌入式开发:
 	◦	配置：build-std、incremental。
 	◦	示例：构建无标准库的目标。
 	◦	配置示例： [build]
 	◦	build-std = ["core"]
 	◦	incremental = false
-	◦	
+	◦
 	4	文档生成:
 	◦	配置：rustdoc、rustdocflags。
 	◦	示例：为 crates.io 准备文档。
 	◦	配置示例： [build]
 	◦	rustdocflags = ["--cfg", "docsrs"]
-	◦	
+	◦
 
 注意事项
 	•	优先级：[build] 的配置是全局性的，但会被 [target.] 中的同名配置覆盖。

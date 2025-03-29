@@ -1,7 +1,6 @@
 # Cargo.toml
 > Cargo.toml 是 Rust 项目中 Cargo 构建工具的核心配置文件，用于定义项目元数据、依赖、构建目标和其他行为。
 
-
 ### **1.1 什么是 Cargo.toml**
 
 - `Cargo.toml` 是 Rust 项目（package）的清单文件（manifest file），使用 TOML（Tom's Obvious, Minimal Language）格式编写。
