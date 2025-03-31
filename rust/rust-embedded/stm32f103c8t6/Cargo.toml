@@ -1,0 +1,53 @@
+[workspace]
+resolver = "3"
+
+members = ["packages/led-blink"]
+
+[workspace.package]
+authors = ["hengvvang <hengvvang@gmail.com>"]
+license = "Apache-2.0 OR MIT"
+edition = "2024"
+
+[workspace.dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "1.0.0"
+stm32f1xx-hal = { version = "0.10", features = ["stm32f103", "rt"] }
+
+
+# [package]
+# authors = ["{{authors}}"]
+# edition = "2018"
+# readme = "README.md"
+# name = "{{project-name}}"
+# version = "0.1.0"
+
+# [dependencies]
+# cortex-m = { version = "0.7.6", features = ["critical-section-single-core"] }
+# cortex-m-rt = "0.7"
+# cortex-m-semihosting = "0.5"
+# panic-halt = "1.0.0"
+
+# # 取消注释以启用 panic 处理示例。
+# # panic-itm = "0.4.1"
+
+# # 取消注释以启用内存分配示例。
+# # embedded-alloc = "0.6.0"
+
+# # 取消注释以启用设备示例。
+# # 更新 `memory.x`，在 `.cargo/config` 中将目标设置为 `thumbv7em-none-eabihf`，
+# # 然后使用 `cargo build --example device` 进行构建。
+# # [dependencies.stm32f3]
+# # features = ["stm32f303", "rt"]
+# # version = "0.7.1"
+
+# # 允许使用 `cargo fix` 来自动修复代码！
+# [[bin]]
+# name = "{{project-name}}"
+# test = false
+# bench = false
+
+# [profile.release]
+# codegen-units = 1 # 更好的优化
+# debug = true # 调试符号有助于调试，不会增加 Flash 占用
+# lto = true # 更好的优化

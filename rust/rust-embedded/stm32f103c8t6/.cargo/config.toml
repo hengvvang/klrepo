@@ -1,0 +1,59 @@
+[build]
+# 选择一个默认的编译目标; 运行cargo build时生成对应架构的二进制文件
+# 此配置可在多个地方被覆盖
+# 优先级    命令行参数 > 环境变量 > build.rs > Cargo.toml > `cargo/config.toml` > `~/.cargo/config.toml` > Cargo默认配置
+
+# target = "thumbv6m-none-eabi"        # Cortex-M0 和 Cortex-M0+
+target = "thumbv7m-none-eabi" # Cortex-M3
+# target = "thumbv7em-none-eabi"       # Cortex-M4 和 Cortex-M7（无 FPU）
+# target = "thumbv7em-none-eabihf"     # Cortex-M4F 和 Cortex-M7F（带 FPU）
+# target = "thumbv8m.base-none-eabi"   # Cortex-M23
+# target = "thumbv8m.main-none-eabi"   # Cortex-M33（无 FPU）
+# target = "thumbv8m.main-none-eabihf" # Cortex-M33（带 FPU）
+
+
+# --------------------------
+#[target.<triple>]
+# 当时编译对应目标时，对应项生效
+# e.g
+# 当运行 cargo build --target x86_64-pc-windows-msvc 时，下面项的配置生效:
+# [target.x86_64-pc-windows-msvc]
+# runner = ""
+# linker = ""
+# rustflags = ["",""]
+#---------------------------
+# 当运行 cargo build --target aarch64-apple-ios时，下面项的配置生效:
+# [target.aarch64-apple-iosc]
+# runner = ""
+# linker = ""
+# rustflags = ["",""]
+#---------------------------
+
+
+[target.thumbv7m-none-eabi]
+# 取消注释此行可以使 `cargo run` 在 QEMU 上运行程序
+# runner = "qemu-system-arm -cpu cortex-m3 -machine lm3s6965evb -nographic -semihosting-config enable=on,target=native -kernel"
+
+
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+# 取消注释以下任意一项可以让 `cargo run` 启动 GDB 会话
+# 选择哪一项取决于你的系统
+# runner = "arm-none-eabi-gdb -q -x openocd.gdb"
+# runner = "gdb-multiarch -q -x openocd.gdb"
+# runner = "gdb -q -x openocd.gdb"
+
+rustflags = [
+    # 以前，链接器参数 --nmagic 和 -Tlink.x 是在这里设置的。
+    # 现在它们由 build.rs 设置。链接器参数仍然可以
+    # 在这里设置，如果需要使用自定义链接器。
+
+    # 默认使用 Rust 工具链自带的 LLD 链接器。如果 LLD 出现问题，
+    # 可以通过取消注释下面的行切换到 GNU 链接器：
+    # "-C", "linker=arm-none-eabi-ld",
+
+    # 如果需要链接 C 语言工具链提供的预编译 C 库，
+    # 请取消注释以下三行使用 GCC 作为链接器：
+    # "-C", "linker=arm-none-eabi-gcc",
+    # "-C", "link-arg=-Wl,-Tlink.x",
+    # "-C", "link-arg=-nostartfiles",
+]

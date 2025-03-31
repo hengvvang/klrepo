@@ -10,7 +10,7 @@
 ```
 .cargo/config.toml
 ├── [target]                                     # Table (表) - 顶级表，定义目标平台配置
-│   └──                           # Table (内嵌表) - 动态命名的目标三元组，如 x86_64-unknown-linux-gnu
+│   └──[target.<triple>]                          # Table (内嵌表) - 动态命名的目标三元组，如 x86_64-unknown-linux-gnu
 │       ├── linker                               # String (字符串)
 │       │   ├── 用途: 指定用于链接的链接器路径或命令
 │       │   ├── 默认值: 系统默认（如 gcc 或 clang）
@@ -199,3 +199,78 @@ rustflags = ["-C", "target-cpu=native"]              # 本地目标优化
 	•	优先级：[target.] 的配置优先于 [build]，而 dependencies. 优先于其上层。
 	•	环境变量覆盖：RUSTFLAGS、RUSTDOCFLAGS 等环境变量会覆盖配置文件。
 	•	目标三元组：可通过 rustc --print target-list 查看所有支持的三元组。
+
+
+# [build].target  vs  [target.<triple>]
+
+
+### 1. `[build].target` 的特性
+- **唯一性**：`[build].target` 是 `[build]` 表下的一个键值对，用于指定默认的构建目标（target triple）。由于它是全局默认配置，整个项目只能有一个默认目标，因此它的类型是单一的键值对，例如：
+  ```toml
+  [build]
+  target = "x86_64-unknown-linux-gnu"
+  ```
+- **作用**：在没有通过命令行（如 `cargo build --target`）显式指定目标时，Cargo 会使用 `[build].target` 指定的目标进行构建。如果未配置，则默认使用当前主机的目标（如本机是 x86_64 Linux，则默认是 `x86_64-unknown-linux-gnu`）。
+- **覆盖性**：它的值可以被命令行参数 `--target` 覆盖。例如，即使配置了 `[build].target = "wasm32-unknown-unknown"`，运行 `cargo build --target x86_64-unknown-linux-gnu` 时仍会以后者为准。
+
+### 2. `[target.<triple>]` 的特性
+- **多重性**：`[target.<triple>]` 是一个表（table），可以为多个不同的目标平台分别定义配置。每个 `<triple>` 对应一个具体的目标平台（如 `x86_64-unknown-linux-gnu`、`aarch64-unknown-linux-gnu` 等），因此可以同时配置多个。例如：
+  ```toml
+  [target.x86_64-unknown-linux-gnu]
+  rustflags = ["-C", "opt-level=3"]
+
+  [target.wasm32-unknown-unknown]
+  rustflags = ["-C", "link-arg=-s"]
+  ```
+- **条件生效**：这些配置只有在构建的目标平台与 `<triple>` 匹配时才会生效。匹配的来源可以是：
+  - `[build].target` 指定的默认目标。
+  - 命令行参数 `cargo build --target <triple>` 指定的目标。
+- **灵活性**：它允许为不同平台定制构建行为，比如设置特定的 `rustflags`、`linker` 或其他选项，非常适合跨平台项目。
+
+### 3. 两者的协作关系
+- **默认与特定**：`[build].target` 定义了“默认构建目标”，而 `[target.<triple>]` 定义了“特定目标的额外配置”。例如：
+  ```toml
+  [build]
+  target = "x86_64-unknown-linux-gnu"
+
+  [target.x86_64-unknown-linux-gnu]
+  rustflags = ["-C", "target-cpu=native"]
+
+  [target.aarch64-unknown-linux-gnu]
+  rustflags = ["-C", "link-arg=-march=armv8-a"]
+  ```
+  - 默认运行 `cargo build` 时，目标是 `x86_64-unknown-linux-gnu`，并应用其对应的 `[target.x86_64-unknown-linux-gnu]` 配置。
+  - 运行 `cargo build --target aarch64-unknown-linux-gnu` 时，目标切换为 `aarch64-unknown-linux-gnu`，并应用 `[target.aarch64-unknown-linux-gnu]` 配置。
+- **其他地方的 `target` 配置**：你提到“在其他地方配置 target 时，针对特定平台生效”，这可能是指命令行或构建脚本中指定的目标。无论目标来自哪里（`[build].target` 或 `--target`），一旦确定了目标，Cargo 都会查找并应用对应的 `[target.<triple>]` 配置。
+
+### 4. 类型与语义的对比
+- **类型**：
+  - `[build].target`：键值对（`key = value`），单一值。
+  - `[target.<triple>]`：表（`[table]`），允许多个并存。
+- **语义**：
+  - `[build].target`：回答“默认构建什么目标”。
+  - `[target.<triple>]`：回答“针对某个目标时如何构建”。
+
+### 5. 实际应用
+假设一个跨平台项目：
+- 默认目标是 WebAssembly，但偶尔需要为 ARM 架构构建。
+- 配置如下：
+  ```toml
+  [build]
+  target = "wasm32-unknown-unknown"
+
+  [target.wasm32-unknown-unknown]
+  rustflags = ["-C", "link-arg=-s"]
+
+  [target.aarch64-unknown-linux-gnu]
+  rustflags = ["-C", "target-cpu=native"]
+  ```
+  - `cargo build`：构建 WebAssembly，应用 `rustflags = ["-C", "link-arg=-s"]`。
+  - `cargo build --target aarch64-unknown-linux-gnu`：构建 ARM 架构，应用 `rustflags = ["-C", "target-cpu=native"]`。
+
+### 总结
+- `[build].target` 是单一的默认目标设置，类型为键值对。
+- `[target.<triple>]` 是多目标的条件配置，允许多个表并存，并在目标匹配时生效。
+- 两者配合使用时，前者决定“构建什么”，后者决定“如何构建”，逻辑清晰且互补。
+
+你的表述已经很准确了，我只是进一步补充细节以强化理解。如果还有疑问，随时告诉我！
