@@ -1,7 +1,3 @@
-好的，我将为 `cargo-binutils` 的所有使用方法提供详细且深入的说明，涵盖其主要子命令、参数选项、实际示例以及潜在的使用场景。以下内容将尽可能全面，帮助你掌握 `cargo-binutils` 的每个细节。
-
----
-
 ## `cargo-binutils` 使用方法全解析
 
 `cargo-binutils` 的核心思想是将 Rust 工具链中的 LLVM 工具（如 `llvm-nm`、`llvm-objdump` 等）通过 `Cargo` 子命令的形式集成到 Rust 项目的工作流中。每个子命令都会先调用 `cargo build` 构建项目，然后对生成的工件（如 ELF 文件）运行相应的 LLVM 工具。以下是所有子命令及其使用方法的详细说明。
