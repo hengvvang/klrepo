@@ -2,6 +2,7 @@
 name = "led-blink"
 version = "0.1.0"
 edition.workspace = true
+build = "../../build_share.rs"
 
 [dependencies]
 cortex-m.workspace = true
