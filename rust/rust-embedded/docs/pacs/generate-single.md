@@ -1,4 +1,8 @@
-我明白你的需求：你希望在生成 STM32F1 PAC 时，应用 `stm32-rs` 仓库中所有可用的补丁文件，包括 `devices/` 下的设备特定补丁、`devices/patches/` 下的通用外设补丁，以及 `devices/collect/` 和 `devices/fields/` 中的增强数据（如果适用）。以下是更新的详细指南，确保所有补丁都被正确应用，同时保持文件结构与脚本一致。
+# PAC
+在生成 STM32F1 PAC 时，应用 `stm32-rs` 仓库中所有可用的补丁文件
+-  `devices/` 下的设备特定补丁
+- `devices/patches/` 下的通用外设补丁
+- `devices/collect/` 和 `devices/fields/` 中的增强数据（如果适用）。
 
 ---
 
@@ -219,12 +223,12 @@ stm32-rs/
 #### 操作
 1. **为每个设备生成 Rust 文件**：
    ```bash
-   mkdir -p stm32f1/src
-   svd2rust -i svd/stm32f100.svd.patched -o stm32f1/src/stm32f100.rs
-   svd2rust -i svd/stm32f101.svd.patched -o stm32f1/src/stm32f101.rs
-   svd2rust -i svd/stm32f103.svd.patched -o stm32f1/src/stm32f103.rs
-   svd2rust -i svd/stm32f105.svd.patched -o stm32f1/src/stm32f105.rs
-   svd2rust -i svd/stm32f107.svd.patched -o stm32f1/src/stm32f107.rs
+   mkdir stm32f1/
+   svd2rust -i svd/stm32f100.svd.patched -o stm32f1/
+   svd2rust -i svd/stm32f101.svd.patched -o stm32f1/
+   svd2rust -i svd/stm32f103.svd.patched -o stm32f1/
+   svd2rust -i svd/stm32f105.svd.patched -o stm32f1/
+   svd2rust -i svd/stm32f107.svd.patched -o stm32f1/
    ```
 
 2. **创建 `lib.rs`**：
@@ -443,6 +447,3 @@ stm32-rs/
    - 如果 `cargo build` 失败，检查 `Cargo.toml` 的依赖版本。
 
 ---
-
-## 总结
-通过以上步骤，你可以手动生成 STM32F1 PAC，并应用 `stm32-rs` 中所有的补丁文件（`devices/`、`patches/`、`fields/`、`collect/`）。每个步骤确保与脚本流程一致，文件结构完全匹配。如果需要进一步优化或调试，请告诉我！

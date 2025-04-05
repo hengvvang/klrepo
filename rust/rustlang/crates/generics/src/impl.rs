@@ -41,4 +41,6 @@
 //     println!("{},{}", string.get(), int32.get())
 // }
 
-use std::fmt::Display;
+// use std::fmt::Display;
+
+fn main() {}
