@@ -1,6 +1,5 @@
 #![no_std]
 #![no_main]
-
 use cortex_m::asm; // 提供汇编指令，如 nop
 use cortex_m_rt::entry; // 定义程序入口
 use panic_halt as _; // panic 时停止

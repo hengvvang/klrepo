@@ -1,5 +1,5 @@
 [package]
-name = "led-blink"
+name = "rcc"
 version = "0.1.0"
 authors.workspace = true
 license.workspace = true
@@ -10,4 +10,4 @@ build = "../../build_share.rs"
 cortex-m.workspace = true
 cortex-m-rt.workspace = true
 panic-halt.workspace = true
-stm32f1xx-hal.workspace = true
+stm32f1.workspace = true
