@@ -1,5 +1,5 @@
 # Workspace
-> 我将进一步模块化内容，按功能模块分门别类介绍，并在每个模块中针对crate类型（binary、library、test、example、bench）分别说明`Cargo`在crate、package、workspace级别的使用。
+> 按功能模块分门别类介绍，并在每个模块中针对crate类型（binary、library、test、example、bench）分别说明`Cargo`在crate、package、workspace级别的使用。
 
 ### 项目结构
 ```
