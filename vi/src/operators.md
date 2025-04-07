@@ -172,8 +172,6 @@
     - Use with `motion` |`scope + operator`
         - visual mode
         - motion
-            - `gUw`（单词转为大写，uppercase word）。
-            - `guw`（单词转为小写，lowercase word）。
             - `gU$`（到行尾转为大写，uppercase to end of line）。
         - scope + operator
             - `gUip`（段落转为大写，uppercase inner paragraph）。
