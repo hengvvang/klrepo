@@ -106,44 +106,73 @@ rust-workspace/
 
 ---
 
-## Cargo 使用方法（模块化分门别类）
+## Cargo 使用方法
 
 ### 模块 1：构建与编译
 #### Crate 级别
 - **Binary Crate**:
+<<<>>>
   - **`cargo build --bin <name> -p <package>`**:
     - 编译单个binary crate。
     - 示例: `cargo build --bin app1 -p my-package --release`
     - 输出: `target/release/app1`
+
+    - **`cargo build --bin <name>`**:
+      - 编译单个binary crate。
+      - 示例: `cargo build --bin app1`
+      - 输出: `target/release/app1`
+<<<>>>
   - **`cargo check --bin <name> -p <package>`**:
     - 检查binary crate。
     - 示例: `cargo check --bin tool2 -p my-package1`
+    - **`cargo check --bin <name>`**:
+      - 检查binary crate。
+      - 示例: `cargo check --bin tool2`
+---
 - **Library Crate**:
+<<<>>>
   - **`cargo build --lib -p <package>`**:
     - 编译library crate。
     - 示例: `cargo build --lib -p my-package1`
     - 输出: `target/debug/libmy_package1_lib.rlib`
+<<<>>>
   - **`cargo check --lib -p <package>`**:
     - 检查library crate。
     - 示例: `cargo check --lib -p my-package`
+---
 - **Test Crate**:
+<<<>>>
   - **`cargo build --test <name> -p <package>`**:
     - 编译test crate。
     - 示例: `cargo build --test test1 -p my-package`
+
+    - **`cargo build --test <name>`**:
+      - 编译test crate。
+      - 示例: `cargo build --test test1`
+<<<>>>
   - **`cargo check --test <name> -p <package>`**:
     - 检查test crate。
     - 示例: `cargo check --test ws_test2`
+---
 - **Example Crate**:
+<<<>>>
   - **`cargo build --example <name> -p <package>`**:
     - 编译example crate。
     - 示例: `cargo build --example example2 -p my-package`
+
+    - **`cargo build --example <name>`**:
+      - 编译example crate。
+      - 示例: `cargo build --example example2`
+<<<>>>
   - **`cargo check --example <name> -p <package>`**:
     - 检查example crate。
     - 示例: `cargo check --example ws_example1`
+---
 - **Bench Crate**:
   - **`cargo build --bench <name> -p <package>`**:
     - 编译bench crate。
     - 示例: `cargo build --bench bench1 -p my-package`
+
   - **`cargo check --bench <name> -p <package>`**:
     - 检查bench crate。
     - 示例: `cargo check --bench ws_bench2`

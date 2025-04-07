@@ -1,3 +1,33 @@
+# [package]
+# name = "rust-workspace"
+# version = "0.0.0"
+# edition = "2024"
+
+# [[bench]]
+# name = "ws_bench1"
+# path = "benches/ws_bench1.rs"
+
+# [[bench]]
+# name = "ws_bench2"
+# path = "benches/ws_bench2.rs"
+
+# [[example]]
+# name = "ws_example1"
+# path = "examples/ws_example1.rs"
+
+# [[example]]
+# name = "ws_example2"
+# path = "examples/ws_example2.rs"
+
+# [[test]]
+# name = "ws_test1"
+# path = "tests/ws_test1.rs"
+
+# [[test]]
+# name = "ws_test2"
+# path = "tests/ws_test2.rs"
+
+
 [workspace]
 # resolver = "1"
 # resolver = "2"
@@ -80,33 +110,3 @@ edition = "2024"
 #      test_a
 #      test_b
 #
-
-
-# [package]
-# name = "rust-workspace"
-# version = "0.0.0"
-# edition = "2024"
-
-# [[bench]]
-# name = "ws_bench1"
-# path = "benches/ws_bench1.rs"
-
-# [[bench]]
-# name = "ws_bench2"
-# path = "benches/ws_bench2.rs"
-
-# [[example]]
-# name = "ws_example1"
-# path = "examples/ws_example1.rs"
-
-# [[example]]
-# name = "ws_example2"
-# path = "examples/ws_example2.rs"
-
-# [[test]]
-# name = "ws_test1"
-# path = "tests/ws_test1.rs"
-
-# [[test]]
-# name = "ws_test2"
-# path = "tests/ws_test2.rs"

@@ -54,8 +54,14 @@ rust-workspace/
 
     - `binary`
         - rust 允许在一个 **`package`** 中存在多个 `binary crate`
-        - 在 **`package`** 的 `src/main.rs` 和 `src/bin/*`下的`.rs`文件, rust自动识别为 `binary crate` [默认]
-        - 在 `cargo.toml` 中使用 [[bin]] 数组表指定任意路径的 `.rs` 文件为 `binary crate`, 也可以覆盖rust默认设置，为`src/main.rs` `src/bin/*`自定义 name [自定义]
+        - 在 **`package`** 的 `src/main.rs` 和 `src/bin/*`下的`.rs`文件, rust将其自动识别为 `binary crate` [默认]
+        - 在 `cargo.toml` 中使用 [[bin]] 数组表指定任意路径的 `.rs` 文件为 `binary crate`,
+        - 默认`binary crate` 的名字为文件名称,也可以覆盖rust默认设置，为`src/main.rs` `src/bin/*`自定义 name [自定义]
+            ```
+            [[bin]]
+            name = "my_binary_crate_custom_name" // binary 名字默认为 my_binary, 和文件同名
+            path = "src/bin/my_binary.rs"
+            ```
 
     - `library`
         - 对于任意 **`package`** rust 只允许存在一个 `library crate`
@@ -79,6 +85,10 @@ rust-workspace/
         - 在 `cargo.toml` 中使用 [[benches]] 数组表指定任意路径的 `.rs` 文件为 `bench crate`, 也可以覆盖rust默认设置
         默认 name 的值为文件名
     ### 利用报错
+   > 这种这方法在仅仅使用 `workspace` 时， 当 `workspace` 还是一个 `package`时，`root package`，会覆盖其他
+
+
+   #### Only Wrokspace
     ```
     D:\Repository\rust\rust-workspace> cargo build --bin
     error: "--bin" takes one argument.
@@ -86,9 +96,11 @@ rust-workspace/
         app1
         app2
         my-package
+
         my-package1
         tool1
         tool2
+
     ```
     ```
     D:\Repository\rust\rust-workspace> cargo build --test
@@ -96,6 +108,7 @@ rust-workspace/
     Available test targets:
         test1
         test2
+
         test_a
         test_b
     ```
@@ -105,6 +118,7 @@ rust-workspace/
     Available bench targets:
         bench1
         bench2
+
         bench_a
         bench_b
     ```
@@ -114,9 +128,35 @@ rust-workspace/
     Available examples:
         example1
         example2
+
         example_a
         example_b
     ```
+#### Use root-package
+> workspace members 的 packages 的所有 binary library test example bench   crates 都会被覆盖
+    ```
+    PS D:\Repository\rust\rust-workspace> cargo build --test
+    error: "--test" takes one argument.
+    Available test targets:
+        ws_test1
+        ws_test2
+    ```
+    ```
+    PS D:\Repository\rust\rust-workspace> cargo build --bench
+    error: "--bench" takes one argument.
+    Available bench targets:
+        ws_bench1
+        ws_bench2
+    ```
+
+    ```
+    PS D:\Repository\rust\rust-workspace> cargo build --example
+    error: "--example" takes one argument.
+    Available examples:
+        ws_example1
+        ws_example2
+    ```
+
 
 
 ### commands
