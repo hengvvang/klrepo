@@ -1,4 +1,149 @@
-Rust 的组件（components）是通过 `rustup` 管理的工具或库，它们扩展了 Rust 工具链的功能，涵盖代码格式化、静态分析、文档生成、语言服务器支持等。以下是对常用 Rust 组件的详细功能说明，包括用途、使用场景和相关命令。
+# rustup components
+
+> Rust 的组件（components）是通过 `rustup` 管理的工具或库，它们扩展了 Rust 工具链的功能，涵盖代码格式化、静态分析、文档生成、语言服务器支持等
+    ```
+    PS D:\Repository\rust> rustup component list
+    cargo-x86_64-pc-windows-msvc (installed)
+    clippy-x86_64-pc-windows-msvc (installed)
+    llvm-bitcode-linker-x86_64-pc-windows-msvc
+    llvm-tools-x86_64-pc-windows-msvc (installed)
+    miri-x86_64-pc-windows-msvc
+    rust-analysis-x86_64-pc-windows-msvc
+    rust-analyzer-x86_64-pc-windows-msvc
+    rust-docs-x86_64-pc-windows-msvc (installed)
+    rust-docs-json-x86_64-pc-windows-msvc
+    rust-src (installed)
+    rust-std-aarch64-apple-darwin
+    rust-std-aarch64-apple-ios
+    rust-std-aarch64-apple-ios-macabi
+    rust-std-aarch64-apple-ios-sim
+    rust-std-aarch64-linux-android
+    rust-std-aarch64-pc-windows-gnullvm
+    rust-std-aarch64-pc-windows-msvc
+    rust-std-aarch64-unknown-fuchsia
+    rust-std-aarch64-unknown-linux-gnu
+    rust-std-aarch64-unknown-linux-musl
+    rust-std-aarch64-unknown-linux-ohos
+    rust-std-aarch64-unknown-none
+    rust-std-aarch64-unknown-none-softfloat
+    rust-std-aarch64-unknown-uefi
+    rust-std-arm-linux-androideabi
+    rust-std-arm-unknown-linux-gnueabi
+    rust-std-arm-unknown-linux-gnueabihf
+    rust-std-arm-unknown-linux-musleabi
+    rust-std-arm-unknown-linux-musleabihf
+    rust-std-arm64ec-pc-windows-msvc
+    rust-std-armebv7r-none-eabi
+    rust-std-armebv7r-none-eabihf
+    rust-std-armv5te-unknown-linux-gnueabi
+    rust-std-armv5te-unknown-linux-musleabi
+    rust-std-armv7-linux-androideabi
+    rust-std-armv7-unknown-linux-gnueabi
+    rust-std-armv7-unknown-linux-gnueabihf
+    rust-std-armv7-unknown-linux-musleabi
+    rust-std-armv7-unknown-linux-musleabihf
+    rust-std-armv7-unknown-linux-ohos
+    rust-std-armv7a-none-eabi
+    rust-std-armv7r-none-eabi
+    rust-std-armv7r-none-eabihf
+    rust-std-i586-unknown-linux-gnu
+    rust-std-i586-unknown-linux-musl
+    rust-std-i686-linux-android
+    rust-std-i686-pc-windows-gnu
+    rust-std-i686-pc-windows-gnullvm
+    rust-std-i686-pc-windows-msvc
+    rust-std-i686-unknown-freebsd
+    rust-std-i686-unknown-linux-gnu
+    rust-std-i686-unknown-linux-musl
+    rust-std-i686-unknown-uefi
+    rust-std-loongarch64-unknown-linux-gnu
+    rust-std-loongarch64-unknown-linux-musl
+    rust-std-loongarch64-unknown-none
+    rust-std-loongarch64-unknown-none-softfloat
+    rust-std-nvptx64-nvidia-cuda
+    rust-std-powerpc-unknown-linux-gnu
+    rust-std-powerpc64-unknown-linux-gnu
+    rust-std-powerpc64le-unknown-linux-gnu
+    rust-std-powerpc64le-unknown-linux-musl
+    rust-std-riscv32i-unknown-none-elf
+    rust-std-riscv32im-unknown-none-elf
+    rust-std-riscv32imac-unknown-none-elf
+    rust-std-riscv32imafc-unknown-none-elf
+    rust-std-riscv32imc-unknown-none-elf
+    rust-std-riscv64gc-unknown-linux-gnu
+    rust-std-riscv64gc-unknown-linux-musl
+    rust-std-riscv64gc-unknown-none-elf
+    rust-std-riscv64imac-unknown-none-elf
+    rust-std-s390x-unknown-linux-gnu
+    rust-std-sparc64-unknown-linux-gnu
+    rust-std-sparcv9-sun-solaris
+    rust-std-thumbv6m-none-eabi
+    rust-std-thumbv7em-none-eabi (installed)
+    rust-std-thumbv7em-none-eabihf (installed)
+    rust-std-thumbv7m-none-eabi (installed)
+    rust-std-thumbv7neon-linux-androideabi
+    rust-std-thumbv7neon-unknown-linux-gnueabihf
+    rust-std-thumbv8m.base-none-eabi
+    rust-std-thumbv8m.main-none-eabi
+    rust-std-thumbv8m.main-none-eabihf
+    rust-std-wasm32-unknown-emscripten
+    rust-std-wasm32-unknown-unknown
+    rust-std-wasm32-wasip1
+    rust-std-wasm32-wasip1-threads
+    rust-std-wasm32-wasip2
+    rust-std-wasm32v1-none
+    rust-std-x86_64-apple-darwin
+    rust-std-x86_64-apple-ios
+    rust-std-x86_64-apple-ios-macabi
+    rust-std-x86_64-fortanix-unknown-sgx
+    rust-std-x86_64-linux-android
+    rust-std-x86_64-pc-solaris
+    rust-std-x86_64-pc-windows-gnu
+    rust-std-x86_64-pc-windows-gnullvm
+    rust-std-x86_64-pc-windows-msvc (installed)
+    rust-std-x86_64-unknown-freebsd
+    rust-std-x86_64-unknown-fuchsia
+    rust-std-x86_64-unknown-illumos
+    rust-std-x86_64-unknown-linux-gnu
+    rust-std-x86_64-unknown-linux-gnux32
+    rust-std-x86_64-unknown-linux-musl
+    rust-std-x86_64-unknown-linux-ohos
+    rust-std-x86_64-unknown-netbsd
+    rust-std-x86_64-unknown-none
+    rust-std-x86_64-unknown-redox
+    rust-std-x86_64-unknown-uefi
+    rustc-x86_64-pc-windows-msvc (installed)
+    rustc-codegen-cranelift-x86_64-pc-windows-msvc
+    rustc-dev-aarch64-apple-darwin
+    rustc-dev-aarch64-pc-windows-msvc
+    rustc-dev-aarch64-unknown-linux-gnu
+    rustc-dev-aarch64-unknown-linux-musl
+    rustc-dev-arm-unknown-linux-gnueabi
+    rustc-dev-arm-unknown-linux-gnueabihf
+    rustc-dev-armv7-unknown-linux-gnueabihf
+    rustc-dev-i686-pc-windows-gnu
+    rustc-dev-i686-pc-windows-msvc
+    rustc-dev-i686-unknown-linux-gnu
+    rustc-dev-loongarch64-unknown-linux-gnu
+    rustc-dev-loongarch64-unknown-linux-musl
+    rustc-dev-powerpc-unknown-linux-gnu
+    rustc-dev-powerpc64-unknown-linux-gnu
+    rustc-dev-powerpc64le-unknown-linux-gnu
+    rustc-dev-powerpc64le-unknown-linux-musl
+    rustc-dev-riscv64gc-unknown-linux-gnu
+    rustc-dev-s390x-unknown-linux-gnu
+    rustc-dev-x86_64-apple-darwin
+    rustc-dev-x86_64-pc-windows-gnu
+    rustc-dev-x86_64-pc-windows-msvc
+    rustc-dev-x86_64-unknown-freebsd
+    rustc-dev-x86_64-unknown-illumos
+    rustc-dev-x86_64-unknown-linux-gnu
+    rustc-dev-x86_64-unknown-linux-musl
+    rustc-dev-x86_64-unknown-netbsd
+    rustc-docs-aarch64-unknown-linux-gnu
+    rustc-docs-x86_64-unknown-linux-gnu
+    rustfmt-x86_64-pc-windows-msvc (installed)
+    ```
 
 ---
 
@@ -259,5 +404,3 @@ rustup component add miri
 ### 6. **总结**
 
 Rust 的组件生态提供了丰富的工具支持，涵盖开发、调试、测试和文档生成等多个方面。通过合理选择和使用组件，可以显著提高开发效率和代码质量。建议开发者根据项目需求选择合适的组件，并在需要时切换工具链以获取更多功能。
-
-如果有进一步的问题或特定组件的使用需求，可以随时提问！
