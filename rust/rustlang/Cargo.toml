@@ -16,6 +16,8 @@ members = [
     "crates/closures",
     "crates/attributes",
     "crates/generics",
+    "crates/design-pattern",
+    "crates/asynchronous",
 
 
     # integration tests

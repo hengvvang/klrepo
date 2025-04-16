@@ -3,6 +3,10 @@
 version = 4
 
 [[package]]
+name = "asynchronous"
+version = "0.1.0"
+
+[[package]]
 name = "attributes"
 version = "0.1.0"
 
@@ -12,6 +16,10 @@ version = "0.1.0"
 
 [[package]]
 name = "data-structures-and-algorithms"
+version = "0.1.0"
+
+[[package]]
+name = "design-pattern"
 version = "0.1.0"
 
 [[package]]
