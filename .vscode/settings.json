@@ -40,13 +40,13 @@
   "guides.highlightActive": true,
 
   // 🎨 普通缩进层引导线颜色（灰色）
-  "guides.normal.color": "#888888",
+  // "guides.normal.color": "#888888",
 
   // 🎯 当前激活层（光标所在）缩进线颜色（蓝绿色）
-  "guides.active.color": "#00BCD4",
+  // "guides.active.color": "#00BCD4",
 
   // ❗ 错误缩进层颜色（例如代码不规范时），通常不常出现
-  "guides.error.color": "#FF0000",
+  // "guides.error.color": "#FF0000",
 
   // ✅ 是否在文件底部空行也显示缩进线
   "guides.trailingBlankLines": true
