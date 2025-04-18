@@ -1,0 +1,30 @@
+# 忽略 C/C++ 源码和头文件
+*.h linguist-vendored
+*.hpp linguist-vendored
+*.c linguist-vendored
+*.cpp linguist-vendored
+*.cc linguist-vendored
+
+# 忽略 Python、JavaScript、HTML、CSS 等非 Rust 文件
+*.py linguist-vendored
+*.js linguist-vendored
+*.ts linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+*.scss linguist-vendored
+*.json linguist-vendored
+*.yaml linguist-vendored
+*.toml linguist-vendored  # 如果你不想统计 Cargo.toml 文件语言类型，也可以排除
+
+# 忽略 Markdown 和文档类文件
+*.md linguist-documentation
+*.txt linguist-documentation
+
+# 忽略编译输出或构建文件夹（如 target、build）
+/target/** linguist-generated
+/build/** linguist-generated
+
+# 忽略第三方依赖或库
+/vendor/** linguist-vendored
+/third_party/** linguist-vendored
+/docs/** linguist-documentation
