@@ -1,7 +1,4 @@
-好的，我们来详细地、有条理地介绍 CSS (Cascading Style Sheets) 的所有内容。请注意，CSS 是一个非常庞大且不断发展的技术体系，“所有内容”意味着极其广泛，我们将尽可能覆盖核心概念、重要特性和常用技术，并保持结构清晰。
-
-这是一个全面的 CSS 指南，从基础到进阶：
-
+CSS (Cascading Style Sheets)
 ---
 
 **CSS 全面解析 (Comprehensive Guide to CSS)**
@@ -403,7 +400,3 @@
     * **web.dev (by Google):** 现代 Web 开发最佳实践和教程。
     * **Smashing Magazine:** 高质量的文章和电子书。
     * 在线课程平台 (Coursera, Udemy, freeCodeCamp等)。
-
----
-
-这份概述涵盖了 CSS 的绝大部分核心概念和重要领域。CSS 是一个实践性很强的技术，最好的学习方式是不断地编写、测试和调试代码。希望这份详细的介绍能为你提供一个清晰、有条理的学习和参考框架。由于 CSS 不断发展，建议持续关注 MDN 等资源以了解最新特性。

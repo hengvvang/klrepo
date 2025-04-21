@@ -1,7 +1,3 @@
-好的，我们来将 HTML 的内容进行模块化介绍，并为每个模块的关键知识点提供具体的示例，力求逻辑清晰、结构分明。
-
----
-
 **引言**
 
 HTML (HyperText Markup Language) 是创建网页内容结构的标准标记语言。浏览器解析 HTML 代码，将其渲染成用户看到的页面。下面我们将分模块详细介绍 HTML 的各个方面。
@@ -19,9 +15,18 @@ HTML (HyperText Markup Language) 是创建网页内容结构的标准标记语�
 * **基本文档结构:** 每个 HTML 文档都应遵循此基本结构。
 
     ```html
-    <!DOCTYPE html> <html lang="zh-CN"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="description" content="这是页面的描述，会显示在搜索结果中"> <title>页面标题</title> </head>
+    <!DOCTYPE html>
+    <html lang="zh-CN">
 
-    <body> <h1>我的第一个网页</h1>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="这是页面的描述，会显示在搜索结果中">
+            <title>页面标题</title>
+        </head>
+
+    <body>
+        <h1>我的第一个网页</h1>
         <p>欢迎来到我的网站！</p>
     </body>
 
@@ -544,7 +549,3 @@ HTML (HyperText Markup Language) 是创建网页内容结构的标准标记语�
     * 保持代码整洁、缩进良好。
     * 优先考虑可访问性。
     * 使用 UTF-8 编码。
-
----
-
-这个模块化的介绍和示例应该能帮助你更清晰地理解 HTML 的各个方面。HTML 是 Web 开发的基础，掌握好它对后续学习 CSS 和 JavaScript至关重要。

@@ -5,13 +5,15 @@
 *.cpp linguist-vendored
 *.cc linguist-vendored
 
-# 忽略 Python、JavaScript、HTML、CSS 等非 Rust 文件
+# 忽略 Python、TypeScript、JavaScript、HTML、CSS
 *.py linguist-vendored
-*.js linguist-vendored
 *.ts linguist-vendored
-*.html linguist-vendored
+*.js linguist-vendored
 *.css linguist-vendored
 *.scss linguist-vendored
+*.html linguist-vendored
+
+
 *.json linguist-vendored
 *.yaml linguist-vendored
 *.toml linguist-vendored  # 如果你不想统计 Cargo.toml 文件语言类型，也可以排除
