@@ -1,7 +1,3 @@
-**(Current time for context: Tuesday, April 15, 2025 at 8:44 PM JST)**
-
----
-
 **I. 基础回顾：核心模型**
 
 正如你准确总结的，Rust 的 `async`/`await` 核心是**编译器驱动的状态机转换**。`async fn` 或 `async {}` 块被编译成一个实现了 `std::future::Future` Trait 的匿名结构体（或枚举）。这个结构体存储了跨 `await` 点所需的所有局部变量，并包含一个状态字段来跟踪执行进度。`Future::poll` 方法是这个状态机的驱动引擎，根据当前状态执行代码、调用内部 Future 的 `poll`、处理结果，并最终返回 `Poll::Pending`（表示需要等待）或 `Poll::Ready`（表示完成）。顶层 Future 通过 `#[tokio::main]` 或 `tokio::spawn` 注册到 Tokio 运行时，由运行时负责调度和驱动（调用 `poll`）。
@@ -203,5 +199,3 @@ Tokio 是一个多线程、基于事件驱动（Reactor 模式）的异步运行
 **IX. 结论**
 
 Rust 的 `async`/`await` 结合 Tokio 提供了一个极其强大、高性能且内存安全的并发编程模型。它通过编译时的状态机转换实现了“零成本抽象”，并通过运行时的 Reactor-Executor 模型高效地处理 I/O 密集型任务。然而，其背后涉及 `Future`, `poll`, `Waker`, `Pin`, 任务调度, `Send`/`Sync` 等多个复杂概念，需要深入理解才能充分发挥其威力并避开陷阱。这是一个陡峭但回报丰厚的学习曲线。
-
-希望这次极其详尽的介绍能够满足你对 Rust 异步编程所有相关内容的需求！

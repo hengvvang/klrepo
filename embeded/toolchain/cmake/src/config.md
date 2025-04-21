@@ -1,6 +1,3 @@
-
----
-
 ## CMake 配置项全解（优化版）
 
 ### 输出结构说明
@@ -556,7 +553,3 @@ add_dependencies(ComplexApp GenerateData)
    - 输出和安装路径支持变量（如 `${CMAKE_BINARY_DIR}`）。
 5. **扩展性**:
    - 通过 `find_package` 和 `add_subdirectory` 集成外部资源。
-
----
-
-这个版本内容更加完整，结构更模块化，格式更统一。如需进一步调整，请告诉我！

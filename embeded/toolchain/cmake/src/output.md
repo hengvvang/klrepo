@@ -1,5 +1,3 @@
-好的，我会尽可能详细地解释如何在 CMake 中定义输出目录，包括每个细节、变量的含义、如何为不同内容指定输出目录，以及如何创建这些目录。以下是逐步拆解的说明：
-
 1. CMake 输出目录的基本概念
 CMake 在构建项目时会生成多种类型的文件，包括：
 	•	可执行文件（如 my_app 或 my_app.exe）：由 add_executable 创建。
@@ -164,13 +162,13 @@ configure_file(config.ini "${CMAKE_BINARY_DIR}/bin/config.ini" COPYONLY)
 file(COPY "resources/" DESTINATION "${CMAKE_BINARY_DIR}/bin/resources")
 运行示例
 	1	创建构建目录并进入： mkdir build && cd build
-	2	
+	2
 	3	配置项目： cmake ..
-	4	
+	4
 	5	构建项目： cmake --build .
 	6	 或指定配置： cmake --build . --config Debug
 	7	cmake --build . --config Release
-	8	
+	8
 输出结果
 	•	my_app 输出到 build/bin/custom（因为有特定设置）。
 	•	libmy_shared_lib.so 输出到 build/lib（或 lib/debug, lib/release）。
@@ -181,7 +179,7 @@ file(COPY "resources/" DESTINATION "${CMAKE_BINARY_DIR}/bin/resources")
 	•	路径分隔符：CMake 自动处理路径分隔符（Windows 用 \，Linux 用 /），无需手动调整。
 	•	中间文件：无法通过上述变量控制 .o 文件的输出，它们默认放在 CMakeFiles 子目录中。
 	•	命令行覆盖：可以在运行 cmake 时用 -D 参数覆盖变量： cmake -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/custom/path ..
-	•	
+	•
 	•	调试：如果输出目录未生效，检查变量是否拼写正确，或是否被后续代码覆盖。
 
 希望这个详细的解释能完全解答你的问题！如果还有任何疑问，欢迎继续探讨。
