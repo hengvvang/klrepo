@@ -1,0 +1,152 @@
+[package]
+name = "stm32f103-tutorial"
+version = "0.1.0"
+edition = "2021"
+authors = ["silent-rain"]
+license = "LICENSE"
+repository = ""
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+harness = false
+
+
+[workspace]
+members = [
+    # 基础示例
+    "app/basic/helloworld",
+    "app/basic/panics",
+    "app/basic/flash_tool_embed",
+    "app/basic/flash_tool_defmt",
+    "app/basic/unit_testsuite",
+    # 延迟
+    "app/delay/syst_timer_delay",
+    "app/delay/syst_delay",
+    "app/delay/tim2_delay",
+    "app/delay/asm_delay",
+    # 通用 GPIO
+    "app/general_gpio/turns_user_led",
+    "app/general_gpio/delay_blinky",
+    "app/general_gpio/tim2_timer_delay_blinky",
+    "app/general_gpio/blinky",
+    "app/general_gpio/multi_mode_gpio",
+    "app/general_gpio/dynamic_gpio",
+    "app/general_gpio/led_flow_light",
+    "app/general_gpio/buzzer",
+    "app/general_gpio/key_control_led",
+    "app/general_gpio/light_sensor_control_buzzer",
+    "app/general_gpio/ffi-blinky",
+    # 中断
+    "app/interrupt/opposing_infrared_sensor_count",
+    "app/interrupt/opposing_infrared_sensor_count2",
+    "app/interrupt/key_control_led_exti",
+    "app/interrupt/rotary_encoder_count",
+    "app/interrupt/sys_timer_interrupt",
+    "app/interrupt/timer_interrupt_count_by_seces",
+    "app/interrupt/timer_interrupt_count_by_hz",
+    "app/interrupt/timer_external_clock",
+    "app/interrupt/rtc_alarm_blinky_irq",
+    # 端口重映射
+    "app/port_remap/disable_jtag_ports",
+    # PWM 脉冲宽度调制
+    "app/pwm/pwm_led",
+    "app/pwm/pwm_led2",
+    "app/pwm/pwm_led_remap",
+    "app/pwm/pwm_custom",
+    "app/pwm/pwm_driven_servo",
+    "app/pwm/pwm_driven_motor",
+    "app/pwm/pwm_input_capture_freq_duty_cycle",
+    "app/pwm/pwm_rotary_encoder_count",
+    "app/pwm/pwm_rotary_encoder_speed",
+    "app/pwm/pwm_rotary_encoder_timer_speed",
+    # ADC 模数转换器
+    "app/adc/ad_single_channel",
+    "app/adc/ad_multichannel",
+    # DMA 数据转运
+    "app/dma/print_memory_address",
+    "app/dma/dma_data_transfer",
+    "app/dma/dma_data_continuous_transfer",
+    "app/dma/scan_dma_and_ad_multichannel",
+    "app/dma/scan_dma_and_ad_multichannel_loop",
+    "app/dma/scan_dma_and_ad_multichannel_peek",
+    # USART 串行接口
+    "app/usart/serial_config",
+    "app/usart/serial_tx_and_rx",
+    "app/usart/serial_reconfigure",
+    "app/usart/serial_fmt",
+    "app/usart/serial_continuous_tx_and_rx",
+    "app/usart/serial_interrupt_idle",
+    "app/usart/serial_hex_packet",
+    "app/usart/serial_text_packet",
+    # I2C 通信
+    "app/i2c/i2c_oled_show_character",
+    "app/i2c/i2c_soft_mpu6050",
+    "app/i2c/i2c_hard_mpu6050",
+    "app/i2c/i2c_mpu6050_crate",
+    # SPI 通信
+    "app/spi/spi_soft_w25q64",
+    "app/spi/spi_hard_w25q64",
+    "app/spi/spi_w25q_crate",
+    "app/spi/spi_nrf24l01",
+    # RTC 实时时钟
+    "app/rtc/rtc_bkp",
+    "app/rtc/rtc_bkp_dyn_data",
+    "app/rtc/rtc_counter",
+    "app/rtc/rtc_alarm_blinky",
+    "app/rtc/rtc_time",
+    # PWR 电源控制
+    "app/pwr/syst_freq",
+    "app/pwr/sleep_mode_serial_tx_and_rx",
+    "app/pwr/stop_mode_infrared_sensor_count",
+    "app/pwr/standby_mode_rtc_counter",
+    # WDG 看门狗
+    "app/wdg/iwdg",
+    "app/wdg/wwdg",
+    # FLASH
+    "app/flash/internal_flash",
+    "app/flash/read_chip_id",
+    # RITC 实时中断驱动并发
+    # "app/rtic/spawn_task_rtic",      # nightly
+    "app/rtic/exti_rtic",
+    "app/rtic/timer_interrupt_rtic",
+    # FreeRTOS 实时操作系统
+    # "app/free_rtos/free_rtos_blinky", # nightly
+    # 常用外设工具库
+    "core/hardware",
+    "core/ffi_hello",
+    "core/bindgen_hello",
+    "core/stm32f10x_rs",
+]
+
+
+[dependencies]
+embedded-hal = "1.0.0-rc.1"
+cortex-m = "0.7.7"
+cortex-m-rt = "0.7.3"
+# 开发板型号: STM32F103C8T6
+stm32f1xx-hal = { version = "0.10.0", features = ["rt", "stm32f103", "medium"] }
+defmt = "0.3"
+defmt-rtt = "0.4"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+
+[dev-dependencies]
+defmt-test = "0.3"
+
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
+
+[profile.dev]
+incremental = false
+codegen-units = 1
+
+[profile.test]
+codegen-units = 1
+debug = 2
+debug-assertions = true
+incremental = false
+opt-level = 3
+overflow-checks = true
