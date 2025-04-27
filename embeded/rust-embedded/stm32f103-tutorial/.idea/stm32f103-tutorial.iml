@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="EMPTY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/app/adc/ad_multichannel/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/adc/ad_single_channel/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/basic/flash_tool_defmt/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/basic/flash_tool_embed/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/basic/helloworld/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/basic/panics/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/basic/unit_testsuite/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/delay/asm_delay/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/delay/syst_delay/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/delay/syst_timer_delay/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/delay/tim2_delay/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/dma/dma_data_continuous_transfer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/dma/dma_data_transfer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/dma/print_memory_address/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/dma/scan_dma_and_ad_multichannel/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/dma/scan_dma_and_ad_multichannel_loop/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/dma/scan_dma_and_ad_multichannel_peek/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/flash/internal_flash/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/flash/read_chip_id/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/blinky/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/buzzer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/delay_blinky/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/dynamic_gpio/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/ffi-blinky/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/key_control_led/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/led_flow_light/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/light_sensor_control_buzzer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/multi_mode_gpio/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/tim2_timer_delay_blinky/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/general_gpio/turns_user_led/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/i2c/i2c_hard_mpu6050/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/i2c/i2c_mpu6050_crate/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/i2c/i2c_oled_show_character/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/i2c/i2c_soft_mpu6050/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/key_control_led_exti/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/opposing_infrared_sensor_count/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/opposing_infrared_sensor_count2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/rotary_encoder_count/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/rtc_alarm_blinky_irq/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/sys_timer_interrupt/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/timer_external_clock/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/timer_interrupt_count_by_hz/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/interrupt/timer_interrupt_count_by_seces/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/port_remap/disable_jtag_ports/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_custom/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_driven_motor/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_driven_servo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_input_capture_freq_duty_cycle/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_led/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_led2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_led_remap/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_rotary_encoder_count/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_rotary_encoder_speed/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwm/pwm_rotary_encoder_timer_speed/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwr/sleep_mode_serial_tx_and_rx/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwr/standby_mode_rtc_counter/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwr/stop_mode_infrared_sensor_count/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/pwr/syst_freq/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/rtc/rtc_alarm_blinky/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/rtc/rtc_bkp/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/rtc/rtc_bkp_dyn_data/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/rtc/rtc_counter/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/rtc/rtc_time/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/rtic/exti_rtic/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/rtic/timer_interrupt_rtic/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/spi/spi_hard_w25q64/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/spi/spi_nrf24l01/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/spi/spi_soft_w25q64/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/spi/spi_w25q_crate/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_config/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_continuous_tx_and_rx/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_fmt/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_hex_packet/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_interrupt_idle/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_reconfigure/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_text_packet/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/usart/serial_tx_and_rx/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/wdg/iwdg/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/wdg/wwdg/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core/bindgen_hello/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core/bindgen_hello/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/core/ffi_hello/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core/hardware/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core/stm32f10x_rs/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

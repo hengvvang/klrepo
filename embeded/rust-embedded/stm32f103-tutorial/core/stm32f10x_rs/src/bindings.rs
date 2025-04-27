@@ -245,115 +245,113 @@ pub const SCB_BASE: u32 = 3758157056;
 pub const ITM_RXBUFFER_EMPTY: u32 = 1520786085;
 #[repr(i32)]
 #[non_exhaustive]
-/// @brief STM32F10x Interrupt Number Definition, according to the selected device
-///        in @ref Library_configuration_section
+#[doc = " @brief STM32F10x Interrupt Number Definition, according to the selected device\n        in @ref Library_configuration_section"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum IRQn {
-    ///< 2 Non Maskable Interrupt
+    #[doc = "< 2 Non Maskable Interrupt"]
     NonMaskableInt_IRQn = -14,
-    ///< 4 Cortex-M3 Memory Management Interrupt
+    #[doc = "< 4 Cortex-M3 Memory Management Interrupt"]
     MemoryManagement_IRQn = -12,
-    ///< 5 Cortex-M3 Bus Fault Interrupt
+    #[doc = "< 5 Cortex-M3 Bus Fault Interrupt"]
     BusFault_IRQn = -11,
-    ///< 6 Cortex-M3 Usage Fault Interrupt
+    #[doc = "< 6 Cortex-M3 Usage Fault Interrupt"]
     UsageFault_IRQn = -10,
-    ///< 11 Cortex-M3 SV Call Interrupt
+    #[doc = "< 11 Cortex-M3 SV Call Interrupt"]
     SVCall_IRQn = -5,
-    ///< 12 Cortex-M3 Debug Monitor Interrupt
+    #[doc = "< 12 Cortex-M3 Debug Monitor Interrupt"]
     DebugMonitor_IRQn = -4,
-    ///< 14 Cortex-M3 Pend SV Interrupt
+    #[doc = "< 14 Cortex-M3 Pend SV Interrupt"]
     PendSV_IRQn = -2,
-    ///< 15 Cortex-M3 System Tick Interrupt
+    #[doc = "< 15 Cortex-M3 System Tick Interrupt"]
     SysTick_IRQn = -1,
-    ///< Window WatchDog Interrupt
+    #[doc = "< Window WatchDog Interrupt"]
     WWDG_IRQn = 0,
-    ///< PVD through EXTI Line detection Interrupt
+    #[doc = "< PVD through EXTI Line detection Interrupt"]
     PVD_IRQn = 1,
-    ///< Tamper Interrupt
+    #[doc = "< Tamper Interrupt"]
     TAMPER_IRQn = 2,
-    ///< RTC global Interrupt
+    #[doc = "< RTC global Interrupt"]
     RTC_IRQn = 3,
-    ///< FLASH global Interrupt
+    #[doc = "< FLASH global Interrupt"]
     FLASH_IRQn = 4,
-    ///< RCC global Interrupt
+    #[doc = "< RCC global Interrupt"]
     RCC_IRQn = 5,
-    ///< EXTI Line0 Interrupt
+    #[doc = "< EXTI Line0 Interrupt"]
     EXTI0_IRQn = 6,
-    ///< EXTI Line1 Interrupt
+    #[doc = "< EXTI Line1 Interrupt"]
     EXTI1_IRQn = 7,
-    ///< EXTI Line2 Interrupt
+    #[doc = "< EXTI Line2 Interrupt"]
     EXTI2_IRQn = 8,
-    ///< EXTI Line3 Interrupt
+    #[doc = "< EXTI Line3 Interrupt"]
     EXTI3_IRQn = 9,
-    ///< EXTI Line4 Interrupt
+    #[doc = "< EXTI Line4 Interrupt"]
     EXTI4_IRQn = 10,
-    ///< DMA1 Channel 1 global Interrupt
+    #[doc = "< DMA1 Channel 1 global Interrupt"]
     DMA1_Channel1_IRQn = 11,
-    ///< DMA1 Channel 2 global Interrupt
+    #[doc = "< DMA1 Channel 2 global Interrupt"]
     DMA1_Channel2_IRQn = 12,
-    ///< DMA1 Channel 3 global Interrupt
+    #[doc = "< DMA1 Channel 3 global Interrupt"]
     DMA1_Channel3_IRQn = 13,
-    ///< DMA1 Channel 4 global Interrupt
+    #[doc = "< DMA1 Channel 4 global Interrupt"]
     DMA1_Channel4_IRQn = 14,
-    ///< DMA1 Channel 5 global Interrupt
+    #[doc = "< DMA1 Channel 5 global Interrupt"]
     DMA1_Channel5_IRQn = 15,
-    ///< DMA1 Channel 6 global Interrupt
+    #[doc = "< DMA1 Channel 6 global Interrupt"]
     DMA1_Channel6_IRQn = 16,
-    ///< DMA1 Channel 7 global Interrupt
+    #[doc = "< DMA1 Channel 7 global Interrupt"]
     DMA1_Channel7_IRQn = 17,
-    ///< ADC1 and ADC2 global Interrupt
+    #[doc = "< ADC1 and ADC2 global Interrupt"]
     ADC1_2_IRQn = 18,
-    ///< USB Device High Priority or CAN1 TX Interrupts
+    #[doc = "< USB Device High Priority or CAN1 TX Interrupts"]
     USB_HP_CAN1_TX_IRQn = 19,
-    ///< USB Device Low Priority or CAN1 RX0 Interrupts
+    #[doc = "< USB Device Low Priority or CAN1 RX0 Interrupts"]
     USB_LP_CAN1_RX0_IRQn = 20,
-    ///< CAN1 RX1 Interrupt
+    #[doc = "< CAN1 RX1 Interrupt"]
     CAN1_RX1_IRQn = 21,
-    ///< CAN1 SCE Interrupt
+    #[doc = "< CAN1 SCE Interrupt"]
     CAN1_SCE_IRQn = 22,
-    ///< External Line[9:5] Interrupts
+    #[doc = "< External Line[9:5] Interrupts"]
     EXTI9_5_IRQn = 23,
-    ///< TIM1 Break Interrupt
+    #[doc = "< TIM1 Break Interrupt"]
     TIM1_BRK_IRQn = 24,
-    ///< TIM1 Update Interrupt
+    #[doc = "< TIM1 Update Interrupt"]
     TIM1_UP_IRQn = 25,
-    ///< TIM1 Trigger and Commutation Interrupt
+    #[doc = "< TIM1 Trigger and Commutation Interrupt"]
     TIM1_TRG_COM_IRQn = 26,
-    ///< TIM1 Capture Compare Interrupt
+    #[doc = "< TIM1 Capture Compare Interrupt"]
     TIM1_CC_IRQn = 27,
-    ///< TIM2 global Interrupt
+    #[doc = "< TIM2 global Interrupt"]
     TIM2_IRQn = 28,
-    ///< TIM3 global Interrupt
+    #[doc = "< TIM3 global Interrupt"]
     TIM3_IRQn = 29,
-    ///< TIM4 global Interrupt
+    #[doc = "< TIM4 global Interrupt"]
     TIM4_IRQn = 30,
-    ///< I2C1 Event Interrupt
+    #[doc = "< I2C1 Event Interrupt"]
     I2C1_EV_IRQn = 31,
-    ///< I2C1 Error Interrupt
+    #[doc = "< I2C1 Error Interrupt"]
     I2C1_ER_IRQn = 32,
-    ///< I2C2 Event Interrupt
+    #[doc = "< I2C2 Event Interrupt"]
     I2C2_EV_IRQn = 33,
-    ///< I2C2 Error Interrupt
+    #[doc = "< I2C2 Error Interrupt"]
     I2C2_ER_IRQn = 34,
-    ///< SPI1 global Interrupt
+    #[doc = "< SPI1 global Interrupt"]
     SPI1_IRQn = 35,
-    ///< SPI2 global Interrupt
+    #[doc = "< SPI2 global Interrupt"]
     SPI2_IRQn = 36,
-    ///< USART1 global Interrupt
+    #[doc = "< USART1 global Interrupt"]
     USART1_IRQn = 37,
-    ///< USART2 global Interrupt
+    #[doc = "< USART2 global Interrupt"]
     USART2_IRQn = 38,
-    ///< USART3 global Interrupt
+    #[doc = "< USART3 global Interrupt"]
     USART3_IRQn = 39,
-    ///< External Line[15:10] Interrupts
+    #[doc = "< External Line[15:10] Interrupts"]
     EXTI15_10_IRQn = 40,
-    ///< RTC Alarm through EXTI Line Interrupt
+    #[doc = "< RTC Alarm through EXTI Line Interrupt"]
     RTCAlarm_IRQn = 41,
-    ///< USB Device WakeUp from suspend through EXTI Line Interrupt
+    #[doc = "< USB Device WakeUp from suspend through EXTI Line Interrupt"]
     USBWakeUp_IRQn = 42,
 }
-/// @brief STM32F10x Interrupt Number Definition, according to the selected device
-///        in @ref Library_configuration_section
+#[doc = " @brief STM32F10x Interrupt Number Definition, according to the selected device\n        in @ref Library_configuration_section"]
 pub use self::IRQn as IRQn_Type;
 pub type int_least64_t = i64;
 pub type uint_least64_t = u64;
@@ -373,31 +371,29 @@ pub type int_fast8_t = i8;
 pub type uint_fast8_t = u8;
 pub type intmax_t = ::core::ffi::c_longlong;
 pub type uintmax_t = ::core::ffi::c_ulonglong;
-/// @addtogroup CMSIS_CM3_NVIC CMSIS CM3 NVIC
-///memory mapped structure for Nested Vectored Interrupt Controller (NVIC)
-///@{
+#[doc = " @addtogroup CMSIS_CM3_NVIC CMSIS CM3 NVIC\nmemory mapped structure for Nested Vectored Interrupt Controller (NVIC)\n@{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NVIC_Type {
-    ///< Offset: 0x000  Interrupt Set Enable Register
+    #[doc = "< Offset: 0x000  Interrupt Set Enable Register"]
     pub ISER: [u32; 8usize],
     pub RESERVED0: [u32; 24usize],
-    ///< Offset: 0x080  Interrupt Clear Enable Register
+    #[doc = "< Offset: 0x080  Interrupt Clear Enable Register"]
     pub ICER: [u32; 8usize],
     pub RSERVED1: [u32; 24usize],
-    ///< Offset: 0x100  Interrupt Set Pending Register
+    #[doc = "< Offset: 0x100  Interrupt Set Pending Register"]
     pub ISPR: [u32; 8usize],
     pub RESERVED2: [u32; 24usize],
-    ///< Offset: 0x180  Interrupt Clear Pending Register
+    #[doc = "< Offset: 0x180  Interrupt Clear Pending Register"]
     pub ICPR: [u32; 8usize],
     pub RESERVED3: [u32; 24usize],
-    ///< Offset: 0x200  Interrupt Active bit Register
+    #[doc = "< Offset: 0x200  Interrupt Active bit Register"]
     pub IABR: [u32; 8usize],
     pub RESERVED4: [u32; 56usize],
-    ///< Offset: 0x300  Interrupt Priority Register (8Bit wide)
+    #[doc = "< Offset: 0x300  Interrupt Priority Register (8Bit wide)"]
     pub IP: [u8; 240usize],
     pub RESERVED5: [u32; 644usize],
-    ///< Offset: 0xE00  Software Trigger Interrupt Register
+    #[doc = "< Offset: 0xE00  Software Trigger Interrupt Register"]
     pub STIR: u32,
 }
 #[test]
@@ -545,49 +541,47 @@ fn bindgen_test_layout_NVIC_Type() {
         )
     );
 }
-/// @addtogroup CMSIS_CM3_SCB CMSIS CM3 SCB
-///memory mapped structure for System Control Block (SCB)
-///@{
+#[doc = " @addtogroup CMSIS_CM3_SCB CMSIS CM3 SCB\nmemory mapped structure for System Control Block (SCB)\n@{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SCB_Type {
-    ///< Offset: 0x00  CPU ID Base Register
+    #[doc = "< Offset: 0x00  CPU ID Base Register"]
     pub CPUID: u32,
-    ///< Offset: 0x04  Interrupt Control State Register
+    #[doc = "< Offset: 0x04  Interrupt Control State Register"]
     pub ICSR: u32,
-    ///< Offset: 0x08  Vector Table Offset Register
+    #[doc = "< Offset: 0x08  Vector Table Offset Register"]
     pub VTOR: u32,
-    ///< Offset: 0x0C  Application Interrupt / Reset Control Register
+    #[doc = "< Offset: 0x0C  Application Interrupt / Reset Control Register"]
     pub AIRCR: u32,
-    ///< Offset: 0x10  System Control Register
+    #[doc = "< Offset: 0x10  System Control Register"]
     pub SCR: u32,
-    ///< Offset: 0x14  Configuration Control Register
+    #[doc = "< Offset: 0x14  Configuration Control Register"]
     pub CCR: u32,
-    ///< Offset: 0x18  System Handlers Priority Registers (4-7, 8-11, 12-15)
+    #[doc = "< Offset: 0x18  System Handlers Priority Registers (4-7, 8-11, 12-15)"]
     pub SHP: [u8; 12usize],
-    ///< Offset: 0x24  System Handler Control and State Register
+    #[doc = "< Offset: 0x24  System Handler Control and State Register"]
     pub SHCSR: u32,
-    ///< Offset: 0x28  Configurable Fault Status Register
+    #[doc = "< Offset: 0x28  Configurable Fault Status Register"]
     pub CFSR: u32,
-    ///< Offset: 0x2C  Hard Fault Status Register
+    #[doc = "< Offset: 0x2C  Hard Fault Status Register"]
     pub HFSR: u32,
-    ///< Offset: 0x30  Debug Fault Status Register
+    #[doc = "< Offset: 0x30  Debug Fault Status Register"]
     pub DFSR: u32,
-    ///< Offset: 0x34  Mem Manage Address Register
+    #[doc = "< Offset: 0x34  Mem Manage Address Register"]
     pub MMFAR: u32,
-    ///< Offset: 0x38  Bus Fault Address Register
+    #[doc = "< Offset: 0x38  Bus Fault Address Register"]
     pub BFAR: u32,
-    ///< Offset: 0x3C  Auxiliary Fault Status Register
+    #[doc = "< Offset: 0x3C  Auxiliary Fault Status Register"]
     pub AFSR: u32,
-    ///< Offset: 0x40  Processor Feature Register
+    #[doc = "< Offset: 0x40  Processor Feature Register"]
     pub PFR: [u32; 2usize],
-    ///< Offset: 0x48  Debug Feature Register
+    #[doc = "< Offset: 0x48  Debug Feature Register"]
     pub DFR: u32,
-    ///< Offset: 0x4C  Auxiliary Feature Register
+    #[doc = "< Offset: 0x4C  Auxiliary Feature Register"]
     pub ADR: u32,
-    ///< Offset: 0x50  Memory Model Feature Register
+    #[doc = "< Offset: 0x50  Memory Model Feature Register"]
     pub MMFR: [u32; 4usize],
-    ///< Offset: 0x60  ISA Feature Register
+    #[doc = "< Offset: 0x60  ISA Feature Register"]
     pub ISAR: [u32; 5usize],
 }
 #[test]
@@ -795,19 +789,17 @@ fn bindgen_test_layout_SCB_Type() {
         )
     );
 }
-/// @addtogroup CMSIS_CM3_SysTick CMSIS CM3 SysTick
-///memory mapped structure for SysTick
-///@{
+#[doc = " @addtogroup CMSIS_CM3_SysTick CMSIS CM3 SysTick\nmemory mapped structure for SysTick\n@{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SysTick_Type {
-    ///< Offset: 0x00  SysTick Control and Status Register
+    #[doc = "< Offset: 0x00  SysTick Control and Status Register"]
     pub CTRL: u32,
-    ///< Offset: 0x04  SysTick Reload Value Register
+    #[doc = "< Offset: 0x04  SysTick Reload Value Register"]
     pub LOAD: u32,
-    ///< Offset: 0x08  SysTick Current Value Register
+    #[doc = "< Offset: 0x08  SysTick Current Value Register"]
     pub VAL: u32,
-    ///< Offset: 0x0C  SysTick Calibration Register
+    #[doc = "< Offset: 0x0C  SysTick Calibration Register"]
     pub CALIB: u32,
 }
 #[test]
@@ -865,69 +857,67 @@ fn bindgen_test_layout_SysTick_Type() {
         )
     );
 }
-/// @addtogroup CMSIS_CM3_ITM CMSIS CM3 ITM
-///memory mapped structure for Instrumentation Trace Macrocell (ITM)
-///@{
+#[doc = " @addtogroup CMSIS_CM3_ITM CMSIS CM3 ITM\nmemory mapped structure for Instrumentation Trace Macrocell (ITM)\n@{"]
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ITM_Type {
-    ///< Offset: 0x00  ITM Stimulus Port Registers
+    #[doc = "< Offset: 0x00  ITM Stimulus Port Registers"]
     pub PORT: [ITM_Type__bindgen_ty_1; 32usize],
     pub RESERVED0: [u32; 864usize],
-    ///< Offset:       ITM Trace Enable Register
+    #[doc = "< Offset:       ITM Trace Enable Register"]
     pub TER: u32,
     pub RESERVED1: [u32; 15usize],
-    ///< Offset:       ITM Trace Privilege Register
+    #[doc = "< Offset:       ITM Trace Privilege Register"]
     pub TPR: u32,
     pub RESERVED2: [u32; 15usize],
-    ///< Offset:       ITM Trace Control Register
+    #[doc = "< Offset:       ITM Trace Control Register"]
     pub TCR: u32,
     pub RESERVED3: [u32; 29usize],
-    ///< Offset:       ITM Integration Write Register
+    #[doc = "< Offset:       ITM Integration Write Register"]
     pub IWR: u32,
-    ///< Offset:       ITM Integration Read Register
+    #[doc = "< Offset:       ITM Integration Read Register"]
     pub IRR: u32,
-    ///< Offset:       ITM Integration Mode Control Register
+    #[doc = "< Offset:       ITM Integration Mode Control Register"]
     pub IMCR: u32,
     pub RESERVED4: [u32; 43usize],
-    ///< Offset:       ITM Lock Access Register
+    #[doc = "< Offset:       ITM Lock Access Register"]
     pub LAR: u32,
-    ///< Offset:       ITM Lock Status Register
+    #[doc = "< Offset:       ITM Lock Status Register"]
     pub LSR: u32,
     pub RESERVED5: [u32; 6usize],
-    ///< Offset:       ITM Peripheral Identification Register #4
+    #[doc = "< Offset:       ITM Peripheral Identification Register #4"]
     pub PID4: u32,
-    ///< Offset:       ITM Peripheral Identification Register #5
+    #[doc = "< Offset:       ITM Peripheral Identification Register #5"]
     pub PID5: u32,
-    ///< Offset:       ITM Peripheral Identification Register #6
+    #[doc = "< Offset:       ITM Peripheral Identification Register #6"]
     pub PID6: u32,
-    ///< Offset:       ITM Peripheral Identification Register #7
+    #[doc = "< Offset:       ITM Peripheral Identification Register #7"]
     pub PID7: u32,
-    ///< Offset:       ITM Peripheral Identification Register #0
+    #[doc = "< Offset:       ITM Peripheral Identification Register #0"]
     pub PID0: u32,
-    ///< Offset:       ITM Peripheral Identification Register #1
+    #[doc = "< Offset:       ITM Peripheral Identification Register #1"]
     pub PID1: u32,
-    ///< Offset:       ITM Peripheral Identification Register #2
+    #[doc = "< Offset:       ITM Peripheral Identification Register #2"]
     pub PID2: u32,
-    ///< Offset:       ITM Peripheral Identification Register #3
+    #[doc = "< Offset:       ITM Peripheral Identification Register #3"]
     pub PID3: u32,
-    ///< Offset:       ITM Component  Identification Register #0
+    #[doc = "< Offset:       ITM Component  Identification Register #0"]
     pub CID0: u32,
-    ///< Offset:       ITM Component  Identification Register #1
+    #[doc = "< Offset:       ITM Component  Identification Register #1"]
     pub CID1: u32,
-    ///< Offset:       ITM Component  Identification Register #2
+    #[doc = "< Offset:       ITM Component  Identification Register #2"]
     pub CID2: u32,
-    ///< Offset:       ITM Component  Identification Register #3
+    #[doc = "< Offset:       ITM Component  Identification Register #3"]
     pub CID3: u32,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union ITM_Type__bindgen_ty_1 {
-    ///< Offset:       ITM Stimulus Port 8-bit
+    #[doc = "< Offset:       ITM Stimulus Port 8-bit"]
     pub u8_: u8,
-    ///< Offset:       ITM Stimulus Port 16-bit
+    #[doc = "< Offset:       ITM Stimulus Port 16-bit"]
     pub u16_: u16,
-    ///< Offset:       ITM Stimulus Port 32-bit
+    #[doc = "< Offset:       ITM Stimulus Port 32-bit"]
     pub u32_: u32,
 }
 #[test]
@@ -1261,14 +1251,12 @@ fn bindgen_test_layout_ITM_Type() {
         )
     );
 }
-/// @addtogroup CMSIS_CM3_InterruptType CMSIS CM3 Interrupt Type
-///memory mapped structure for Interrupt Type
-///@{
+#[doc = " @addtogroup CMSIS_CM3_InterruptType CMSIS CM3 Interrupt Type\nmemory mapped structure for Interrupt Type\n@{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct InterruptType_Type {
     pub RESERVED0: u32,
-    ///< Offset: 0x04  Interrupt Control Type Register
+    #[doc = "< Offset: 0x04  Interrupt Control Type Register"]
     pub ICTR: u32,
     pub RESERVED1: u32,
 }
@@ -1317,19 +1305,17 @@ fn bindgen_test_layout_InterruptType_Type() {
         )
     );
 }
-/// @addtogroup CMSIS_CM3_CoreDebug CMSIS CM3 Core Debug
-///memory mapped structure for Core Debug Register
-///@{
+#[doc = " @addtogroup CMSIS_CM3_CoreDebug CMSIS CM3 Core Debug\nmemory mapped structure for Core Debug Register\n@{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CoreDebug_Type {
-    ///< Offset: 0x00  Debug Halting Control and Status Register
+    #[doc = "< Offset: 0x00  Debug Halting Control and Status Register"]
     pub DHCSR: u32,
-    ///< Offset: 0x04  Debug Core Register Selector Register
+    #[doc = "< Offset: 0x04  Debug Core Register Selector Register"]
     pub DCRSR: u32,
-    ///< Offset: 0x08  Debug Core Register Data Register
+    #[doc = "< Offset: 0x08  Debug Core Register Data Register"]
     pub DCRDR: u32,
-    ///< Offset: 0x0C  Debug Exception and Monitor Control Register
+    #[doc = "< Offset: 0x0C  Debug Exception and Monitor Control Register"]
     pub DEMCR: u32,
 }
 #[test]
@@ -1388,208 +1374,103 @@ fn bindgen_test_layout_CoreDebug_Type() {
     );
 }
 extern "C" {
-    /// @brief  Return the Process Stack Pointer
-    ///
-    /// @return ProcessStackPointer
-    ///
-    /// Return the actual process stack pointer
+    #[doc = " @brief  Return the Process Stack Pointer\n\n @return ProcessStackPointer\n\n Return the actual process stack pointer"]
     pub fn __get_PSP() -> u32;
 }
 extern "C" {
-    /// @brief  Set the Process Stack Pointer
-    ///
-    /// @param  topOfProcStack  Process Stack Pointer
-    ///
-    /// Assign the value ProcessStackPointer to the MSP
-    /// (process stack pointer) Cortex processor register
+    #[doc = " @brief  Set the Process Stack Pointer\n\n @param  topOfProcStack  Process Stack Pointer\n\n Assign the value ProcessStackPointer to the MSP\n (process stack pointer) Cortex processor register"]
     pub fn __set_PSP(topOfProcStack: u32);
 }
 extern "C" {
-    /// @brief  Return the Main Stack Pointer
-    ///
-    /// @return Main Stack Pointer
-    ///
-    /// Return the current value of the MSP (main stack pointer)
-    /// Cortex processor register
+    #[doc = " @brief  Return the Main Stack Pointer\n\n @return Main Stack Pointer\n\n Return the current value of the MSP (main stack pointer)\n Cortex processor register"]
     pub fn __get_MSP() -> u32;
 }
 extern "C" {
-    /// @brief  Set the Main Stack Pointer
-    ///
-    /// @param  topOfMainStack  Main Stack Pointer
-    ///
-    /// Assign the value mainStackPointer to the MSP
-    /// (main stack pointer) Cortex processor register
+    #[doc = " @brief  Set the Main Stack Pointer\n\n @param  topOfMainStack  Main Stack Pointer\n\n Assign the value mainStackPointer to the MSP\n (main stack pointer) Cortex processor register"]
     pub fn __set_MSP(topOfMainStack: u32);
 }
 extern "C" {
-    /// @brief  Return the Base Priority value
-    ///
-    /// @return BasePriority
-    ///
-    /// Return the content of the base priority register
+    #[doc = " @brief  Return the Base Priority value\n\n @return BasePriority\n\n Return the content of the base priority register"]
     pub fn __get_BASEPRI() -> u32;
 }
 extern "C" {
-    /// @brief  Set the Base Priority value
-    ///
-    /// @param  basePri  BasePriority
-    ///
-    /// Set the base priority register
+    #[doc = " @brief  Set the Base Priority value\n\n @param  basePri  BasePriority\n\n Set the base priority register"]
     pub fn __set_BASEPRI(basePri: u32);
 }
 extern "C" {
-    /// @brief  Return the Priority Mask value
-    ///
-    /// @return PriMask
-    ///
-    /// Return state of the priority mask bit from the priority mask register
+    #[doc = " @brief  Return the Priority Mask value\n\n @return PriMask\n\n Return state of the priority mask bit from the priority mask register"]
     pub fn __get_PRIMASK() -> u32;
 }
 extern "C" {
-    /// @brief  Set the Priority Mask value
-    ///
-    /// @param  priMask  PriMask
-    ///
-    /// Set the priority mask bit in the priority mask register
+    #[doc = " @brief  Set the Priority Mask value\n\n @param  priMask  PriMask\n\n Set the priority mask bit in the priority mask register"]
     pub fn __set_PRIMASK(priMask: u32);
 }
 extern "C" {
-    /// @brief  Return the Fault Mask value
-    ///
-    /// @return FaultMask
-    ///
-    /// Return the content of the fault mask register
+    #[doc = " @brief  Return the Fault Mask value\n\n @return FaultMask\n\n Return the content of the fault mask register"]
     pub fn __get_FAULTMASK() -> u32;
 }
 extern "C" {
-    /// @brief  Set the Fault Mask value
-    ///
-    /// @param  faultMask  faultMask value
-    ///
-    /// Set the fault mask register
+    #[doc = " @brief  Set the Fault Mask value\n\n @param  faultMask  faultMask value\n\n Set the fault mask register"]
     pub fn __set_FAULTMASK(faultMask: u32);
 }
 extern "C" {
-    /// @brief  Return the Control Register value
-    ///
-    ///  @return Control value
-    ///
-    /// Return the content of the control register
+    #[doc = " @brief  Return the Control Register value\n\n  @return Control value\n\n Return the content of the control register"]
     pub fn __get_CONTROL() -> u32;
 }
 extern "C" {
-    /// @brief  Set the Control Register value
-    ///
-    /// @param  control  Control value
-    ///
-    /// Set the control register
+    #[doc = " @brief  Set the Control Register value\n\n @param  control  Control value\n\n Set the control register"]
     pub fn __set_CONTROL(control: u32);
 }
 extern "C" {
-    /// @brief  Reverse byte order in integer value
-    ///
-    /// @param  value  value to reverse
-    /// @return        reversed value
-    ///
-    /// Reverse byte order in integer value
+    #[doc = " @brief  Reverse byte order in integer value\n\n @param  value  value to reverse\n @return        reversed value\n\n Reverse byte order in integer value"]
     pub fn __REV(value: u32) -> u32;
 }
 extern "C" {
-    /// @brief  Reverse byte order in unsigned short value
-    ///
-    /// @param  value  value to reverse
-    /// @return        reversed value
-    ///
-    /// Reverse byte order in unsigned short value
+    #[doc = " @brief  Reverse byte order in unsigned short value\n\n @param  value  value to reverse\n @return        reversed value\n\n Reverse byte order in unsigned short value"]
     pub fn __REV16(value: u16) -> u32;
 }
 extern "C" {
-    /// @brief  Reverse byte order in signed short value with sign extension to integer
-    ///
-    /// @param  value  value to reverse
-    /// @return        reversed value
-    ///
-    /// Reverse byte order in signed short value with sign extension to integer
+    #[doc = " @brief  Reverse byte order in signed short value with sign extension to integer\n\n @param  value  value to reverse\n @return        reversed value\n\n Reverse byte order in signed short value with sign extension to integer"]
     pub fn __REVSH(value: i16) -> i32;
 }
 extern "C" {
-    /// @brief  Reverse bit order of value
-    ///
-    /// @param  value  value to reverse
-    /// @return        reversed value
-    ///
-    /// Reverse bit order of value
+    #[doc = " @brief  Reverse bit order of value\n\n @param  value  value to reverse\n @return        reversed value\n\n Reverse bit order of value"]
     pub fn __RBIT(value: u32) -> u32;
 }
 extern "C" {
-    /// @brief  LDR Exclusive (8 bit)
-    ///
-    /// @param  *addr  address pointer
-    /// @return        value of (*address)
-    ///
-    /// Exclusive LDR command for 8 bit value
+    #[doc = " @brief  LDR Exclusive (8 bit)\n\n @param  *addr  address pointer\n @return        value of (*address)\n\n Exclusive LDR command for 8 bit value"]
     pub fn __LDREXB(addr: *mut u8) -> u8;
 }
 extern "C" {
-    /// @brief  LDR Exclusive (16 bit)
-    ///
-    /// @param  *addr  address pointer
-    /// @return        value of (*address)
-    ///
-    /// Exclusive LDR command for 16 bit values
+    #[doc = " @brief  LDR Exclusive (16 bit)\n\n @param  *addr  address pointer\n @return        value of (*address)\n\n Exclusive LDR command for 16 bit values"]
     pub fn __LDREXH(addr: *mut u16) -> u16;
 }
 extern "C" {
-    /// @brief  LDR Exclusive (32 bit)
-    ///
-    /// @param  *addr  address pointer
-    /// @return        value of (*address)
-    ///
-    /// Exclusive LDR command for 32 bit values
+    #[doc = " @brief  LDR Exclusive (32 bit)\n\n @param  *addr  address pointer\n @return        value of (*address)\n\n Exclusive LDR command for 32 bit values"]
     pub fn __LDREXW(addr: *mut u32) -> u32;
 }
 extern "C" {
-    /// @brief  STR Exclusive (8 bit)
-    ///
-    /// @param  value  value to store
-    /// @param  *addr  address pointer
-    /// @return        successful / failed
-    ///
-    /// Exclusive STR command for 8 bit values
+    #[doc = " @brief  STR Exclusive (8 bit)\n\n @param  value  value to store\n @param  *addr  address pointer\n @return        successful / failed\n\n Exclusive STR command for 8 bit values"]
     pub fn __STREXB(value: u8, addr: *mut u8) -> u32;
 }
 extern "C" {
-    /// @brief  STR Exclusive (16 bit)
-    ///
-    /// @param  value  value to store
-    /// @param  *addr  address pointer
-    /// @return        successful / failed
-    ///
-    /// Exclusive STR command for 16 bit values
+    #[doc = " @brief  STR Exclusive (16 bit)\n\n @param  value  value to store\n @param  *addr  address pointer\n @return        successful / failed\n\n Exclusive STR command for 16 bit values"]
     pub fn __STREXH(value: u16, addr: *mut u16) -> u32;
 }
 extern "C" {
-    /// @brief  STR Exclusive (32 bit)
-    ///
-    /// @param  value  value to store
-    /// @param  *addr  address pointer
-    /// @return        successful / failed
-    ///
-    /// Exclusive STR command for 32 bit values
+    #[doc = " @brief  STR Exclusive (32 bit)\n\n @param  value  value to store\n @param  *addr  address pointer\n @return        successful / failed\n\n Exclusive STR command for 32 bit values"]
     pub fn __STREXW(value: u32, addr: *mut u32) -> u32;
 }
 extern "C" {
-    ///< variable to receive characters
+    #[doc = "< variable to receive characters"]
     pub static mut ITM_RxBuffer: ::core::ffi::c_int;
 }
 extern "C" {
-    ///< System Clock Frequency (Core Clock)
+    #[doc = "< System Clock Frequency (Core Clock)"]
     pub static mut SystemCoreClock: u32;
 }
 extern "C" {
-    /// @addtogroup STM32F10x_System_Exported_Functions
-    /// @{
+    #[doc = " @addtogroup STM32F10x_System_Exported_Functions\n @{"]
     pub fn SystemInit();
 }
 extern "C" {
@@ -1669,7 +1550,7 @@ pub enum ErrorStatus {
     ERROR = 0,
     SUCCESS = 1,
 }
-/// @brief Analog to Digital Converter
+#[doc = " @brief Analog to Digital Converter"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ADC_TypeDef {
@@ -1909,7 +1790,7 @@ fn bindgen_test_layout_ADC_TypeDef() {
         )
     );
 }
-/// @brief Backup Registers
+#[doc = " @brief Backup Registers"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct BKP_TypeDef {
@@ -2930,7 +2811,7 @@ fn bindgen_test_layout_BKP_TypeDef() {
         )
     );
 }
-/// @brief Controller Area Network TxMailBox
+#[doc = " @brief Controller Area Network TxMailBox"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CAN_TxMailBox_TypeDef {
@@ -2995,7 +2876,7 @@ fn bindgen_test_layout_CAN_TxMailBox_TypeDef() {
         )
     );
 }
-/// @brief Controller Area Network FIFOMailBox
+#[doc = " @brief Controller Area Network FIFOMailBox"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CAN_FIFOMailBox_TypeDef {
@@ -3060,7 +2941,7 @@ fn bindgen_test_layout_CAN_FIFOMailBox_TypeDef() {
         )
     );
 }
-/// @brief Controller Area Network FilterRegister
+#[doc = " @brief Controller Area Network FilterRegister"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CAN_FilterRegister_TypeDef {
@@ -3103,7 +2984,7 @@ fn bindgen_test_layout_CAN_FilterRegister_TypeDef() {
         )
     );
 }
-/// @brief Controller Area Network
+#[doc = " @brief Controller Area Network"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CAN_TypeDef {
@@ -3365,7 +3246,7 @@ fn bindgen_test_layout_CAN_TypeDef() {
         )
     );
 }
-/// @brief Consumer Electronics Control (CEC)
+#[doc = " @brief Consumer Electronics Control (CEC)"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CEC_TypeDef {
@@ -3462,7 +3343,7 @@ fn bindgen_test_layout_CEC_TypeDef() {
         )
     );
 }
-/// @brief CRC calculation unit
+#[doc = " @brief CRC calculation unit"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CRC_TypeDef {
@@ -3537,7 +3418,7 @@ fn bindgen_test_layout_CRC_TypeDef() {
         )
     );
 }
-/// @brief Digital to Analog Converter
+#[doc = " @brief Digital to Analog Converter"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DAC_TypeDef {
@@ -3700,7 +3581,7 @@ fn bindgen_test_layout_DAC_TypeDef() {
         )
     );
 }
-/// @brief Debug MCU
+#[doc = " @brief Debug MCU"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DBGMCU_TypeDef {
@@ -3742,7 +3623,7 @@ fn bindgen_test_layout_DBGMCU_TypeDef() {
         )
     );
 }
-/// @brief DMA Controller
+#[doc = " @brief DMA Controller"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DMA_Channel_TypeDef {
@@ -3848,7 +3729,7 @@ fn bindgen_test_layout_DMA_TypeDef() {
         )
     );
 }
-/// @brief Ethernet MAC
+#[doc = " @brief Ethernet MAC"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ETH_TypeDef {
@@ -4561,7 +4442,7 @@ fn bindgen_test_layout_ETH_TypeDef() {
         )
     );
 }
-/// @brief External Interrupt/Event Controller
+#[doc = " @brief External Interrupt/Event Controller"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct EXTI_TypeDef {
@@ -4647,7 +4528,7 @@ fn bindgen_test_layout_EXTI_TypeDef() {
         )
     );
 }
-/// @brief FLASH Registers
+#[doc = " @brief FLASH Registers"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FLASH_TypeDef {
@@ -4766,7 +4647,7 @@ fn bindgen_test_layout_FLASH_TypeDef() {
         )
     );
 }
-/// @brief Option Bytes Registers
+#[doc = " @brief Option Bytes Registers"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct OB_TypeDef {
@@ -4874,7 +4755,7 @@ fn bindgen_test_layout_OB_TypeDef() {
         )
     );
 }
-/// @brief Flexible Static Memory Controller
+#[doc = " @brief Flexible Static Memory Controller"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_Bank1_TypeDef {
@@ -4905,7 +4786,7 @@ fn bindgen_test_layout_FSMC_Bank1_TypeDef() {
         )
     );
 }
-/// @brief Flexible Static Memory Controller Bank1E
+#[doc = " @brief Flexible Static Memory Controller Bank1E"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_Bank1E_TypeDef {
@@ -4937,7 +4818,7 @@ fn bindgen_test_layout_FSMC_Bank1E_TypeDef() {
         )
     );
 }
-/// @brief Flexible Static Memory Controller Bank2
+#[doc = " @brief Flexible Static Memory Controller Bank2"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_Bank2_TypeDef {
@@ -5023,7 +4904,7 @@ fn bindgen_test_layout_FSMC_Bank2_TypeDef() {
         )
     );
 }
-/// @brief Flexible Static Memory Controller Bank3
+#[doc = " @brief Flexible Static Memory Controller Bank3"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_Bank3_TypeDef {
@@ -5109,7 +4990,7 @@ fn bindgen_test_layout_FSMC_Bank3_TypeDef() {
         )
     );
 }
-/// @brief Flexible Static Memory Controller Bank4
+#[doc = " @brief Flexible Static Memory Controller Bank4"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_Bank4_TypeDef {
@@ -5184,7 +5065,7 @@ fn bindgen_test_layout_FSMC_Bank4_TypeDef() {
         )
     );
 }
-/// @brief General Purpose I/O
+#[doc = " @brief General Purpose I/O"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct GPIO_TypeDef {
@@ -5281,7 +5162,7 @@ fn bindgen_test_layout_GPIO_TypeDef() {
         )
     );
 }
-/// @brief Alternate Function I/O
+#[doc = " @brief Alternate Function I/O"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct AFIO_TypeDef {
@@ -5356,7 +5237,7 @@ fn bindgen_test_layout_AFIO_TypeDef() {
         )
     );
 }
-/// @brief Inter Integrated Circuit Interface
+#[doc = " @brief Inter Integrated Circuit Interface"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct I2C_TypeDef {
@@ -5574,7 +5455,7 @@ fn bindgen_test_layout_I2C_TypeDef() {
         )
     );
 }
-/// @brief Independent WATCHDOG
+#[doc = " @brief Independent WATCHDOG"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct IWDG_TypeDef {
@@ -5638,7 +5519,7 @@ fn bindgen_test_layout_IWDG_TypeDef() {
         )
     );
 }
-/// @brief Power Control
+#[doc = " @brief Power Control"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct PWR_TypeDef {
@@ -5680,7 +5561,7 @@ fn bindgen_test_layout_PWR_TypeDef() {
         )
     );
 }
-/// @brief Reset and Clock Control
+#[doc = " @brief Reset and Clock Control"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct RCC_TypeDef {
@@ -5810,7 +5691,7 @@ fn bindgen_test_layout_RCC_TypeDef() {
         )
     );
 }
-/// @brief Real-Time Clock
+#[doc = " @brief Real-Time Clock"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct RTC_TypeDef {
@@ -6050,7 +5931,7 @@ fn bindgen_test_layout_RTC_TypeDef() {
         )
     );
 }
-/// @brief SD host Interface
+#[doc = " @brief SD host Interface"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SDIO_TypeDef {
@@ -6290,7 +6171,7 @@ fn bindgen_test_layout_SDIO_TypeDef() {
         )
     );
 }
-/// @brief Serial Peripheral Interface
+#[doc = " @brief Serial Peripheral Interface"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SPI_TypeDef {
@@ -6508,7 +6389,7 @@ fn bindgen_test_layout_SPI_TypeDef() {
         )
     );
 }
-/// @brief TIM
+#[doc = " @brief TIM"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TIM_TypeDef {
@@ -6968,7 +6849,7 @@ fn bindgen_test_layout_TIM_TypeDef() {
         )
     );
 }
-/// @brief Universal Synchronous Asynchronous Receiver Transmitter
+#[doc = " @brief Universal Synchronous Asynchronous Receiver Transmitter"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct USART_TypeDef {
@@ -7142,7 +7023,7 @@ fn bindgen_test_layout_USART_TypeDef() {
         )
     );
 }
-/// @brief Window WATCHDOG
+#[doc = " @brief Window WATCHDOG"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WWDG_TypeDef {
@@ -7195,32 +7076,21 @@ fn bindgen_test_layout_WWDG_TypeDef() {
         )
     );
 }
-/// @brief  ADC Init structure definition
+#[doc = " @brief  ADC Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ADC_InitTypeDef {
-    ///< Configures the ADC to operate in independent or
-    ///dual mode.
-    ///This parameter can be a value of @ref ADC_mode
+    #[doc = "< Configures the ADC to operate in independent or\ndual mode.\nThis parameter can be a value of @ref ADC_mode"]
     pub ADC_Mode: u32,
-    ///< Specifies whether the conversion is performed in
-    ///Scan (multichannels) or Single (one channel) mode.
-    ///This parameter can be set to ENABLE or DISABLE
+    #[doc = "< Specifies whether the conversion is performed in\nScan (multichannels) or Single (one channel) mode.\nThis parameter can be set to ENABLE or DISABLE"]
     pub ADC_ScanConvMode: FunctionalState,
-    ///< Specifies whether the conversion is performed in
-    ///Continuous or Single mode.
-    ///This parameter can be set to ENABLE or DISABLE.
+    #[doc = "< Specifies whether the conversion is performed in\nContinuous or Single mode.\nThis parameter can be set to ENABLE or DISABLE."]
     pub ADC_ContinuousConvMode: FunctionalState,
-    ///< Defines the external trigger used to start the analog
-    ///to digital conversion of regular channels. This parameter
-    ///can be a value of @ref ADC_external_trigger_sources_for_regular_channels_conversion
+    #[doc = "< Defines the external trigger used to start the analog\nto digital conversion of regular channels. This parameter\ncan be a value of @ref ADC_external_trigger_sources_for_regular_channels_conversion"]
     pub ADC_ExternalTrigConv: u32,
-    ///< Specifies whether the ADC data alignment is left or right.
-    ///This parameter can be a value of @ref ADC_data_align
+    #[doc = "< Specifies whether the ADC data alignment is left or right.\nThis parameter can be a value of @ref ADC_data_align"]
     pub ADC_DataAlign: u32,
-    ///< Specifies the number of ADC channels that will be converted
-    ///using the sequencer for regular channel group.
-    ///This parameter must range from 1 to 16.
+    #[doc = "< Specifies the number of ADC channels that will be converted\nusing the sequencer for regular channel group.\nThis parameter must range from 1 to 16."]
     pub ADC_NbrOfChannel: u8,
 }
 #[test]
@@ -7299,8 +7169,7 @@ fn bindgen_test_layout_ADC_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup ADC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup ADC_Exported_Functions\n @{"]
     pub fn ADC_DeInit(ADCx: *mut ADC_TypeDef);
 }
 extern "C" {
@@ -7426,8 +7295,7 @@ extern "C" {
     pub fn ADC_ClearITPendingBit(ADCx: *mut ADC_TypeDef, ADC_IT: u16);
 }
 extern "C" {
-    /// @defgroup BKP_Exported_Functions
-    /// @{
+    #[doc = " @defgroup BKP_Exported_Functions\n @{"]
     pub fn BKP_DeInit();
 }
 extern "C" {
@@ -7463,55 +7331,31 @@ extern "C" {
 extern "C" {
     pub fn BKP_ClearITPendingBit();
 }
-/// @brief  CAN init structure definition
+#[doc = " @brief  CAN init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CAN_InitTypeDef {
-    ///< Specifies the length of a time quantum.
-    ///It ranges from 1 to 1024.
+    #[doc = "< Specifies the length of a time quantum.\nIt ranges from 1 to 1024."]
     pub CAN_Prescaler: u16,
-    ///< Specifies the CAN operating mode.
-    ///This parameter can be a value of
-    ///@ref CAN_operating_mode
+    #[doc = "< Specifies the CAN operating mode.\nThis parameter can be a value of\n@ref CAN_operating_mode"]
     pub CAN_Mode: u8,
-    ///< Specifies the maximum number of time quanta
-    ///the CAN hardware is allowed to lengthen or
-    ///shorten a bit to perform resynchronization.
-    ///This parameter can be a value of
-    ///@ref CAN_synchronisation_jump_width
+    #[doc = "< Specifies the maximum number of time quanta\nthe CAN hardware is allowed to lengthen or\nshorten a bit to perform resynchronization.\nThis parameter can be a value of\n@ref CAN_synchronisation_jump_width"]
     pub CAN_SJW: u8,
-    ///< Specifies the number of time quanta in Bit
-    ///Segment 1. This parameter can be a value of
-    ///@ref CAN_time_quantum_in_bit_segment_1
+    #[doc = "< Specifies the number of time quanta in Bit\nSegment 1. This parameter can be a value of\n@ref CAN_time_quantum_in_bit_segment_1"]
     pub CAN_BS1: u8,
-    ///< Specifies the number of time quanta in Bit
-    ///Segment 2.
-    ///This parameter can be a value of
-    ///@ref CAN_time_quantum_in_bit_segment_2
+    #[doc = "< Specifies the number of time quanta in Bit\nSegment 2.\nThis parameter can be a value of\n@ref CAN_time_quantum_in_bit_segment_2"]
     pub CAN_BS2: u8,
-    ///< Enable or disable the time triggered
-    ///communication mode. This parameter can be set
-    ///either to ENABLE or DISABLE.
+    #[doc = "< Enable or disable the time triggered\ncommunication mode. This parameter can be set\neither to ENABLE or DISABLE."]
     pub CAN_TTCM: FunctionalState,
-    ///< Enable or disable the automatic bus-off
-    ///management. This parameter can be set either
-    ///to ENABLE or DISABLE.
+    #[doc = "< Enable or disable the automatic bus-off\nmanagement. This parameter can be set either\nto ENABLE or DISABLE."]
     pub CAN_ABOM: FunctionalState,
-    ///< Enable or disable the automatic wake-up mode.
-    ///This parameter can be set either to ENABLE or
-    ///DISABLE.
+    #[doc = "< Enable or disable the automatic wake-up mode.\nThis parameter can be set either to ENABLE or\nDISABLE."]
     pub CAN_AWUM: FunctionalState,
-    ///< Enable or disable the no-automatic
-    ///retransmission mode. This parameter can be
-    ///set either to ENABLE or DISABLE.
+    #[doc = "< Enable or disable the no-automatic\nretransmission mode. This parameter can be\nset either to ENABLE or DISABLE."]
     pub CAN_NART: FunctionalState,
-    ///< Enable or disable the Receive FIFO Locked mode.
-    ///This parameter can be set either to ENABLE
-    ///or DISABLE.
+    #[doc = "< Enable or disable the Receive FIFO Locked mode.\nThis parameter can be set either to ENABLE\nor DISABLE."]
     pub CAN_RFLM: FunctionalState,
-    ///< Enable or disable the transmit FIFO priority.
-    ///This parameter can be set either to ENABLE
-    ///or DISABLE.
+    #[doc = "< Enable or disable the transmit FIFO priority.\nThis parameter can be set either to ENABLE\nor DISABLE."]
     pub CAN_TXFP: FunctionalState,
 }
 #[test]
@@ -7639,41 +7483,27 @@ fn bindgen_test_layout_CAN_InitTypeDef() {
         )
     );
 }
-/// @brief  CAN filter init structure definition
+#[doc = " @brief  CAN filter init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CAN_FilterInitTypeDef {
-    ///< Specifies the filter identification number (MSBs for a 32-bit
-    ///configuration, first one for a 16-bit configuration).
-    ///This parameter can be a value between 0x0000 and 0xFFFF
+    #[doc = "< Specifies the filter identification number (MSBs for a 32-bit\nconfiguration, first one for a 16-bit configuration).\nThis parameter can be a value between 0x0000 and 0xFFFF"]
     pub CAN_FilterIdHigh: u16,
-    ///< Specifies the filter identification number (LSBs for a 32-bit
-    ///configuration, second one for a 16-bit configuration).
-    ///This parameter can be a value between 0x0000 and 0xFFFF
+    #[doc = "< Specifies the filter identification number (LSBs for a 32-bit\nconfiguration, second one for a 16-bit configuration).\nThis parameter can be a value between 0x0000 and 0xFFFF"]
     pub CAN_FilterIdLow: u16,
-    ///< Specifies the filter mask number or identification number,
-    ///according to the mode (MSBs for a 32-bit configuration,
-    ///first one for a 16-bit configuration).
-    ///This parameter can be a value between 0x0000 and 0xFFFF
+    #[doc = "< Specifies the filter mask number or identification number,\naccording to the mode (MSBs for a 32-bit configuration,\nfirst one for a 16-bit configuration).\nThis parameter can be a value between 0x0000 and 0xFFFF"]
     pub CAN_FilterMaskIdHigh: u16,
-    ///< Specifies the filter mask number or identification number,
-    ///according to the mode (LSBs for a 32-bit configuration,
-    ///second one for a 16-bit configuration).
-    ///This parameter can be a value between 0x0000 and 0xFFFF
+    #[doc = "< Specifies the filter mask number or identification number,\naccording to the mode (LSBs for a 32-bit configuration,\nsecond one for a 16-bit configuration).\nThis parameter can be a value between 0x0000 and 0xFFFF"]
     pub CAN_FilterMaskIdLow: u16,
-    ///< Specifies the FIFO (0 or 1) which will be assigned to the filter.
-    ///This parameter can be a value of @ref CAN_filter_FIFO
+    #[doc = "< Specifies the FIFO (0 or 1) which will be assigned to the filter.\nThis parameter can be a value of @ref CAN_filter_FIFO"]
     pub CAN_FilterFIFOAssignment: u16,
-    ///< Specifies the filter which will be initialized. It ranges from 0 to 13.
+    #[doc = "< Specifies the filter which will be initialized. It ranges from 0 to 13."]
     pub CAN_FilterNumber: u8,
-    ///< Specifies the filter mode to be initialized.
-    ///This parameter can be a value of @ref CAN_filter_mode
+    #[doc = "< Specifies the filter mode to be initialized.\nThis parameter can be a value of @ref CAN_filter_mode"]
     pub CAN_FilterMode: u8,
-    ///< Specifies the filter scale.
-    ///This parameter can be a value of @ref CAN_filter_scale
+    #[doc = "< Specifies the filter scale.\nThis parameter can be a value of @ref CAN_filter_scale"]
     pub CAN_FilterScale: u8,
-    ///< Enable or disable the filter.
-    ///This parameter can be set either to ENABLE or DISABLE.
+    #[doc = "< Enable or disable the filter.\nThis parameter can be set either to ENABLE or DISABLE."]
     pub CAN_FilterActivation: FunctionalState,
 }
 #[test]
@@ -7782,30 +7612,21 @@ fn bindgen_test_layout_CAN_FilterInitTypeDef() {
         )
     );
 }
-/// @brief  CAN Tx message structure definition
+#[doc = " @brief  CAN Tx message structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CanTxMsg {
-    ///< Specifies the standard identifier.
-    ///This parameter can be a value between 0 to 0x7FF.
+    #[doc = "< Specifies the standard identifier.\nThis parameter can be a value between 0 to 0x7FF."]
     pub StdId: u32,
-    ///< Specifies the extended identifier.
-    ///This parameter can be a value between 0 to 0x1FFFFFFF.
+    #[doc = "< Specifies the extended identifier.\nThis parameter can be a value between 0 to 0x1FFFFFFF."]
     pub ExtId: u32,
-    ///< Specifies the type of identifier for the message that
-    ///will be transmitted. This parameter can be a value
-    ///of @ref CAN_identifier_type
+    #[doc = "< Specifies the type of identifier for the message that\nwill be transmitted. This parameter can be a value\nof @ref CAN_identifier_type"]
     pub IDE: u8,
-    ///< Specifies the type of frame for the message that will
-    ///be transmitted. This parameter can be a value of
-    ///@ref CAN_remote_transmission_request
+    #[doc = "< Specifies the type of frame for the message that will\nbe transmitted. This parameter can be a value of\n@ref CAN_remote_transmission_request"]
     pub RTR: u8,
-    ///< Specifies the length of the frame that will be
-    ///transmitted. This parameter can be a value between
-    ///0 to 8
+    #[doc = "< Specifies the length of the frame that will be\ntransmitted. This parameter can be a value between\n0 to 8"]
     pub DLC: u8,
-    ///< Contains the data to be transmitted. It ranges from 0
-    ///to 0xFF.
+    #[doc = "< Contains the data to be transmitted. It ranges from 0\nto 0xFF."]
     pub Data: [u8; 8usize],
 }
 #[test]
@@ -7883,33 +7704,23 @@ fn bindgen_test_layout_CanTxMsg() {
         )
     );
 }
-/// @brief  CAN Rx message structure definition
+#[doc = " @brief  CAN Rx message structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CanRxMsg {
-    ///< Specifies the standard identifier.
-    ///This parameter can be a value between 0 to 0x7FF.
+    #[doc = "< Specifies the standard identifier.\nThis parameter can be a value between 0 to 0x7FF."]
     pub StdId: u32,
-    ///< Specifies the extended identifier.
-    ///This parameter can be a value between 0 to 0x1FFFFFFF.
+    #[doc = "< Specifies the extended identifier.\nThis parameter can be a value between 0 to 0x1FFFFFFF."]
     pub ExtId: u32,
-    ///< Specifies the type of identifier for the message that
-    ///will be received. This parameter can be a value of
-    ///@ref CAN_identifier_type
+    #[doc = "< Specifies the type of identifier for the message that\nwill be received. This parameter can be a value of\n@ref CAN_identifier_type"]
     pub IDE: u8,
-    ///< Specifies the type of frame for the received message.
-    ///This parameter can be a value of
-    ///@ref CAN_remote_transmission_request
+    #[doc = "< Specifies the type of frame for the received message.\nThis parameter can be a value of\n@ref CAN_remote_transmission_request"]
     pub RTR: u8,
-    ///< Specifies the length of the frame that will be received.
-    ///This parameter can be a value between 0 to 8
+    #[doc = "< Specifies the length of the frame that will be received.\nThis parameter can be a value between 0 to 8"]
     pub DLC: u8,
-    ///< Contains the data to be received. It ranges from 0 to
-    ///0xFF.
+    #[doc = "< Contains the data to be received. It ranges from 0 to\n0xFF."]
     pub Data: [u8; 8usize],
-    ///< Specifies the index of the filter the message stored in
-    ///the mailbox passes through. This parameter can be a
-    ///value between 0 to 0xFF
+    #[doc = "< Specifies the index of the filter the message stored in\nthe mailbox passes through. This parameter can be a\nvalue between 0 to 0xFF"]
     pub FMI: u8,
 }
 #[test]
@@ -7998,8 +7809,7 @@ fn bindgen_test_layout_CanRxMsg() {
     );
 }
 extern "C" {
-    /// @defgroup CAN_Exported_Functions
-    /// @{
+    #[doc = " @defgroup CAN_Exported_Functions\n @{"]
     pub fn CAN_DeInit(CANx: *mut CAN_TypeDef);
 }
 extern "C" {
@@ -8071,15 +7881,13 @@ extern "C" {
 extern "C" {
     pub fn CAN_ClearITPendingBit(CANx: *mut CAN_TypeDef, CAN_IT: u32);
 }
-/// @brief  CEC Init structure definition
+#[doc = " @brief  CEC Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct CEC_InitTypeDef {
-    ///< Configures the CEC Bit Timing Error Mode.
-    ///This parameter can be a value of @ref CEC_BitTiming_Mode
+    #[doc = "< Configures the CEC Bit Timing Error Mode.\nThis parameter can be a value of @ref CEC_BitTiming_Mode"]
     pub CEC_BitTimingMode: u16,
-    ///< Configures the CEC Bit Period Error Mode.
-    ///This parameter can be a value of @ref CEC_BitPeriod_Mode
+    #[doc = "< Configures the CEC Bit Period Error Mode.\nThis parameter can be a value of @ref CEC_BitPeriod_Mode"]
     pub CEC_BitPeriodMode: u16,
 }
 #[test]
@@ -8118,8 +7926,7 @@ fn bindgen_test_layout_CEC_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup CEC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup CEC_Exported_Functions\n @{"]
     pub fn CEC_DeInit();
 }
 extern "C" {
@@ -8162,8 +7969,7 @@ extern "C" {
     pub fn CEC_ClearITPendingBit(CEC_IT: u16);
 }
 extern "C" {
-    /// @defgroup CRC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup CRC_Exported_Functions\n @{"]
     pub fn CRC_ResetDR();
 }
 extern "C" {
@@ -8181,23 +7987,17 @@ extern "C" {
 extern "C" {
     pub fn CRC_GetIDRegister() -> u8;
 }
-/// @brief  DAC Init structure definition
+#[doc = " @brief  DAC Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DAC_InitTypeDef {
-    ///< Specifies the external trigger for the selected DAC channel.
-    ///This parameter can be a value of @ref DAC_trigger_selection
+    #[doc = "< Specifies the external trigger for the selected DAC channel.\nThis parameter can be a value of @ref DAC_trigger_selection"]
     pub DAC_Trigger: u32,
-    ///< Specifies whether DAC channel noise waves or triangle waves
-    ///are generated, or whether no wave is generated.
-    ///This parameter can be a value of @ref DAC_wave_generation
+    #[doc = "< Specifies whether DAC channel noise waves or triangle waves\nare generated, or whether no wave is generated.\nThis parameter can be a value of @ref DAC_wave_generation"]
     pub DAC_WaveGeneration: u32,
-    ///< Specifies the LFSR mask for noise wave generation or
-    ///the maximum amplitude triangle generation for the DAC channel.
-    ///This parameter can be a value of @ref DAC_lfsrunmask_triangleamplitude
+    #[doc = "< Specifies the LFSR mask for noise wave generation or\nthe maximum amplitude triangle generation for the DAC channel.\nThis parameter can be a value of @ref DAC_lfsrunmask_triangleamplitude"]
     pub DAC_LFSRUnmask_TriangleAmplitude: u32,
-    ///< Specifies whether the DAC channel output buffer is enabled or disabled.
-    ///This parameter can be a value of @ref DAC_output_buffer
+    #[doc = "< Specifies whether the DAC channel output buffer is enabled or disabled.\nThis parameter can be a value of @ref DAC_output_buffer"]
     pub DAC_OutputBuffer: u32,
 }
 #[test]
@@ -8258,8 +8058,7 @@ fn bindgen_test_layout_DAC_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup DAC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup DAC_Exported_Functions\n @{"]
     pub fn DAC_DeInit();
 }
 extern "C" {
@@ -8296,8 +8095,7 @@ extern "C" {
     pub fn DAC_GetDataOutputValue(DAC_Channel: u32) -> u16;
 }
 extern "C" {
-    /// @defgroup DBGMCU_Exported_Functions
-    /// @{
+    #[doc = " @defgroup DBGMCU_Exported_Functions\n @{"]
     pub fn DBGMCU_GetREVID() -> u32;
 }
 extern "C" {
@@ -8306,43 +8104,31 @@ extern "C" {
 extern "C" {
     pub fn DBGMCU_Config(DBGMCU_Periph: u32, NewState: FunctionalState);
 }
-/// @brief  DMA Init structure definition
+#[doc = " @brief  DMA Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DMA_InitTypeDef {
-    ///< Specifies the peripheral base address for DMAy Channelx.
+    #[doc = "< Specifies the peripheral base address for DMAy Channelx."]
     pub DMA_PeripheralBaseAddr: u32,
-    ///< Specifies the memory base address for DMAy Channelx.
+    #[doc = "< Specifies the memory base address for DMAy Channelx."]
     pub DMA_MemoryBaseAddr: u32,
-    ///< Specifies if the peripheral is the source or destination.
-    ///This parameter can be a value of @ref DMA_data_transfer_direction
+    #[doc = "< Specifies if the peripheral is the source or destination.\nThis parameter can be a value of @ref DMA_data_transfer_direction"]
     pub DMA_DIR: u32,
-    ///< Specifies the buffer size, in data unit, of the specified Channel.
-    ///The data unit is equal to the configuration set in DMA_PeripheralDataSize
-    ///or DMA_MemoryDataSize members depending in the transfer direction.
+    #[doc = "< Specifies the buffer size, in data unit, of the specified Channel.\nThe data unit is equal to the configuration set in DMA_PeripheralDataSize\nor DMA_MemoryDataSize members depending in the transfer direction."]
     pub DMA_BufferSize: u32,
-    ///< Specifies whether the Peripheral address register is incremented or not.
-    ///This parameter can be a value of @ref DMA_peripheral_incremented_mode
+    #[doc = "< Specifies whether the Peripheral address register is incremented or not.\nThis parameter can be a value of @ref DMA_peripheral_incremented_mode"]
     pub DMA_PeripheralInc: u32,
-    ///< Specifies whether the memory address register is incremented or not.
-    ///This parameter can be a value of @ref DMA_memory_incremented_mode
+    #[doc = "< Specifies whether the memory address register is incremented or not.\nThis parameter can be a value of @ref DMA_memory_incremented_mode"]
     pub DMA_MemoryInc: u32,
-    ///< Specifies the Peripheral data width.
-    ///This parameter can be a value of @ref DMA_peripheral_data_size
+    #[doc = "< Specifies the Peripheral data width.\nThis parameter can be a value of @ref DMA_peripheral_data_size"]
     pub DMA_PeripheralDataSize: u32,
-    ///< Specifies the Memory data width.
-    ///This parameter can be a value of @ref DMA_memory_data_size
+    #[doc = "< Specifies the Memory data width.\nThis parameter can be a value of @ref DMA_memory_data_size"]
     pub DMA_MemoryDataSize: u32,
-    ///< Specifies the operation mode of the DMAy Channelx.
-    ///This parameter can be a value of @ref DMA_circular_normal_mode.
-    ///@note: The circular buffer mode cannot be used if the memory-to-memory
-    ///data transfer is configured on the selected Channel
+    #[doc = "< Specifies the operation mode of the DMAy Channelx.\nThis parameter can be a value of @ref DMA_circular_normal_mode.\n@note: The circular buffer mode cannot be used if the memory-to-memory\ndata transfer is configured on the selected Channel"]
     pub DMA_Mode: u32,
-    ///< Specifies the software priority for the DMAy Channelx.
-    ///This parameter can be a value of @ref DMA_priority_level
+    #[doc = "< Specifies the software priority for the DMAy Channelx.\nThis parameter can be a value of @ref DMA_priority_level"]
     pub DMA_Priority: u32,
-    ///< Specifies if the DMAy Channelx will be used in memory-to-memory transfer.
-    ///This parameter can be a value of @ref DMA_memory_to_memory
+    #[doc = "< Specifies if the DMAy Channelx will be used in memory-to-memory transfer.\nThis parameter can be a value of @ref DMA_memory_to_memory"]
     pub DMA_M2M: u32,
 }
 #[test]
@@ -8471,8 +8257,7 @@ fn bindgen_test_layout_DMA_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup DMA_Exported_Functions
-    /// @{
+    #[doc = " @defgroup DMA_Exported_Functions\n @{"]
     pub fn DMA_DeInit(DMAy_Channelx: *mut DMA_Channel_TypeDef);
 }
 extern "C" {
@@ -8511,7 +8296,7 @@ extern "C" {
 }
 #[repr(u32)]
 #[non_exhaustive]
-/// @brief  EXTI mode enumeration
+#[doc = " @brief  EXTI mode enumeration"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum EXTIMode_TypeDef {
     EXTI_Mode_Interrupt = 0,
@@ -8519,28 +8304,24 @@ pub enum EXTIMode_TypeDef {
 }
 #[repr(u32)]
 #[non_exhaustive]
-/// @brief  EXTI Trigger enumeration
+#[doc = " @brief  EXTI Trigger enumeration"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum EXTITrigger_TypeDef {
     EXTI_Trigger_Rising = 8,
     EXTI_Trigger_Falling = 12,
     EXTI_Trigger_Rising_Falling = 16,
 }
-/// @brief  EXTI Init Structure definition
+#[doc = " @brief  EXTI Init Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct EXTI_InitTypeDef {
-    ///< Specifies the EXTI lines to be enabled or disabled.
-    ///This parameter can be any combination of @ref EXTI_Lines
+    #[doc = "< Specifies the EXTI lines to be enabled or disabled.\nThis parameter can be any combination of @ref EXTI_Lines"]
     pub EXTI_Line: u32,
-    ///< Specifies the mode for the EXTI lines.
-    ///This parameter can be a value of @ref EXTIMode_TypeDef
+    #[doc = "< Specifies the mode for the EXTI lines.\nThis parameter can be a value of @ref EXTIMode_TypeDef"]
     pub EXTI_Mode: EXTIMode_TypeDef,
-    ///< Specifies the trigger signal active edge for the EXTI lines.
-    ///This parameter can be a value of @ref EXTIMode_TypeDef
+    #[doc = "< Specifies the trigger signal active edge for the EXTI lines.\nThis parameter can be a value of @ref EXTIMode_TypeDef"]
     pub EXTI_Trigger: EXTITrigger_TypeDef,
-    ///< Specifies the new state of the selected EXTI lines.
-    ///This parameter can be set either to ENABLE or DISABLE
+    #[doc = "< Specifies the new state of the selected EXTI lines.\nThis parameter can be set either to ENABLE or DISABLE"]
     pub EXTI_LineCmd: FunctionalState,
 }
 #[test]
@@ -8599,8 +8380,7 @@ fn bindgen_test_layout_EXTI_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup EXTI_Exported_Functions
-    /// @{
+    #[doc = " @defgroup EXTI_Exported_Functions\n @{"]
     pub fn EXTI_DeInit();
 }
 extern "C" {
@@ -8626,7 +8406,7 @@ extern "C" {
 }
 #[repr(u32)]
 #[non_exhaustive]
-/// @brief  FLASH Status
+#[doc = " @brief  FLASH Status"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum FLASH_Status {
     FLASH_BUSY = 1,
@@ -8636,8 +8416,7 @@ pub enum FLASH_Status {
     FLASH_TIMEOUT = 5,
 }
 extern "C" {
-    /// @defgroup FLASH_Exported_Functions
-    /// @{
+    #[doc = " @defgroup FLASH_Exported_Functions\n @{"]
     pub fn FLASH_SetLatency(FLASH_Latency: u32);
 }
 extern "C" {
@@ -8721,44 +8500,23 @@ extern "C" {
 extern "C" {
     pub fn FLASH_WaitForLastBank1Operation(Timeout: u32) -> FLASH_Status;
 }
-/// @brief  Timing parameters For NOR/SRAM Banks
+#[doc = " @brief  Timing parameters For NOR/SRAM Banks"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_NORSRAMTimingInitTypeDef {
-    ///< Defines the number of HCLK cycles to configure
-    ///the duration of the address setup time.
-    ///This parameter can be a value between 0 and 0xF.
-    ///@note: It is not used with synchronous NOR Flash memories.
+    #[doc = "< Defines the number of HCLK cycles to configure\nthe duration of the address setup time.\nThis parameter can be a value between 0 and 0xF.\n@note: It is not used with synchronous NOR Flash memories."]
     pub FSMC_AddressSetupTime: u32,
-    ///< Defines the number of HCLK cycles to configure
-    ///the duration of the address hold time.
-    ///This parameter can be a value between 0 and 0xF.
-    ///@note: It is not used with synchronous NOR Flash memories.
+    #[doc = "< Defines the number of HCLK cycles to configure\nthe duration of the address hold time.\nThis parameter can be a value between 0 and 0xF.\n@note: It is not used with synchronous NOR Flash memories."]
     pub FSMC_AddressHoldTime: u32,
-    ///< Defines the number of HCLK cycles to configure
-    ///the duration of the data setup time.
-    ///This parameter can be a value between 0 and 0xFF.
-    ///@note: It is used for SRAMs, ROMs and asynchronous multiplexed NOR Flash memories.
+    #[doc = "< Defines the number of HCLK cycles to configure\nthe duration of the data setup time.\nThis parameter can be a value between 0 and 0xFF.\n@note: It is used for SRAMs, ROMs and asynchronous multiplexed NOR Flash memories."]
     pub FSMC_DataSetupTime: u32,
-    ///< Defines the number of HCLK cycles to configure
-    ///the duration of the bus turnaround.
-    ///This parameter can be a value between 0 and 0xF.
-    ///@note: It is only used for multiplexed NOR Flash memories.
+    #[doc = "< Defines the number of HCLK cycles to configure\nthe duration of the bus turnaround.\nThis parameter can be a value between 0 and 0xF.\n@note: It is only used for multiplexed NOR Flash memories."]
     pub FSMC_BusTurnAroundDuration: u32,
-    ///< Defines the period of CLK clock output signal, expressed in number of HCLK cycles.
-    ///This parameter can be a value between 1 and 0xF.
-    ///@note: This parameter is not used for asynchronous NOR Flash, SRAM or ROM accesses.
+    #[doc = "< Defines the period of CLK clock output signal, expressed in number of HCLK cycles.\nThis parameter can be a value between 1 and 0xF.\n@note: This parameter is not used for asynchronous NOR Flash, SRAM or ROM accesses."]
     pub FSMC_CLKDivision: u32,
-    ///< Defines the number of memory clock cycles to issue
-    ///to the memory before getting the first data.
-    ///The value of this parameter depends on the memory type as shown below:
-    ///- It must be set to 0 in case of a CRAM
-    ///- It is don't care in asynchronous NOR, SRAM or ROM accesses
-    ///- It may assume a value between 0 and 0xF in NOR Flash memories
-    ///with synchronous burst mode enable
+    #[doc = "< Defines the number of memory clock cycles to issue\nto the memory before getting the first data.\nThe value of this parameter depends on the memory type as shown below:\n- It must be set to 0 in case of a CRAM\n- It is don't care in asynchronous NOR, SRAM or ROM accesses\n- It may assume a value between 0 and 0xF in NOR Flash memories\nwith synchronous burst mode enable"]
     pub FSMC_DataLatency: u32,
-    ///< Specifies the asynchronous access mode.
-    ///This parameter can be a value of @ref FSMC_Access_Mode
+    #[doc = "< Specifies the asynchronous access mode.\nThis parameter can be a value of @ref FSMC_Access_Mode"]
     pub FSMC_AccessMode: u32,
 }
 #[test]
@@ -8847,61 +8605,39 @@ fn bindgen_test_layout_FSMC_NORSRAMTimingInitTypeDef() {
         )
     );
 }
-/// @brief  FSMC NOR/SRAM Init structure definition
+#[doc = " @brief  FSMC NOR/SRAM Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_NORSRAMInitTypeDef {
-    ///< Specifies the NOR/SRAM memory bank that will be used.
-    ///This parameter can be a value of @ref FSMC_NORSRAM_Bank
+    #[doc = "< Specifies the NOR/SRAM memory bank that will be used.\nThis parameter can be a value of @ref FSMC_NORSRAM_Bank"]
     pub FSMC_Bank: u32,
-    ///< Specifies whether the address and data values are
-    ///multiplexed on the databus or not.
-    ///This parameter can be a value of @ref FSMC_Data_Address_Bus_Multiplexing
+    #[doc = "< Specifies whether the address and data values are\nmultiplexed on the databus or not.\nThis parameter can be a value of @ref FSMC_Data_Address_Bus_Multiplexing"]
     pub FSMC_DataAddressMux: u32,
-    ///< Specifies the type of external memory attached to
-    ///the corresponding memory bank.
-    ///This parameter can be a value of @ref FSMC_Memory_Type
+    #[doc = "< Specifies the type of external memory attached to\nthe corresponding memory bank.\nThis parameter can be a value of @ref FSMC_Memory_Type"]
     pub FSMC_MemoryType: u32,
-    ///< Specifies the external memory device width.
-    ///This parameter can be a value of @ref FSMC_Data_Width
+    #[doc = "< Specifies the external memory device width.\nThis parameter can be a value of @ref FSMC_Data_Width"]
     pub FSMC_MemoryDataWidth: u32,
-    ///< Enables or disables the burst access mode for Flash memory,
-    ///valid only with synchronous burst Flash memories.
-    ///This parameter can be a value of @ref FSMC_Burst_Access_Mode
+    #[doc = "< Enables or disables the burst access mode for Flash memory,\nvalid only with synchronous burst Flash memories.\nThis parameter can be a value of @ref FSMC_Burst_Access_Mode"]
     pub FSMC_BurstAccessMode: u32,
-    ///< Enables or disables wait signal during asynchronous transfers,
-    ///valid only with asynchronous Flash memories.
-    ///This parameter can be a value of @ref FSMC_AsynchronousWait
+    #[doc = "< Enables or disables wait signal during asynchronous transfers,\nvalid only with asynchronous Flash memories.\nThis parameter can be a value of @ref FSMC_AsynchronousWait"]
     pub FSMC_AsynchronousWait: u32,
-    ///< Specifies the wait signal polarity, valid only when accessing
-    ///the Flash memory in burst mode.
-    ///This parameter can be a value of @ref FSMC_Wait_Signal_Polarity
+    #[doc = "< Specifies the wait signal polarity, valid only when accessing\nthe Flash memory in burst mode.\nThis parameter can be a value of @ref FSMC_Wait_Signal_Polarity"]
     pub FSMC_WaitSignalPolarity: u32,
-    ///< Enables or disables the Wrapped burst access mode for Flash
-    ///memory, valid only when accessing Flash memories in burst mode.
-    ///This parameter can be a value of @ref FSMC_Wrap_Mode
+    #[doc = "< Enables or disables the Wrapped burst access mode for Flash\nmemory, valid only when accessing Flash memories in burst mode.\nThis parameter can be a value of @ref FSMC_Wrap_Mode"]
     pub FSMC_WrapMode: u32,
-    ///< Specifies if the wait signal is asserted by the memory one
-    ///clock cycle before the wait state or during the wait state,
-    ///valid only when accessing memories in burst mode.
-    ///This parameter can be a value of @ref FSMC_Wait_Timing
+    #[doc = "< Specifies if the wait signal is asserted by the memory one\nclock cycle before the wait state or during the wait state,\nvalid only when accessing memories in burst mode.\nThis parameter can be a value of @ref FSMC_Wait_Timing"]
     pub FSMC_WaitSignalActive: u32,
-    ///< Enables or disables the write operation in the selected bank by the FSMC.
-    ///This parameter can be a value of @ref FSMC_Write_Operation
+    #[doc = "< Enables or disables the write operation in the selected bank by the FSMC.\nThis parameter can be a value of @ref FSMC_Write_Operation"]
     pub FSMC_WriteOperation: u32,
-    ///< Enables or disables the wait-state insertion via wait
-    ///signal, valid for Flash memory access in burst mode.
-    ///This parameter can be a value of @ref FSMC_Wait_Signal
+    #[doc = "< Enables or disables the wait-state insertion via wait\nsignal, valid for Flash memory access in burst mode.\nThis parameter can be a value of @ref FSMC_Wait_Signal"]
     pub FSMC_WaitSignal: u32,
-    ///< Enables or disables the extended mode.
-    ///This parameter can be a value of @ref FSMC_Extended_Mode
+    #[doc = "< Enables or disables the extended mode.\nThis parameter can be a value of @ref FSMC_Extended_Mode"]
     pub FSMC_ExtendedMode: u32,
-    ///< Enables or disables the write burst operation.
-    ///This parameter can be a value of @ref FSMC_Write_Burst
+    #[doc = "< Enables or disables the write burst operation.\nThis parameter can be a value of @ref FSMC_Write_Burst"]
     pub FSMC_WriteBurst: u32,
-    ///< Timing Parameters for write and read access if the  ExtendedMode is not used
+    #[doc = "< Timing Parameters for write and read access if the  ExtendedMode is not used"]
     pub FSMC_ReadWriteTimingStruct: *mut FSMC_NORSRAMTimingInitTypeDef,
-    ///< Timing Parameters for write access if the  ExtendedMode is used
+    #[doc = "< Timing Parameters for write access if the  ExtendedMode is used"]
     pub FSMC_WriteTimingStruct: *mut FSMC_NORSRAMTimingInitTypeDef,
 }
 #[test]
@@ -9070,34 +8806,17 @@ fn bindgen_test_layout_FSMC_NORSRAMInitTypeDef() {
         )
     );
 }
-/// @brief  Timing parameters For FSMC NAND and PCCARD Banks
+#[doc = " @brief  Timing parameters For FSMC NAND and PCCARD Banks"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_NAND_PCCARDTimingInitTypeDef {
-    ///< Defines the number of HCLK cycles to setup address before
-    ///the command assertion for NAND-Flash read or write access
-    ///to common/Attribute or I/O memory space (depending on
-    ///the memory space timing to be configured).
-    ///This parameter can be a value between 0 and 0xFF.
+    #[doc = "< Defines the number of HCLK cycles to setup address before\nthe command assertion for NAND-Flash read or write access\nto common/Attribute or I/O memory space (depending on\nthe memory space timing to be configured).\nThis parameter can be a value between 0 and 0xFF."]
     pub FSMC_SetupTime: u32,
-    ///< Defines the minimum number of HCLK cycles to assert the
-    ///command for NAND-Flash read or write access to
-    ///common/Attribute or I/O memory space (depending on the
-    ///memory space timing to be configured).
-    ///This parameter can be a number between 0x00 and 0xFF
+    #[doc = "< Defines the minimum number of HCLK cycles to assert the\ncommand for NAND-Flash read or write access to\ncommon/Attribute or I/O memory space (depending on the\nmemory space timing to be configured).\nThis parameter can be a number between 0x00 and 0xFF"]
     pub FSMC_WaitSetupTime: u32,
-    ///< Defines the number of HCLK clock cycles to hold address
-    ///(and data for write access) after the command deassertion
-    ///for NAND-Flash read or write access to common/Attribute
-    ///or I/O memory space (depending on the memory space timing
-    ///to be configured).
-    ///This parameter can be a number between 0x00 and 0xFF
+    #[doc = "< Defines the number of HCLK clock cycles to hold address\n(and data for write access) after the command deassertion\nfor NAND-Flash read or write access to common/Attribute\nor I/O memory space (depending on the memory space timing\nto be configured).\nThis parameter can be a number between 0x00 and 0xFF"]
     pub FSMC_HoldSetupTime: u32,
-    ///< Defines the number of HCLK clock cycles during which the
-    ///databus is kept in HiZ after the start of a NAND-Flash
-    ///write access to common/Attribute or I/O memory space (depending
-    ///on the memory space timing to be configured).
-    ///This parameter can be a number between 0x00 and 0xFF
+    #[doc = "< Defines the number of HCLK clock cycles during which the\ndatabus is kept in HiZ after the start of a NAND-Flash\nwrite access to common/Attribute or I/O memory space (depending\non the memory space timing to be configured).\nThis parameter can be a number between 0x00 and 0xFF"]
     pub FSMC_HiZSetupTime: u32,
 }
 #[test]
@@ -9159,36 +8878,27 @@ fn bindgen_test_layout_FSMC_NAND_PCCARDTimingInitTypeDef() {
         )
     );
 }
-/// @brief  FSMC NAND Init structure definition
+#[doc = " @brief  FSMC NAND Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_NANDInitTypeDef {
-    ///< Specifies the NAND memory bank that will be used.
-    ///This parameter can be a value of @ref FSMC_NAND_Bank
+    #[doc = "< Specifies the NAND memory bank that will be used.\nThis parameter can be a value of @ref FSMC_NAND_Bank"]
     pub FSMC_Bank: u32,
-    ///< Enables or disables the Wait feature for the NAND Memory Bank.
-    ///This parameter can be any value of @ref FSMC_Wait_feature
+    #[doc = "< Enables or disables the Wait feature for the NAND Memory Bank.\nThis parameter can be any value of @ref FSMC_Wait_feature"]
     pub FSMC_Waitfeature: u32,
-    ///< Specifies the external memory device width.
-    ///This parameter can be any value of @ref FSMC_Data_Width
+    #[doc = "< Specifies the external memory device width.\nThis parameter can be any value of @ref FSMC_Data_Width"]
     pub FSMC_MemoryDataWidth: u32,
-    ///< Enables or disables the ECC computation.
-    ///This parameter can be any value of @ref FSMC_ECC
+    #[doc = "< Enables or disables the ECC computation.\nThis parameter can be any value of @ref FSMC_ECC"]
     pub FSMC_ECC: u32,
-    ///< Defines the page size for the extended ECC.
-    ///This parameter can be any value of @ref FSMC_ECC_Page_Size
+    #[doc = "< Defines the page size for the extended ECC.\nThis parameter can be any value of @ref FSMC_ECC_Page_Size"]
     pub FSMC_ECCPageSize: u32,
-    ///< Defines the number of HCLK cycles to configure the
-    ///delay between CLE low and RE low.
-    ///This parameter can be a value between 0 and 0xFF.
+    #[doc = "< Defines the number of HCLK cycles to configure the\ndelay between CLE low and RE low.\nThis parameter can be a value between 0 and 0xFF."]
     pub FSMC_TCLRSetupTime: u32,
-    ///< Defines the number of HCLK cycles to configure the
-    ///delay between ALE low and RE low.
-    ///This parameter can be a number between 0x0 and 0xFF
+    #[doc = "< Defines the number of HCLK cycles to configure the\ndelay between ALE low and RE low.\nThis parameter can be a number between 0x0 and 0xFF"]
     pub FSMC_TARSetupTime: u32,
-    ///< FSMC Common Space Timing
+    #[doc = "< FSMC Common Space Timing"]
     pub FSMC_CommonSpaceTimingStruct: *mut FSMC_NAND_PCCARDTimingInitTypeDef,
-    ///< FSMC Attribute Space Timing
+    #[doc = "< FSMC Attribute Space Timing"]
     pub FSMC_AttributeSpaceTimingStruct: *mut FSMC_NAND_PCCARDTimingInitTypeDef,
 }
 #[test]
@@ -9301,26 +9011,21 @@ fn bindgen_test_layout_FSMC_NANDInitTypeDef() {
         )
     );
 }
-/// @brief  FSMC PCCARD Init structure definition
+#[doc = " @brief  FSMC PCCARD Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FSMC_PCCARDInitTypeDef {
-    ///< Enables or disables the Wait feature for the Memory Bank.
-    ///This parameter can be any value of @ref FSMC_Wait_feature
+    #[doc = "< Enables or disables the Wait feature for the Memory Bank.\nThis parameter can be any value of @ref FSMC_Wait_feature"]
     pub FSMC_Waitfeature: u32,
-    ///< Defines the number of HCLK cycles to configure the
-    ///delay between CLE low and RE low.
-    ///This parameter can be a value between 0 and 0xFF.
+    #[doc = "< Defines the number of HCLK cycles to configure the\ndelay between CLE low and RE low.\nThis parameter can be a value between 0 and 0xFF."]
     pub FSMC_TCLRSetupTime: u32,
-    ///< Defines the number of HCLK cycles to configure the
-    ///delay between ALE low and RE low.
-    ///This parameter can be a number between 0x0 and 0xFF
+    #[doc = "< Defines the number of HCLK cycles to configure the\ndelay between ALE low and RE low.\nThis parameter can be a number between 0x0 and 0xFF"]
     pub FSMC_TARSetupTime: u32,
-    ///< FSMC Common Space Timing
+    #[doc = "< FSMC Common Space Timing"]
     pub FSMC_CommonSpaceTimingStruct: *mut FSMC_NAND_PCCARDTimingInitTypeDef,
-    ///< FSMC Attribute Space Timing
+    #[doc = "< FSMC Attribute Space Timing"]
     pub FSMC_AttributeSpaceTimingStruct: *mut FSMC_NAND_PCCARDTimingInitTypeDef,
-    ///< FSMC IO Space Timing
+    #[doc = "< FSMC IO Space Timing"]
     pub FSMC_IOSpaceTimingStruct: *mut FSMC_NAND_PCCARDTimingInitTypeDef,
 }
 #[test]
@@ -9404,8 +9109,7 @@ fn bindgen_test_layout_FSMC_PCCARDInitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup FSMC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup FSMC_Exported_Functions\n @{"]
     pub fn FSMC_NORSRAMDeInit(FSMC_Bank: u32);
 }
 extern "C" {
@@ -9464,7 +9168,7 @@ extern "C" {
 }
 #[repr(u32)]
 #[non_exhaustive]
-/// @brief  Output Maximum frequency selection
+#[doc = " @brief  Output Maximum frequency selection"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum GPIOSpeed_TypeDef {
     GPIO_Speed_10MHz = 1,
@@ -9473,7 +9177,7 @@ pub enum GPIOSpeed_TypeDef {
 }
 #[repr(u32)]
 #[non_exhaustive]
-/// @brief  Configuration Mode enumeration
+#[doc = " @brief  Configuration Mode enumeration"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum GPIOMode_TypeDef {
     GPIO_Mode_AIN = 0,
@@ -9485,18 +9189,15 @@ pub enum GPIOMode_TypeDef {
     GPIO_Mode_AF_OD = 28,
     GPIO_Mode_AF_PP = 24,
 }
-/// @brief  GPIO Init structure definition
+#[doc = " @brief  GPIO Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct GPIO_InitTypeDef {
-    ///< Specifies the GPIO pins to be configured.
-    ///This parameter can be any value of @ref GPIO_pins_define
+    #[doc = "< Specifies the GPIO pins to be configured.\nThis parameter can be any value of @ref GPIO_pins_define"]
     pub GPIO_Pin: u16,
-    ///< Specifies the speed for the selected pins.
-    ///This parameter can be a value of @ref GPIOSpeed_TypeDef
+    #[doc = "< Specifies the speed for the selected pins.\nThis parameter can be a value of @ref GPIOSpeed_TypeDef"]
     pub GPIO_Speed: GPIOSpeed_TypeDef,
-    ///< Specifies the operating mode for the selected pins.
-    ///This parameter can be a value of @ref GPIOMode_TypeDef
+    #[doc = "< Specifies the operating mode for the selected pins.\nThis parameter can be a value of @ref GPIOMode_TypeDef"]
     pub GPIO_Mode: GPIOMode_TypeDef,
 }
 #[test]
@@ -9546,15 +9247,14 @@ fn bindgen_test_layout_GPIO_InitTypeDef() {
 }
 #[repr(u32)]
 #[non_exhaustive]
-/// @brief  Bit_SET and Bit_RESET enumeration
+#[doc = " @brief  Bit_SET and Bit_RESET enumeration"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum BitAction {
     Bit_RESET = 0,
     Bit_SET = 1,
 }
 extern "C" {
-    /// @defgroup GPIO_Exported_Functions
-    /// @{
+    #[doc = " @defgroup GPIO_Exported_Functions\n @{"]
     pub fn GPIO_DeInit(GPIOx: *mut GPIO_TypeDef);
 }
 extern "C" {
@@ -9608,27 +9308,21 @@ extern "C" {
 extern "C" {
     pub fn GPIO_ETH_MediaInterfaceConfig(GPIO_ETH_MediaInterface: u32);
 }
-/// @brief  I2C Init structure definition
+#[doc = " @brief  I2C Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct I2C_InitTypeDef {
-    ///< Specifies the clock frequency.
-    ///This parameter must be set to a value lower than 400kHz
+    #[doc = "< Specifies the clock frequency.\nThis parameter must be set to a value lower than 400kHz"]
     pub I2C_ClockSpeed: u32,
-    ///< Specifies the I2C mode.
-    ///This parameter can be a value of @ref I2C_mode
+    #[doc = "< Specifies the I2C mode.\nThis parameter can be a value of @ref I2C_mode"]
     pub I2C_Mode: u16,
-    ///< Specifies the I2C fast mode duty cycle.
-    ///This parameter can be a value of @ref I2C_duty_cycle_in_fast_mode
+    #[doc = "< Specifies the I2C fast mode duty cycle.\nThis parameter can be a value of @ref I2C_duty_cycle_in_fast_mode"]
     pub I2C_DutyCycle: u16,
-    ///< Specifies the first device own address.
-    ///This parameter can be a 7-bit or 10-bit address.
+    #[doc = "< Specifies the first device own address.\nThis parameter can be a 7-bit or 10-bit address."]
     pub I2C_OwnAddress1: u16,
-    ///< Enables or disables the acknowledgement.
-    ///This parameter can be a value of @ref I2C_acknowledgement
+    #[doc = "< Enables or disables the acknowledgement.\nThis parameter can be a value of @ref I2C_acknowledgement"]
     pub I2C_Ack: u16,
-    ///< Specifies if 7-bit or 10-bit address is acknowledged.
-    ///This parameter can be a value of @ref I2C_acknowledged_address
+    #[doc = "< Specifies if 7-bit or 10-bit address is acknowledged.\nThis parameter can be a value of @ref I2C_acknowledged_address"]
     pub I2C_AcknowledgedAddress: u16,
 }
 #[test]
@@ -9707,8 +9401,7 @@ fn bindgen_test_layout_I2C_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup I2C_Exported_Functions
-    /// @{
+    #[doc = " @defgroup I2C_Exported_Functions\n @{"]
     pub fn I2C_DeInit(I2Cx: *mut I2C_TypeDef);
 }
 extern "C" {
@@ -9790,15 +9483,15 @@ extern "C" {
     pub fn I2C_FastModeDutyCycleConfig(I2Cx: *mut I2C_TypeDef, I2C_DutyCycle: u16);
 }
 extern "C" {
-    ///  1) Basic state monitoring
+    #[doc = "  1) Basic state monitoring\n"]
     pub fn I2C_CheckEvent(I2Cx: *mut I2C_TypeDef, I2C_EVENT: u32) -> ErrorStatus;
 }
 extern "C" {
-    ///  2) Advanced state monitoring
+    #[doc = "  2) Advanced state monitoring\n"]
     pub fn I2C_GetLastEvent(I2Cx: *mut I2C_TypeDef) -> u32;
 }
 extern "C" {
-    ///  3) Flag-based state monitoring
+    #[doc = "  3) Flag-based state monitoring\n"]
     pub fn I2C_GetFlagStatus(I2Cx: *mut I2C_TypeDef, I2C_FLAG: u32) -> FlagStatus;
 }
 extern "C" {
@@ -9811,8 +9504,7 @@ extern "C" {
     pub fn I2C_ClearITPendingBit(I2Cx: *mut I2C_TypeDef, I2C_IT: u32);
 }
 extern "C" {
-    /// @defgroup IWDG_Exported_Functions
-    /// @{
+    #[doc = " @defgroup IWDG_Exported_Functions\n @{"]
     pub fn IWDG_WriteAccessCmd(IWDG_WriteAccess: u16);
 }
 extern "C" {
@@ -9831,8 +9523,7 @@ extern "C" {
     pub fn IWDG_GetFlagStatus(IWDG_FLAG: u16) -> FlagStatus;
 }
 extern "C" {
-    /// @defgroup PWR_Exported_Functions
-    /// @{
+    #[doc = " @defgroup PWR_Exported_Functions\n @{"]
     pub fn PWR_DeInit();
 }
 extern "C" {
@@ -9859,20 +9550,19 @@ extern "C" {
 extern "C" {
     pub fn PWR_ClearFlag(PWR_FLAG: u32);
 }
-/// @defgroup RCC_Exported_Types
-/// @{
+#[doc = " @defgroup RCC_Exported_Types\n @{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct RCC_ClocksTypeDef {
-    ///< returns SYSCLK clock frequency expressed in Hz
+    #[doc = "< returns SYSCLK clock frequency expressed in Hz"]
     pub SYSCLK_Frequency: u32,
-    ///< returns HCLK clock frequency expressed in Hz
+    #[doc = "< returns HCLK clock frequency expressed in Hz"]
     pub HCLK_Frequency: u32,
-    ///< returns PCLK1 clock frequency expressed in Hz
+    #[doc = "< returns PCLK1 clock frequency expressed in Hz"]
     pub PCLK1_Frequency: u32,
-    ///< returns PCLK2 clock frequency expressed in Hz
+    #[doc = "< returns PCLK2 clock frequency expressed in Hz"]
     pub PCLK2_Frequency: u32,
-    ///< returns ADCCLK clock frequency expressed in Hz
+    #[doc = "< returns ADCCLK clock frequency expressed in Hz"]
     pub ADCCLK_Frequency: u32,
 }
 #[test]
@@ -9941,8 +9631,7 @@ fn bindgen_test_layout_RCC_ClocksTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup RCC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup RCC_Exported_Functions\n @{"]
     pub fn RCC_DeInit();
 }
 extern "C" {
@@ -10039,8 +9728,7 @@ extern "C" {
     pub fn RCC_ClearITPendingBit(RCC_IT: u8);
 }
 extern "C" {
-    /// @defgroup RTC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup RTC_Exported_Functions\n @{"]
     pub fn RTC_ITConfig(RTC_IT: u16, NewState: FunctionalState);
 }
 extern "C" {
@@ -10082,30 +9770,21 @@ extern "C" {
 extern "C" {
     pub fn RTC_ClearITPendingBit(RTC_IT: u16);
 }
-/// @defgroup SDIO_Exported_Types
-/// @{
+#[doc = " @defgroup SDIO_Exported_Types\n @{"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SDIO_InitTypeDef {
-    ///< Specifies the clock transition on which the bit capture is made.
-    ///This parameter can be a value of @ref SDIO_Clock_Edge
+    #[doc = "< Specifies the clock transition on which the bit capture is made.\nThis parameter can be a value of @ref SDIO_Clock_Edge"]
     pub SDIO_ClockEdge: u32,
-    ///< Specifies whether the SDIO Clock divider bypass is
-    ///enabled or disabled.
-    ///This parameter can be a value of @ref SDIO_Clock_Bypass
+    #[doc = "< Specifies whether the SDIO Clock divider bypass is\nenabled or disabled.\nThis parameter can be a value of @ref SDIO_Clock_Bypass"]
     pub SDIO_ClockBypass: u32,
-    ///< Specifies whether SDIO Clock output is enabled or
-    ///disabled when the bus is idle.
-    ///This parameter can be a value of @ref SDIO_Clock_Power_Save
+    #[doc = "< Specifies whether SDIO Clock output is enabled or\ndisabled when the bus is idle.\nThis parameter can be a value of @ref SDIO_Clock_Power_Save"]
     pub SDIO_ClockPowerSave: u32,
-    ///< Specifies the SDIO bus width.
-    ///This parameter can be a value of @ref SDIO_Bus_Wide
+    #[doc = "< Specifies the SDIO bus width.\nThis parameter can be a value of @ref SDIO_Bus_Wide"]
     pub SDIO_BusWide: u32,
-    ///< Specifies whether the SDIO hardware flow control is enabled or disabled.
-    ///This parameter can be a value of @ref SDIO_Hardware_Flow_Control
+    #[doc = "< Specifies whether the SDIO hardware flow control is enabled or disabled.\nThis parameter can be a value of @ref SDIO_Hardware_Flow_Control"]
     pub SDIO_HardwareFlowControl: u32,
-    ///< Specifies the clock frequency of the SDIO controller.
-    ///This parameter can be a value between 0x00 and 0xFF.
+    #[doc = "< Specifies the clock frequency of the SDIO controller.\nThis parameter can be a value between 0x00 and 0xFF."]
     pub SDIO_ClockDiv: u8,
 }
 #[test]
@@ -10186,22 +9865,15 @@ fn bindgen_test_layout_SDIO_InitTypeDef() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SDIO_CmdInitTypeDef {
-    ///< Specifies the SDIO command argument which is sent
-    ///to a card as part of a command message. If a command
-    ///contains an argument, it must be loaded into this register
-    ///before writing the command to the command register
+    #[doc = "< Specifies the SDIO command argument which is sent\nto a card as part of a command message. If a command\ncontains an argument, it must be loaded into this register\nbefore writing the command to the command register"]
     pub SDIO_Argument: u32,
-    ///< Specifies the SDIO command index. It must be lower than 0x40.
+    #[doc = "< Specifies the SDIO command index. It must be lower than 0x40."]
     pub SDIO_CmdIndex: u32,
-    ///< Specifies the SDIO response type.
-    ///This parameter can be a value of @ref SDIO_Response_Type
+    #[doc = "< Specifies the SDIO response type.\nThis parameter can be a value of @ref SDIO_Response_Type"]
     pub SDIO_Response: u32,
-    ///< Specifies whether SDIO wait-for-interrupt request is enabled or disabled.
-    ///This parameter can be a value of @ref SDIO_Wait_Interrupt_State
+    #[doc = "< Specifies whether SDIO wait-for-interrupt request is enabled or disabled.\nThis parameter can be a value of @ref SDIO_Wait_Interrupt_State"]
     pub SDIO_Wait: u32,
-    ///< Specifies whether SDIO Command path state machine (CPSM)
-    ///is enabled or disabled.
-    ///This parameter can be a value of @ref SDIO_CPSM_State
+    #[doc = "< Specifies whether SDIO Command path state machine (CPSM)\nis enabled or disabled.\nThis parameter can be a value of @ref SDIO_CPSM_State"]
     pub SDIO_CPSM: u32,
 }
 #[test]
@@ -10273,23 +9945,17 @@ fn bindgen_test_layout_SDIO_CmdInitTypeDef() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SDIO_DataInitTypeDef {
-    ///< Specifies the data timeout period in card bus clock periods.
+    #[doc = "< Specifies the data timeout period in card bus clock periods."]
     pub SDIO_DataTimeOut: u32,
-    ///< Specifies the number of data bytes to be transferred.
+    #[doc = "< Specifies the number of data bytes to be transferred."]
     pub SDIO_DataLength: u32,
-    ///< Specifies the data block size for block transfer.
-    ///This parameter can be a value of @ref SDIO_Data_Block_Size
+    #[doc = "< Specifies the data block size for block transfer.\nThis parameter can be a value of @ref SDIO_Data_Block_Size"]
     pub SDIO_DataBlockSize: u32,
-    ///< Specifies the data transfer direction, whether the transfer
-    ///is a read or write.
-    ///This parameter can be a value of @ref SDIO_Transfer_Direction
+    #[doc = "< Specifies the data transfer direction, whether the transfer\nis a read or write.\nThis parameter can be a value of @ref SDIO_Transfer_Direction"]
     pub SDIO_TransferDir: u32,
-    ///< Specifies whether data transfer is in stream or block mode.
-    ///This parameter can be a value of @ref SDIO_Transfer_Type
+    #[doc = "< Specifies whether data transfer is in stream or block mode.\nThis parameter can be a value of @ref SDIO_Transfer_Type"]
     pub SDIO_TransferMode: u32,
-    ///< Specifies whether SDIO Data path state machine (DPSM)
-    ///is enabled or disabled.
-    ///This parameter can be a value of @ref SDIO_DPSM_State
+    #[doc = "< Specifies whether SDIO Data path state machine (DPSM)\nis enabled or disabled.\nThis parameter can be a value of @ref SDIO_DPSM_State"]
     pub SDIO_DPSM: u32,
 }
 #[test]
@@ -10369,8 +10035,7 @@ fn bindgen_test_layout_SDIO_DataInitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup SDIO_Exported_Functions
-    /// @{
+    #[doc = " @defgroup SDIO_Exported_Functions\n @{"]
     pub fn SDIO_DeInit();
 }
 extern "C" {
@@ -10460,39 +10125,27 @@ extern "C" {
 extern "C" {
     pub fn SDIO_ClearITPendingBit(SDIO_IT: u32);
 }
-/// @brief  SPI Init structure definition
+#[doc = " @brief  SPI Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SPI_InitTypeDef {
-    ///< Specifies the SPI unidirectional or bidirectional data mode.
-    ///This parameter can be a value of @ref SPI_data_direction
+    #[doc = "< Specifies the SPI unidirectional or bidirectional data mode.\nThis parameter can be a value of @ref SPI_data_direction"]
     pub SPI_Direction: u16,
-    ///< Specifies the SPI operating mode.
-    ///This parameter can be a value of @ref SPI_mode
+    #[doc = "< Specifies the SPI operating mode.\nThis parameter can be a value of @ref SPI_mode"]
     pub SPI_Mode: u16,
-    ///< Specifies the SPI data size.
-    ///This parameter can be a value of @ref SPI_data_size
+    #[doc = "< Specifies the SPI data size.\nThis parameter can be a value of @ref SPI_data_size"]
     pub SPI_DataSize: u16,
-    ///< Specifies the serial clock steady state.
-    ///This parameter can be a value of @ref SPI_Clock_Polarity
+    #[doc = "< Specifies the serial clock steady state.\nThis parameter can be a value of @ref SPI_Clock_Polarity"]
     pub SPI_CPOL: u16,
-    ///< Specifies the clock active edge for the bit capture.
-    ///This parameter can be a value of @ref SPI_Clock_Phase
+    #[doc = "< Specifies the clock active edge for the bit capture.\nThis parameter can be a value of @ref SPI_Clock_Phase"]
     pub SPI_CPHA: u16,
-    ///< Specifies whether the NSS signal is managed by
-    ///hardware (NSS pin) or by software using the SSI bit.
-    ///This parameter can be a value of @ref SPI_Slave_Select_management
+    #[doc = "< Specifies whether the NSS signal is managed by\nhardware (NSS pin) or by software using the SSI bit.\nThis parameter can be a value of @ref SPI_Slave_Select_management"]
     pub SPI_NSS: u16,
-    ///< Specifies the Baud Rate prescaler value which will be
-    ///used to configure the transmit and receive SCK clock.
-    ///This parameter can be a value of @ref SPI_BaudRate_Prescaler.
-    ///@note The communication clock is derived from the master
-    ///clock. The slave clock does not need to be set.
+    #[doc = "< Specifies the Baud Rate prescaler value which will be\nused to configure the transmit and receive SCK clock.\nThis parameter can be a value of @ref SPI_BaudRate_Prescaler.\n@note The communication clock is derived from the master\nclock. The slave clock does not need to be set."]
     pub SPI_BaudRatePrescaler: u16,
-    ///< Specifies whether data transfers start from MSB or LSB bit.
-    ///This parameter can be a value of @ref SPI_MSB_LSB_transmission
+    #[doc = "< Specifies whether data transfers start from MSB or LSB bit.\nThis parameter can be a value of @ref SPI_MSB_LSB_transmission"]
     pub SPI_FirstBit: u16,
-    ///< Specifies the polynomial used for the CRC calculation.
+    #[doc = "< Specifies the polynomial used for the CRC calculation."]
     pub SPI_CRCPolynomial: u16,
 }
 #[test]
@@ -10600,27 +10253,21 @@ fn bindgen_test_layout_SPI_InitTypeDef() {
         )
     );
 }
-/// @brief  I2S Init structure definition
+#[doc = " @brief  I2S Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct I2S_InitTypeDef {
-    ///< Specifies the I2S operating mode.
-    ///This parameter can be a value of @ref I2S_Mode
+    #[doc = "< Specifies the I2S operating mode.\nThis parameter can be a value of @ref I2S_Mode"]
     pub I2S_Mode: u16,
-    ///< Specifies the standard used for the I2S communication.
-    ///This parameter can be a value of @ref I2S_Standard
+    #[doc = "< Specifies the standard used for the I2S communication.\nThis parameter can be a value of @ref I2S_Standard"]
     pub I2S_Standard: u16,
-    ///< Specifies the data format for the I2S communication.
-    ///This parameter can be a value of @ref I2S_Data_Format
+    #[doc = "< Specifies the data format for the I2S communication.\nThis parameter can be a value of @ref I2S_Data_Format"]
     pub I2S_DataFormat: u16,
-    ///< Specifies whether the I2S MCLK output is enabled or not.
-    ///This parameter can be a value of @ref I2S_MCLK_Output
+    #[doc = "< Specifies whether the I2S MCLK output is enabled or not.\nThis parameter can be a value of @ref I2S_MCLK_Output"]
     pub I2S_MCLKOutput: u16,
-    ///< Specifies the frequency selected for the I2S communication.
-    ///This parameter can be a value of @ref I2S_Audio_Frequency
+    #[doc = "< Specifies the frequency selected for the I2S communication.\nThis parameter can be a value of @ref I2S_Audio_Frequency"]
     pub I2S_AudioFreq: u32,
-    ///< Specifies the idle state of the I2S clock.
-    ///This parameter can be a value of @ref I2S_Clock_Polarity
+    #[doc = "< Specifies the idle state of the I2S clock.\nThis parameter can be a value of @ref I2S_Clock_Polarity"]
     pub I2S_CPOL: u16,
 }
 #[test]
@@ -10699,8 +10346,7 @@ fn bindgen_test_layout_I2S_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup SPI_Exported_Functions
-    /// @{
+    #[doc = " @defgroup SPI_Exported_Functions\n @{"]
     pub fn SPI_I2S_DeInit(SPIx: *mut SPI_TypeDef);
 }
 extern "C" {
@@ -10769,32 +10415,19 @@ extern "C" {
 extern "C" {
     pub fn SPI_I2S_ClearITPendingBit(SPIx: *mut SPI_TypeDef, SPI_I2S_IT: u8);
 }
-/// @brief  TIM Time Base Init structure definition
-/// @note   This structure is used with all TIMx except for TIM6 and TIM7.
+#[doc = " @brief  TIM Time Base Init structure definition\n @note   This structure is used with all TIMx except for TIM6 and TIM7."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TIM_TimeBaseInitTypeDef {
-    ///< Specifies the prescaler value used to divide the TIM clock.
-    ///This parameter can be a number between 0x0000 and 0xFFFF
+    #[doc = "< Specifies the prescaler value used to divide the TIM clock.\nThis parameter can be a number between 0x0000 and 0xFFFF"]
     pub TIM_Prescaler: u16,
-    ///< Specifies the counter mode.
-    ///This parameter can be a value of @ref TIM_Counter_Mode
+    #[doc = "< Specifies the counter mode.\nThis parameter can be a value of @ref TIM_Counter_Mode"]
     pub TIM_CounterMode: u16,
-    ///< Specifies the period value to be loaded into the active
-    ///Auto-Reload Register at the next update event.
-    ///This parameter must be a number between 0x0000 and 0xFFFF.
+    #[doc = "< Specifies the period value to be loaded into the active\nAuto-Reload Register at the next update event.\nThis parameter must be a number between 0x0000 and 0xFFFF."]
     pub TIM_Period: u16,
-    ///< Specifies the clock division.
-    ///This parameter can be a value of @ref TIM_Clock_Division_CKD
+    #[doc = "< Specifies the clock division.\nThis parameter can be a value of @ref TIM_Clock_Division_CKD"]
     pub TIM_ClockDivision: u16,
-    ///< Specifies the repetition counter value. Each time the RCR downcounter
-    ///reaches zero, an update event is generated and counting restarts
-    ///from the RCR value (N).
-    ///This means in PWM mode that (N+1) corresponds to:
-    ///- the number of PWM periods in edge-aligned mode
-    ///- the number of half PWM period in center-aligned mode
-    ///This parameter must be a number between 0x00 and 0xFF.
-    ///@note This parameter is valid only for TIM1 and TIM8.
+    #[doc = "< Specifies the repetition counter value. Each time the RCR downcounter\nreaches zero, an update event is generated and counting restarts\nfrom the RCR value (N).\nThis means in PWM mode that (N+1) corresponds to:\n- the number of PWM periods in edge-aligned mode\n- the number of half PWM period in center-aligned mode\nThis parameter must be a number between 0x00 and 0xFF.\n@note This parameter is valid only for TIM1 and TIM8."]
     pub TIM_RepetitionCounter: u8,
 }
 #[test]
@@ -10863,37 +10496,25 @@ fn bindgen_test_layout_TIM_TimeBaseInitTypeDef() {
         )
     );
 }
-/// @brief  TIM Output Compare Init structure definition
+#[doc = " @brief  TIM Output Compare Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TIM_OCInitTypeDef {
-    ///< Specifies the TIM mode.
-    ///This parameter can be a value of @ref TIM_Output_Compare_and_PWM_modes
+    #[doc = "< Specifies the TIM mode.\nThis parameter can be a value of @ref TIM_Output_Compare_and_PWM_modes"]
     pub TIM_OCMode: u16,
-    ///< Specifies the TIM Output Compare state.
-    ///This parameter can be a value of @ref TIM_Output_Compare_state
+    #[doc = "< Specifies the TIM Output Compare state.\nThis parameter can be a value of @ref TIM_Output_Compare_state"]
     pub TIM_OutputState: u16,
-    ///< Specifies the TIM complementary Output Compare state.
-    ///This parameter can be a value of @ref TIM_Output_Compare_N_state
-    ///@note This parameter is valid only for TIM1 and TIM8.
+    #[doc = "< Specifies the TIM complementary Output Compare state.\nThis parameter can be a value of @ref TIM_Output_Compare_N_state\n@note This parameter is valid only for TIM1 and TIM8."]
     pub TIM_OutputNState: u16,
-    ///< Specifies the pulse value to be loaded into the Capture Compare Register.
-    ///This parameter can be a number between 0x0000 and 0xFFFF
+    #[doc = "< Specifies the pulse value to be loaded into the Capture Compare Register.\nThis parameter can be a number between 0x0000 and 0xFFFF"]
     pub TIM_Pulse: u16,
-    ///< Specifies the output polarity.
-    ///This parameter can be a value of @ref TIM_Output_Compare_Polarity
+    #[doc = "< Specifies the output polarity.\nThis parameter can be a value of @ref TIM_Output_Compare_Polarity"]
     pub TIM_OCPolarity: u16,
-    ///< Specifies the complementary output polarity.
-    ///This parameter can be a value of @ref TIM_Output_Compare_N_Polarity
-    ///@note This parameter is valid only for TIM1 and TIM8.
+    #[doc = "< Specifies the complementary output polarity.\nThis parameter can be a value of @ref TIM_Output_Compare_N_Polarity\n@note This parameter is valid only for TIM1 and TIM8."]
     pub TIM_OCNPolarity: u16,
-    ///< Specifies the TIM Output Compare pin state during Idle state.
-    ///This parameter can be a value of @ref TIM_Output_Compare_Idle_State
-    ///@note This parameter is valid only for TIM1 and TIM8.
+    #[doc = "< Specifies the TIM Output Compare pin state during Idle state.\nThis parameter can be a value of @ref TIM_Output_Compare_Idle_State\n@note This parameter is valid only for TIM1 and TIM8."]
     pub TIM_OCIdleState: u16,
-    ///< Specifies the TIM Output Compare pin state during Idle state.
-    ///This parameter can be a value of @ref TIM_Output_Compare_N_Idle_State
-    ///@note This parameter is valid only for TIM1 and TIM8.
+    #[doc = "< Specifies the TIM Output Compare pin state during Idle state.\nThis parameter can be a value of @ref TIM_Output_Compare_N_Idle_State\n@note This parameter is valid only for TIM1 and TIM8."]
     pub TIM_OCNIdleState: u16,
 }
 #[test]
@@ -10991,24 +10612,19 @@ fn bindgen_test_layout_TIM_OCInitTypeDef() {
         )
     );
 }
-/// @brief  TIM Input Capture Init structure definition
+#[doc = " @brief  TIM Input Capture Init structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TIM_ICInitTypeDef {
-    ///< Specifies the TIM channel.
-    ///This parameter can be a value of @ref TIM_Channel
+    #[doc = "< Specifies the TIM channel.\nThis parameter can be a value of @ref TIM_Channel"]
     pub TIM_Channel: u16,
-    ///< Specifies the active edge of the input signal.
-    ///This parameter can be a value of @ref TIM_Input_Capture_Polarity
+    #[doc = "< Specifies the active edge of the input signal.\nThis parameter can be a value of @ref TIM_Input_Capture_Polarity"]
     pub TIM_ICPolarity: u16,
-    ///< Specifies the input.
-    ///This parameter can be a value of @ref TIM_Input_Capture_Selection
+    #[doc = "< Specifies the input.\nThis parameter can be a value of @ref TIM_Input_Capture_Selection"]
     pub TIM_ICSelection: u16,
-    ///< Specifies the Input Capture Prescaler.
-    ///This parameter can be a value of @ref TIM_Input_Capture_Prescaler
+    #[doc = "< Specifies the Input Capture Prescaler.\nThis parameter can be a value of @ref TIM_Input_Capture_Prescaler"]
     pub TIM_ICPrescaler: u16,
-    ///< Specifies the input capture filter.
-    ///This parameter can be a number between 0x0 and 0xF
+    #[doc = "< Specifies the input capture filter.\nThis parameter can be a number between 0x0 and 0xF"]
     pub TIM_ICFilter: u16,
 }
 #[test]
@@ -11076,32 +10692,23 @@ fn bindgen_test_layout_TIM_ICInitTypeDef() {
         )
     );
 }
-/// @brief  BDTR structure definition
-/// @note   This structure is used only with TIM1 and TIM8.
+#[doc = " @brief  BDTR structure definition\n @note   This structure is used only with TIM1 and TIM8."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TIM_BDTRInitTypeDef {
-    ///< Specifies the Off-State selection used in Run mode.
-    ///This parameter can be a value of @ref OSSR_Off_State_Selection_for_Run_mode_state
+    #[doc = "< Specifies the Off-State selection used in Run mode.\nThis parameter can be a value of @ref OSSR_Off_State_Selection_for_Run_mode_state"]
     pub TIM_OSSRState: u16,
-    ///< Specifies the Off-State used in Idle state.
-    ///This parameter can be a value of @ref OSSI_Off_State_Selection_for_Idle_mode_state
+    #[doc = "< Specifies the Off-State used in Idle state.\nThis parameter can be a value of @ref OSSI_Off_State_Selection_for_Idle_mode_state"]
     pub TIM_OSSIState: u16,
-    ///< Specifies the LOCK level parameters.
-    ///This parameter can be a value of @ref Lock_level
+    #[doc = "< Specifies the LOCK level parameters.\nThis parameter can be a value of @ref Lock_level"]
     pub TIM_LOCKLevel: u16,
-    ///< Specifies the delay time between the switching-off and the
-    ///switching-on of the outputs.
-    ///This parameter can be a number between 0x00 and 0xFF
+    #[doc = "< Specifies the delay time between the switching-off and the\nswitching-on of the outputs.\nThis parameter can be a number between 0x00 and 0xFF"]
     pub TIM_DeadTime: u16,
-    ///< Specifies whether the TIM Break input is enabled or not.
-    ///This parameter can be a value of @ref Break_Input_enable_disable
+    #[doc = "< Specifies whether the TIM Break input is enabled or not.\nThis parameter can be a value of @ref Break_Input_enable_disable"]
     pub TIM_Break: u16,
-    ///< Specifies the TIM Break Input pin polarity.
-    ///This parameter can be a value of @ref Break_Polarity
+    #[doc = "< Specifies the TIM Break Input pin polarity.\nThis parameter can be a value of @ref Break_Polarity"]
     pub TIM_BreakPolarity: u16,
-    ///< Specifies whether the TIM Automatic Output feature is enabled or not.
-    ///This parameter can be a value of @ref TIM_AOE_Bit_Set_Reset
+    #[doc = "< Specifies whether the TIM Automatic Output feature is enabled or not.\nThis parameter can be a value of @ref TIM_AOE_Bit_Set_Reset"]
     pub TIM_AutomaticOutput: u16,
 }
 #[test]
@@ -11191,8 +10798,7 @@ fn bindgen_test_layout_TIM_BDTRInitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup TIM_Exported_Functions
-    /// @{
+    #[doc = " @defgroup TIM_Exported_Functions\n @{"]
     pub fn TIM_DeInit(TIMx: *mut TIM_TypeDef);
 }
 extern "C" {
@@ -11481,34 +11087,21 @@ extern "C" {
 extern "C" {
     pub fn TIM_ClearITPendingBit(TIMx: *mut TIM_TypeDef, TIM_IT: u16);
 }
-/// @brief  USART Init Structure definition
+#[doc = " @brief  USART Init Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct USART_InitTypeDef {
-    ///< This member configures the USART communication baud rate.
-    ///The baud rate is computed using the following formula:
-    ///- IntegerDivider = ((PCLKx) / (16 * (USART_InitStruct->USART_BaudRate)))
-    ///- FractionalDivider = ((IntegerDivider - ((u32) IntegerDivider)) * 16) + 0.5
+    #[doc = "< This member configures the USART communication baud rate.\nThe baud rate is computed using the following formula:\n- IntegerDivider = ((PCLKx) / (16 * (USART_InitStruct->USART_BaudRate)))\n- FractionalDivider = ((IntegerDivider - ((u32) IntegerDivider)) * 16) + 0.5"]
     pub USART_BaudRate: u32,
-    ///< Specifies the number of data bits transmitted or received in a frame.
-    ///This parameter can be a value of @ref USART_Word_Length
+    #[doc = "< Specifies the number of data bits transmitted or received in a frame.\nThis parameter can be a value of @ref USART_Word_Length"]
     pub USART_WordLength: u16,
-    ///< Specifies the number of stop bits transmitted.
-    ///This parameter can be a value of @ref USART_Stop_Bits
+    #[doc = "< Specifies the number of stop bits transmitted.\nThis parameter can be a value of @ref USART_Stop_Bits"]
     pub USART_StopBits: u16,
-    ///< Specifies the parity mode.
-    ///This parameter can be a value of @ref USART_Parity
-    ///@note When parity is enabled, the computed parity is inserted
-    ///at the MSB position of the transmitted data (9th bit when
-    ///the word length is set to 9 data bits; 8th bit when the
-    ///word length is set to 8 data bits).
+    #[doc = "< Specifies the parity mode.\nThis parameter can be a value of @ref USART_Parity\n@note When parity is enabled, the computed parity is inserted\nat the MSB position of the transmitted data (9th bit when\nthe word length is set to 9 data bits; 8th bit when the\nword length is set to 8 data bits)."]
     pub USART_Parity: u16,
-    ///< Specifies wether the Receive or Transmit mode is enabled or disabled.
-    ///This parameter can be a value of @ref USART_Mode
+    #[doc = "< Specifies wether the Receive or Transmit mode is enabled or disabled.\nThis parameter can be a value of @ref USART_Mode"]
     pub USART_Mode: u16,
-    ///< Specifies wether the hardware flow control mode is enabled
-    ///or disabled.
-    ///This parameter can be a value of @ref USART_Hardware_Flow_Control
+    #[doc = "< Specifies wether the hardware flow control mode is enabled\nor disabled.\nThis parameter can be a value of @ref USART_Hardware_Flow_Control"]
     pub USART_HardwareFlowControl: u16,
 }
 #[test]
@@ -11586,22 +11179,17 @@ fn bindgen_test_layout_USART_InitTypeDef() {
         )
     );
 }
-/// @brief  USART Clock Init Structure definition
+#[doc = " @brief  USART Clock Init Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct USART_ClockInitTypeDef {
-    ///< Specifies whether the USART clock is enabled or disabled.
-    ///This parameter can be a value of @ref USART_Clock
+    #[doc = "< Specifies whether the USART clock is enabled or disabled.\nThis parameter can be a value of @ref USART_Clock"]
     pub USART_Clock: u16,
-    ///< Specifies the steady state value of the serial clock.
-    ///This parameter can be a value of @ref USART_Clock_Polarity
+    #[doc = "< Specifies the steady state value of the serial clock.\nThis parameter can be a value of @ref USART_Clock_Polarity"]
     pub USART_CPOL: u16,
-    ///< Specifies the clock transition on which the bit capture is made.
-    ///This parameter can be a value of @ref USART_Clock_Phase
+    #[doc = "< Specifies the clock transition on which the bit capture is made.\nThis parameter can be a value of @ref USART_Clock_Phase"]
     pub USART_CPHA: u16,
-    ///< Specifies whether the clock pulse corresponding to the last transmitted
-    ///data bit (MSB) has to be output on the SCLK pin in synchronous mode.
-    ///This parameter can be a value of @ref USART_Last_Bit
+    #[doc = "< Specifies whether the clock pulse corresponding to the last transmitted\ndata bit (MSB) has to be output on the SCLK pin in synchronous mode.\nThis parameter can be a value of @ref USART_Last_Bit"]
     pub USART_LastBit: u16,
 }
 #[test]
@@ -11661,8 +11249,7 @@ fn bindgen_test_layout_USART_ClockInitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup USART_Exported_Functions
-    /// @{
+    #[doc = " @defgroup USART_Exported_Functions\n @{"]
     pub fn USART_DeInit(USARTx: *mut USART_TypeDef);
 }
 extern "C" {
@@ -11756,8 +11343,7 @@ extern "C" {
     pub fn USART_ClearITPendingBit(USARTx: *mut USART_TypeDef, USART_IT: u16);
 }
 extern "C" {
-    /// @defgroup WWDG_Exported_Functions
-    /// @{
+    #[doc = " @defgroup WWDG_Exported_Functions\n @{"]
     pub fn WWDG_DeInit();
 }
 extern "C" {
@@ -11781,26 +11367,17 @@ extern "C" {
 extern "C" {
     pub fn WWDG_ClearFlag();
 }
-/// @brief  NVIC Init Structure definition
+#[doc = " @brief  NVIC Init Structure definition"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct NVIC_InitTypeDef {
-    ///< Specifies the IRQ channel to be enabled or disabled.
-    ///This parameter can be a value of @ref IRQn_Type
-    ///(For the complete STM32 Devices IRQ Channels list, please
-    ///refer to stm32f10x.h file)
+    #[doc = "< Specifies the IRQ channel to be enabled or disabled.\nThis parameter can be a value of @ref IRQn_Type\n(For the complete STM32 Devices IRQ Channels list, please\nrefer to stm32f10x.h file)"]
     pub NVIC_IRQChannel: u8,
-    ///< Specifies the pre-emption priority for the IRQ channel
-    ///specified in NVIC_IRQChannel. This parameter can be a value
-    ///between 0 and 15 as described in the table @ref NVIC_Priority_Table
+    #[doc = "< Specifies the pre-emption priority for the IRQ channel\nspecified in NVIC_IRQChannel. This parameter can be a value\nbetween 0 and 15 as described in the table @ref NVIC_Priority_Table"]
     pub NVIC_IRQChannelPreemptionPriority: u8,
-    ///< Specifies the subpriority level for the IRQ channel specified
-    ///in NVIC_IRQChannel. This parameter can be a value
-    ///between 0 and 15 as described in the table @ref NVIC_Priority_Table
+    #[doc = "< Specifies the subpriority level for the IRQ channel specified\nin NVIC_IRQChannel. This parameter can be a value\nbetween 0 and 15 as described in the table @ref NVIC_Priority_Table"]
     pub NVIC_IRQChannelSubPriority: u8,
-    ///< Specifies whether the IRQ channel defined in NVIC_IRQChannel
-    ///will be enabled or disabled.
-    ///This parameter can be set either to ENABLE or DISABLE
+    #[doc = "< Specifies whether the IRQ channel defined in NVIC_IRQChannel\nwill be enabled or disabled.\nThis parameter can be set either to ENABLE or DISABLE"]
     pub NVIC_IRQChannelCmd: FunctionalState,
 }
 #[test]
@@ -11861,8 +11438,7 @@ fn bindgen_test_layout_NVIC_InitTypeDef() {
     );
 }
 extern "C" {
-    /// @defgroup MISC_Exported_Functions
-    /// @{
+    #[doc = " @defgroup MISC_Exported_Functions\n @{"]
     pub fn NVIC_PriorityGroupConfig(NVIC_PriorityGroup: u32);
 }
 extern "C" {
