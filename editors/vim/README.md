@@ -7,9 +7,8 @@ Repository
 |   |
 |   |--assets/images
 |   |
-|   |--docs
 |   |
-|   |--src
+|   |--docs
 |   |   |--commands.md
 |   |   |--marks.md
 |   |   |--modes.md

@@ -9,9 +9,8 @@ Repository
 |   |   |
 |   |   |--assets/images
 |   |   |
-|   |   |--docs
 |   |   |
-|   |   |--src
+|   |   |--docs
 |   |   |   |--commands.md
 |   |   |   |--marks.md
 |   |   |   |--modes.md
@@ -30,6 +29,7 @@ Repository
 |   |
 |   |
 |   |--zed
+|   |   |--debug.json.md
 |   |   |--settings.json.md
 |   |   |--tasks.json.md
 |   |
