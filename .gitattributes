@@ -5,13 +5,14 @@
 *.cpp linguist-vendored
 *.cc linguist-vendored
 
-# 忽略 Python、TypeScript、JavaScript、HTML、CSS
+# 忽略 Python、TypeScript、JavaScript、HTML、CSS、Assembly
 *.py linguist-vendored
 *.ts linguist-vendored
 *.js linguist-vendored
 *.css linguist-vendored
 *.scss linguist-vendored
 *.html linguist-vendored
+*.asm linguist-vendored
 
 
 *.json linguist-vendored
