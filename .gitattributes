@@ -19,7 +19,8 @@
 
 *.json linguist-vendored
 *.yaml linguist-vendored
-*.toml linguist-vendored  # 如果你不想统计 Cargo.toml 文件语言类型，也可以排除
+# 如果你不想统计 Cargo.toml 文件语言类型，也可以排除
+*.toml linguist-vendored
 
 # 忽略 Markdown 和文档类文件
 *.md linguist-documentation
