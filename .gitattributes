@@ -12,6 +12,8 @@
 *.css linguist-vendored
 *.scss linguist-vendored
 *.html linguist-vendored
+*.s linguist-vendored
+*.S linguist-vendored
 *.asm linguist-vendored
 
 
