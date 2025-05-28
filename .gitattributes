@@ -5,7 +5,7 @@
 *.cpp linguist-vendored
 *.cc linguist-vendored
 
-# 忽略 Rust、Python、TypeScript、JavaScript、HTML、CSS、Assembly
+# 忽略 Rust、Python、TypeScript、JavaScript、HTML、CSS、Assembly java
 *.rs linguist-vendored 
 *.py linguist-vendored
 *.ts linguist-vendored
@@ -15,7 +15,7 @@
 *.html linguist-vendored
 *.s linguist-vendored
 *.S linguist-vendored
-*.asm linguist-vendored
+*.asm linguist-vendored 
 
 
 *.json linguist-vendored
