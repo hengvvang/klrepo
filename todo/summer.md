@@ -35,29 +35,39 @@
         - zed editor
             - theme
 
+    - 有道翻译
+        - 设置快捷键
+            - 截图快捷键
+            - mini 窗口快捷键
+            - 打开程序快捷键
+
     - software
         - obs studio
         - potplayer
 
+
         - listray
         - powerToys
+        - everything
 
         - wsl
             - vscode
-        - pwsh
+
+        - powerShell
             - explorer .
-            -
-        - everything
+            - code .
+
+
         - FastStone Capture
 
         - diskgenius
         - wiztreee
 
-    - browser
-        - zen browser
-            - quickshort
-        - browser extension
-        - browser quickshort
+        - browser
+            - zen browser
+                - quickshort
+            - browser extension
+            - browser quickshort
 
 
 - system quickshort
@@ -121,3 +131,15 @@
 
 
 # need to learn [personal]
+
+- python
+- python data analysis
+- rustlang review
+- rust for embedded
+- stm32
+- git
+- github actions
+- vim
+- nixos
+- guitar
+- docker*
