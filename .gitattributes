@@ -1,15 +1,15 @@
 # 忽略 C/C++ 源码和头文件
-*.h linguist-vendored
-*.hpp linguist-vendored
-*.c linguist-vendored
-*.cpp linguist-vendored
-*.cc linguist-vendored
+# *.h linguist-vendored
+# *.hpp linguist-vendored
+# *.c linguist-vendored
+# *.cpp linguist-vendored
+# *.cc linguist-vendored
 
 # 忽略 Rust、Python、TypeScript、JavaScript、HTML、CSS、Assembly、 java
-*.rs linguist-vendored 
-*.py linguist-vendored
-*.ts linguist-vendored
-*.js linguist-vendored
+# *.rs linguist-vendored 
+# *.py linguist-vendored
+# *.ts linguist-vendored
+# *.js linguist-vendored
 *.css linguist-vendored
 *.scss linguist-vendored
 *.html linguist-vendored
