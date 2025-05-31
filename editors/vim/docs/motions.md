@@ -221,7 +221,3 @@
       - 在 `.vimrc` 中定义映射，如 `nnoremap <leader>% %`（`<leader>%` 跳转匹配括号）。
       - 示例：`nnoremap <C-)> )`（`Ctrl + )` 跳到下一个句子的开头）。
       - 场景：使用 `nnoremap <leader>{ :execute "normal! {"<CR>`，动态执行跳到上一个段落的开头。
-  - **性能优化**：
-    - 禁用不必要的设置，如 `:set nocursorline`，减少屏幕重绘开销。
-    - 在大文件中，使用 `:set lazyredraw`，延迟屏幕重绘，提高跳转性能。
-    - 示例：`autocmd BufReadPost * if line('$') > 1000 | set lazyredraw | endif`，在大文件中启用延迟重绘。

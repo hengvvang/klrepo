@@ -3,21 +3,44 @@ STRUCTURE
 ```
 Repository
 |
-|--vi
+|--editors
 |   |
-|   |--assets/images
+|   |--vim
+|   |   |
+|   |   |--assets/images
+|   |   |
+|   |   |--docs
+|   |   |   |--commands.md
+|   |   |   |--marks.md
+|   |   |   |--modes.md
+|   |   |   |--motions.md
+|   |   |   |--operators.md
+|   |   |   |--registers.md
+|   |   |   |--scope.md
+|   |   |   |--text_objects.md
+|   |   |   |--windows_tabs.md
 |   |
+|   |--vscode
+|   |   |
+|   |   |--None
+|   |   |
+|   |   |--docs
+|   |   |   |--
+|   |   |   |--
+|   |   |   |--
+|   |   |   |--
+|   |   |   |--
 |   |
-|   |--docs
-|   |   |--commands.md
-|   |   |--marks.md
-|   |   |--modes.md
-|   |   |--motions.md
-|   |   |--operators.md
-|   |   |--registers.md
-|   |   |--scope.md
-|   |   |--text_objects.md
-|   |   |--windows_tabs.md
+|   |--zed
+|   |   |
+|   |   |--None
+|   |   |
+|   |   |--docs
+|   |   |   |--
+|   |   |   |--
+|   |   |   |--
+|   |   |   |--
+|   |   |   |--
 |   |
-|   |--README.md        `*`
+|   |   |--README.md        `*`
 ```
