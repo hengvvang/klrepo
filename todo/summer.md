@@ -134,6 +134,9 @@
 
 > priority marker *
 
+- c++ ****
+- network of computer ****
+- cmake ***
 - python   ***
 - python data analysis **
 - rustlang review  ***
@@ -146,3 +149,8 @@
 - guitar    ***
 - docker*   *
 - linux **
+- front-end
+    - html5
+    - css3
+    - javascript
+    - typescript
