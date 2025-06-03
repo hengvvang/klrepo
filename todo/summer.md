@@ -132,14 +132,17 @@
 
 # need to learn [personal]
 
-- python
-- python data analysis
-- rustlang review
-- rust for embedded
-- stm32
-- git
-- github actions
-- vim
-- nixos
-- guitar
-- docker*
+> priority marker *
+
+- python   ***
+- python data analysis **
+- rustlang review  ***
+- rust for embedded  ***
+- stm32  ***
+- git    ***
+- github actions   **
+- vim   ***
+- nixos  ***
+- guitar    ***
+- docker*   *
+- linux **
