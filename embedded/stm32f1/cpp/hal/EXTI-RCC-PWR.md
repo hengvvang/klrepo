@@ -1,4 +1,4 @@
-继续对 STM32F103C8T6 HAL 库中另外三个外设（EXTI、RCC、PWR）的详细分析，涵盖每个表示外设的结构体（`XXX_TypeDef`）、配置外设的结构体（`XXX_InitTypeDef`）、句柄结构体（`XXX_HandleTypeDef`）、所有相关枚举类型以及每个函数接口的详细说明。我将通过源码逐一展开，确保内容详尽到每个字段和函数的作用与用法。
+STM32F103C8T6 HAL 库中另外三个外设（EXTI、RCC、PWR）的详细分析，涵盖每个表示外设的结构体（`XXX_TypeDef`）、配置外设的结构体（`XXX_InitTypeDef`）、句柄结构体（`XXX_HandleTypeDef`）、所有相关枚举类型以及每个函数接口的详细说明。我将通过源码逐一展开，确保内容详尽到每个字段和函数的作用与用法。
 
 ---
 
