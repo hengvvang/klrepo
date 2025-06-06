@@ -181,5 +181,3 @@ file(COPY "resources/" DESTINATION "${CMAKE_BINARY_DIR}/bin/resources")
 	•	命令行覆盖：可以在运行 cmake 时用 -D 参数覆盖变量： cmake -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/custom/path ..
 	•
 	•	调试：如果输出目录未生效，检查变量是否拼写正确，或是否被后续代码覆盖。
-
-希望这个详细的解释能完全解答你的问题！如果还有任何疑问，欢迎继续探讨。

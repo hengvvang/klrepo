@@ -887,5 +887,3 @@ set(CMAKE_BUILD_TYPE "Release")
 # 添加目标
 add_executable(my_app main.c)
 add_library(my_lib SHARED lib.c)
-
-以上涵盖了 CMake 中所有主要的内置变量，按类别详细分类。如果你需要更深入的某个变量或具体用法的解释，请告诉我！

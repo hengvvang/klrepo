@@ -322,4 +322,3 @@ build-std = ["core", "alloc"]           # 构建 core 和 alloc
 	•	优先级：[build] 的配置是全局性的，但会被 [target.] 中的同名配置覆盖。
 	•	环境变量覆盖：大部分配置可被环境变量（如 RUSTFLAGS、CARGO_TARGET_DIR）覆盖。
 	•	兼容性：某些选项（如 build-std）需要不稳定标志支持，需检查 Rust 版本。
-如果需要更具体的用例或某项配置的深入解释，请告诉我！

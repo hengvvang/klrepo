@@ -332,5 +332,3 @@ println!("cargo:warning=memory_x_path: {}", memory_x_path.display());
 - **相对路径**：适合 `build.rs` 和 `memory.x` 同级的情况，简单高效。
 - **动态路径**：适合需要灵活性或区分不同包的场景，使用 `CARGO_MANIFEST_DIR` 计算路径。
 - **选择建议**：如果你的结构固定且简单，推荐相对路径；如果需要扩展性，推荐动态路径。
-
-再次感谢你的指正！如果还有疑问或需要进一步优化，请告诉我！

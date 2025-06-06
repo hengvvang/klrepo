@@ -346,8 +346,3 @@
 - **`HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)`**
   - 作用：周期结束回调（弱定义）。
   - 用法：用户重写处理逻辑。
-
----
-
-### 总结
-以上详细分析了 GPIO、ADC 和 TIM 三个外设的每个结构体、枚举和函数接口。若需继续分析其他外设（如 USART、I2C、SPI 等），请告诉我具体的外设名称，我将按相同格式输出！
