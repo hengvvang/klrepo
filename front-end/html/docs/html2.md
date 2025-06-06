@@ -1,5 +1,4 @@
 **引言**
-
 HTML (HyperText Markup Language) 是创建网页内容结构的标准标记语言。浏览器解析 HTML 代码，将其渲染成用户看到的页面。下面我们将分模块详细介绍 HTML 的各个方面。
 
 ---
@@ -535,17 +534,3 @@ HTML (HyperText Markup Language) 是创建网页内容结构的标准标记语�
 * **HTML5 APIs:** HTML5 引入了许多强大的 JavaScript API，如 Geolocation, Web Storage (localStorage, sessionStorage), Web Workers, WebSocket, Canvas, Drag and Drop 等，用于实现更丰富的 Web 应用功能。
 
 ---
-
-**模块 11: 总结与最佳实践**
-
-* **核心:** HTML 定义网页**结构**与**语义**。
-* **实践:**
-    * 始终使用 `<!DOCTYPE html>` 和正确的文档结构。
-    * 使用语义化标签 (`<header>`, `<nav>`, `<main>`, etc.)。
-    * 验证 HTML 代码。
-    * 为图像提供 `alt` 文本。
-    * 正确使用 `<label>` 关联表单控件。
-    * 分离 HTML, CSS, JavaScript。
-    * 保持代码整洁、缩进良好。
-    * 优先考虑可访问性。
-    * 使用 UTF-8 编码。
