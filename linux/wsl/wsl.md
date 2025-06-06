@@ -436,14 +436,3 @@
     ```
 
 ---
-
-## 七、附加资源
-- **官方文档**：https://docs.microsoft.com/en-us/windows/wsl/
-- **社区支持**：GitHub WSL 仓库、Reddit WSL 社区。
-- **工具推荐**：
-  - VS Code + WSL 扩展。
-  - Windows Terminal。
-
----
-
-这是一份极其详尽的 WSL 指南，涵盖了所有命令、功能和细节。如果需要更深入的某个部分（如自定义内核的编译步骤），请告诉我！

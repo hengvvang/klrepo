@@ -1,1 +1,3 @@
-Knowledge repository
+Knowledge Repository
+
+There are still more contents that need to be added and restructured to achieve the goal of high cohesion and low coupling...

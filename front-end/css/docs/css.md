@@ -392,11 +392,3 @@ CSS (Cascading Style Sheets)
     * **新的颜色空间和函数:** 如 `lch()`, `oklch()`, `color-mix()`, `color-contrast()`。
     * **滚动驱动动画 (Scroll-driven Animations):** 根据滚动位置触发或控制动画。
     * **视图过渡 (View Transitions):** 在单页面应用 (SPA) 或多页面应用 (MPA) 导航时创建平滑的动画过渡效果。
-
-3.  **学习资源 (Learning Resources)**
-    * **MDN Web Docs (Mozilla Developer Network):** 最权威、最全面的 Web 技术文档，包括 CSS。
-    * **W3C CSS Specifications:** CSS 标准的官方来源。
-    * **CSS-Tricks:** 文章、教程、技巧和代码片段。
-    * **web.dev (by Google):** 现代 Web 开发最佳实践和教程。
-    * **Smashing Magazine:** 高质量的文章和电子书。
-    * 在线课程平台 (Coursera, Udemy, freeCodeCamp等)。
