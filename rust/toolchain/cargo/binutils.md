@@ -330,7 +330,3 @@ cargo objcopy --release -- -O binary firmware.bin
 rust-nm -help
 rust-objdump -help
 ```
-
----
-
-通过以上内容，你应该能够全面掌握 `cargo-binutils` 的所有使用方法。无论是嵌入式开发、性能优化还是底层调试，它都能提供强大的支持。如需进一步探讨某个具体用例，请告诉我！
