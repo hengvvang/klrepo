@@ -1074,14 +1074,3 @@ process_data_structure("a string")
 **总结与进一步学习**
 
 以上内容覆盖了 Python 的绝大部分核心语法。然而，Python 的强大之处还在于其丰富的标准库（如 `os`, `sys`, `re`, `json`, `datetime`, `math`, `random`, `collections`, `itertools` 等）和庞大的第三方库生态（如 `requests`, `numpy`, `pandas`, `matplotlib`, `django`, `flask`, `tensorflow`, `pytorch` 等）。
-
-要真正掌握 Python，除了理解语法，还需要：
-
-1.  **大量练习:** 编写代码解决实际问题。
-2.  **熟悉标准库:** 了解常用模块的功能和用法。
-3.  **学习数据结构与算法:** 理解如何在 Python 中高效地组织和处理数据。
-4.  **掌握面向对象设计:** 学习如何设计健壮、可维护的类。
-5.  **阅读官方文档:** Python 官方文档 ([https://docs.python.org/3/](https://docs.python.org/3/)) 是最权威、最全面的参考资料。
-6.  **了解 PEPs (Python Enhancement Proposals):** 理解 Python 语言的设计理念和发展方向（如 PEP 8 代码风格指南）。
-7.  **学习使用虚拟环境和包管理工具 (如 `venv`, `pip`, `conda`):** 管理项目依赖。
-8.  **探索感兴趣领域的库:** 根据你的目标（Web 开发、数据科学、机器学习、自动化等）深入学习相关库。
