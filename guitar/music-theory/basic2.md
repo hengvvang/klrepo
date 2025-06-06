@@ -1010,25 +1010,6 @@
 - **6个月**：掌握调式、七和弦和复杂节奏，能创作简单歌曲。
 - **1年**：精通指板，熟练演奏多种风格（蓝调、金属、爵士），能分析和改编歌曲。
 
-### **12.3 资源推荐**
-- **书籍**：
-  - 《The Guitar Handbook》 by Ralph Denyer。
-  - 《Fretboard Logic SE》 by Bill Edwards：深入讲解CAGED系统。
-  - 《The Advancing Guitarist》 by Mick Goodrick：进阶指板理论。
-- **应用**：
-  - Guitar Pro：记谱和练习。
-  - Yousician：互动学习。
-  - Ultimate Guitar：六线谱资源。
-- **硬件**：
-  - 节拍器：Boss DB-90。
-  - 调音器：TC Electronic PolyTune。
-  - 效果器：Line 6 Helix（多功能音色控制）。
-- **在线资源**：
-  - YouTube：Justin Guitar（基础教学）、Guthrie Govan（进阶技巧）。
-  - TrueFire：付费吉他课程，覆盖多种风格。
-
----
-
 ## **13. 总结与建议**
 
 电吉他乐理是一个庞大而系统的知识体系，涵盖音阶、和弦、节奏、调性、调式、和声学、记谱等多个方面。通过以上详细讲解，你可以从基础音高和音程开始，逐步掌握音阶模式、和弦进行、节奏技巧，最终达到即兴演奏和创作的水平。以下是具体建议：
