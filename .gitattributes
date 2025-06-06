@@ -6,33 +6,32 @@
 # *.cc linguist-vendored
 
 # 忽略 Rust、Python、TypeScript、JavaScript、HTML、CSS、Assembly、 java
-# *.rs linguist-vendored 
+# *.rs linguist-vendored
 # *.py linguist-vendored
 # *.ts linguist-vendored
 # *.js linguist-vendored
-*.css linguist-vendored
-*.scss linguist-vendored
-*.html linguist-vendored
-*.s linguist-vendored
-*.S linguist-vendored
-*.asm linguist-vendored 
-*.java linguist-vendored
-*.javac linguist-vendored
+# *.css linguist-vendored
+# *.scss linguist-vendored
+# *.html linguist-vendored
+# *.s linguist-vendored
+# *.S linguist-vendored
+# *.asm linguist-vendored
+# *.java linguist-vendored
+# *.javac linguist-vendored
 
-*.json linguist-vendored
-*.yaml linguist-vendored
-# 如果你不想统计 Cargo.toml 文件语言类型，也可以排除
-*.toml linguist-vendored
+# *.json linguist-vendored
+# *.yaml linguist-vendored
+# *.toml linguist-vendored
 
 # 忽略 Markdown 和文档类文件
-*.md linguist-documentation
-*.txt linguist-documentation
+# *.md linguist-documentation
+# *.txt linguist-documentation
 
 # 忽略编译输出或构建文件夹（如 target、build）
-/target/** linguist-generated
-/build/** linguist-generated
+# /target/** linguist-generated
+# /build/** linguist-generated
 
 # 忽略第三方依赖或库
-/vendor/** linguist-vendored
-/third_party/** linguist-vendored
-/docs/** linguist-documentation
+# /vendor/** linguist-vendored
+# /third_party/** linguist-vendored
+# /docs/** linguist-documentation
