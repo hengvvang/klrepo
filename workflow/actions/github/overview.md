@@ -792,12 +792,3 @@ GitHub Actions 的定价基于使用量，并提供免费额度。
 * **GitHub Actions 官方文档:** 最权威、最全面的信息来源。[https://docs.github.com/en/actions](https://docs.github.com/en/actions)
 * **GitHub Skills:** 提供交互式的 GitHub Actions 学习课程。[https://skills.github.com/](https://skills.github.com/)
 * **GitHub Actions Marketplace:** 浏览和发现可用 Action。[https://github.com/marketplace?type=actions](https://github.com/marketplace?type=actions)
-* **Starter Workflows:** 创建新工作流时 GitHub 提供的模板，是很好的起点。
-* **实践:** 最好的学习方法是为您自己的项目创建和迭代工作流。从简单的 CI 开始，逐步添加更多功能。
-* **社区与博客:** 搜索相关博客文章、教程和社区讨论。
-
----
-
-**11. 总结**
-
-GitHub Actions 是一个极其强大且集成度高的自动化平台，已经成为现代软件开发不可或缺的一部分。它通过直观的 YAML 配置、丰富的特性集、活跃的社区和与 GitHub 生态的无缝结合，使开发者能够轻松自动化从代码提交到生产部署的整个流程，显著提升开发效率、代码质量和软件交付速度。理解其核心概念、掌握关键特性并遵循安全最佳实践，将使您能够充分利用 GitHub Actions 的潜力，优化您的开发工作流。

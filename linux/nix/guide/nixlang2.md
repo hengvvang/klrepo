@@ -694,3 +694,4 @@ in
   $ nix repl
   nix-repl> let x = 1; in x + 2
   3
+  ```

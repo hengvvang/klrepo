@@ -197,5 +197,3 @@ jobs:
 * **安全性：** 提供 `secrets` 来管理敏感信息。
 * **位置：** 所有工作流定义在 `.github/workflows/` 目录下的 YAML 文件中。
 * **语法：** 掌握基本的 YAML 语法以及 GitHub Actions 的特定关键字（`name`, `on`, `jobs`, `runs-on`, `steps`, `uses`, `run`, `with`, `env`, `secrets`）是关键。
-
-GitHub Actions 是一个非常强大的工具，从简单的自动化脚本到复杂的 CI/CD 流水线都可以实现。建议从简单的示例开始，逐步探索其更高级的功能。你可以查阅 GitHub Actions 的官方文档以获取更全面的信息。
