@@ -19,3 +19,17 @@ Home Manager can be used in three primary ways:
 
 Home Manager provides both the channel-based setup and the flake-based one. See
 [Nix Flakes][manual nix flakes] for a description of the flake-based setup.
+
+---
+- Use home manager
+  - Config folders (where we can find home.nix):
+      NixOS module: /etc/nixos
+      Standalone: ~/.config/nixpkgs/
+
+  - Update nix channel:
+      NixOS: sudo nix-channel --update
+      Home manager: nix-channel --update
+
+  - Apply home manager changes command:
+      NixOS module: sudo nixos-rebuild switch
+      Standalone: home-manager switch
