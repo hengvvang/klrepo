@@ -70,6 +70,42 @@
 - Introdcution
 - Getting Started
 - Configuration
+    - NixOS
+    - Home-Manager
+        - Flake.;nix
+          - Seperate
+            ```
+            {
+               inputs = {
+                    ...
+                    home-manager = {
+                    url = github:nix-community/home-manager;
+                    inputs.nixpkgs.follows = "nixpkgs";
+                    };
+                };
+                outputs = { self, nixpkgs, home-manager, ...}:
+                let
+                ...
+                in {
+                ...
+                hmConfig = {
+                <user> =
+                home-manager.lib.homeManagerConfiguration {
+                inherit system pkgs;
+                username = "<user>";
+                homeDirectory = "/home/<user>";
+                configuration = {
+                    imports = [
+                    /home/<user>/.config/home/home.nix
+                ];
+                };
+            };
+            };
+            };
+            };
+            ```
+          - Inside nixosConfigurations
+        - Build
 - Updating
 - Flake on fresh install
     - Boot into ISO
