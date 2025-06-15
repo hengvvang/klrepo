@@ -1,0 +1,1 @@
+- [zed-editor](https://github.com/zed-industries/zed/tree/main/.github)
