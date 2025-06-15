@@ -1,4 +1,11 @@
-# RESOURCES
+# reference
+
+https://yoimiyalove.top/2024/10/25/nixos/
+
+
+https://www.cnblogs.com/searchstar/p/18678863
+
+
 
 ### NixOS Overview
 - [NixOS](https://www.youtube.com/watch?v=9OMDnZWXjn4)
