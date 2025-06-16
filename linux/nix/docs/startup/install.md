@@ -48,12 +48,42 @@
 
 ⸻
 
-3. 开始安装 NixOS
-  - 配置channel
+
+# 配置 configuration.nix
+    - required
+配置镜像源
+
+  ```
+  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  ```
+  OR  尽量用下面的
+  ```
+  # load `lib` into namespace at the file head with `{ config, pkgs, lib, ... }:`
+  nix.settings.substituters = lib.mkForce [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  ```
+配置用户
     ```
-      nix-channel --add https://mirrors.tuna.tsinghua.edu.cn/nix-channels/nixos-unstable nixos
-      nix-channel --update
+    users.users.hengvvang = {
+    isNormalUser = true;
+     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     packages = with pkgs; [
+       tree
+     ];
+   };
       ```
+推荐
+      ```
+        environment.systemPackages = [
+    pkgs.vim
+  ];
+      
+      ```
+      ```
+{
+  nixpkgs.config.allowUnfree = true;
+}
+      ```
+3. 开始安装 NixOS
   - 安装系统
     ```
     nixos-install --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
@@ -74,20 +104,6 @@
   passwd hengvvang
 
   ```
-
-## 完成系统安装后，配置镜像源
-
-  ```
-  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-  ```
-  OR
-  ```
-  # load `lib` into namespace at the file head with `{ config, pkgs, lib, ... }:`
-  nix.settings.substituters = lib.mkForce [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-  ```
-
-
-
 
 
 
