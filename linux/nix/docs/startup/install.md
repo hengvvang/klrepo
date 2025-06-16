@@ -38,30 +38,27 @@
     swapon /dev/nvme0n1p6
     ```
 
-⸻
-
 2. 自动生成 NixOS 配置文件
   ```
   nixos-generate-config --root /mnt
   ```
 这将会生成 /mnt/etc/nixos/configuration.nix 等配置文件。
 
-⸻
 
 
 # 配置 configuration.nix
-    - required
-配置镜像源
-
+  - required
+  - 配置镜像源
+  尽量用下面的
   ```
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   ```
-  OR  尽量用下面的
+  OR  
   ```
   # load `lib` into namespace at the file head with `{ config, pkgs, lib, ... }:`
   nix.settings.substituters = lib.mkForce [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   ```
-配置用户
+  - 配置用户
     ```
     users.users.hengvvang = {
     isNormalUser = true;
@@ -69,15 +66,14 @@
      packages = with pkgs; [
        tree
      ];
-   };
+    };
       ```
-推荐
+  - 推荐
       ```
         environment.systemPackages = [
     pkgs.vim
   ];
       
-      ```
       ```
 {
   nixpkgs.config.allowUnfree = true;
@@ -105,11 +101,6 @@
 
   ```
 
-
-
-
-
-✅ 安装完成后可以做的事：
 
 如果 NixOS 没有自动识别 Windows，可以在 configuration.nix 中添加：
 
