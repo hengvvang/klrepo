@@ -102,8 +102,9 @@
   ```
 
 
-如果 NixOS 没有自动识别 Windows，可以在 configuration.nix 中添加：
 
+如果 NixOS 没有自动识别 Windows，可以在 configuration.nix 中添加：
+```
 boot.loader.grub = {
   enable = true;
   version = 2;
@@ -112,7 +113,4 @@ boot.loader.grub = {
   devices = [ "nodev" ];
   useOSProber = true;
 };
-
-```
-sudo nixos-rebuild switch
 ```
