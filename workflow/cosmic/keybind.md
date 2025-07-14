@@ -1,10 +1,24 @@
 规律一
-`单一工作区 super`
-`不同工作区 ctrl + super`
-`不同显示器 alt + super`
-规律二
-`窗口切换 + shift`
+> 焦点移动
+- 焦点在不同窗口间移动 `super`
+- 焦点在不同工作区间移动 `ctrl` + super
+- 焦点在不同显示器间移动 `alt` + super
 
+---
+
+规律二
+> `+ shift`  ==> 窗口移动
+```
+- 焦点在不同窗口间移动 `super`
+    -->  shift + super  ====> 不同窗口间移动
+
+- 焦点在不同工作区间移动 `ctrl` + super
+    -->  shift + ctrl + super    ====> 窗口在不同工作区移动
+
+- 焦点在不同显示器间移动 `alt` + super
+    --> shift + alt + super ====> 窗口在不同显示器移动
+
+```
 
 ## 切换聚焦
 
