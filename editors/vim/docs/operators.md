@@ -1,198 +1,360 @@
-# Operators 操作符
-- 有一些 `operators` 可以被直接使用  C  D  J  x X  s S
-- 有一些 `operators` 在被选择的内容上使用(visual mode)   J  u U  x  s
-- 有一些 `operators` 可以与 `motions` | `scope + text-objects` 结合使用
-    - `<Operator><Motion>`     d0   c^  y$
-    - `<Operator><Scope><Text-Object>`  `diw`  `cab | ca(` ` yiB | yi{`
-## overview
-- **删除**：
-  - `d{motion}`：删除指定移动范围
-  - `d{scope}{text-object}`：删除指定范围内的文本
-  - `dd`：删除整行
-  - `D`：删除到行尾
-  - `x`：删除当前字符
-  - `X`：删除前一个字符
-- **复制**：
-  - `y{motion}`：复制指定移动范围
-  - `y{scope}{text-object}`：复制指定范围内的文本
-  - `yy`：复制整行
-  - `Y`：复制整行（等同于 `yy`）
-- **粘贴**：
-  - `p`：光标后粘贴
-  - `P`：光标前粘贴
-- **修改**：
-  - `{The content selected in visual mode}c`: 修改选中内容
-  - `c{motion}`：修改指定移动范围
-  - `c{scope}{text-object}`：修改指定范围内的文本
-  - `cc`：修改整行
-  - `C`：修改到行尾
-  - `s`：删除当前字符并进入插入模式
-  - `S`：删除整行并
-  - `J`：合并选中的行（join lines）
-- **替换**：
-  - `r`：替换当前字符
-  - `R`：进入替换模式
-- **撤销与重做**：
-  - `u`：撤销
-  - `Ctrl + r`：重做
-## 删除操作（`d` delete）
-- **`+ motions`**
-    - **注释**: 光标移动到哪里，删除到哪里
-    - `b` bengin 移动到单词首部
-        - `db` 删除到单词的首部，delete to word begin
-    - `e` end  移动到单词的尾部）
-        - `de` 删除到单词的尾部，delete to word end
-    - `w` word 移动到下一个单词
-        - `dw` 删除到下一个单词，delete to next word
-    - `2j` 向下移动两行
-       - `d2j` **向下**删除两行
-    - `gg` 移动到文件开
-        - `dgg` 删除到文件开头，delete to top
-    - `G`  移动到文件结尾
-        - `dG` 删除到文件结尾，delete to bottom
+# Vim 操作符 (Operators)
 
-- **`+ scope + text objects`**
-    - **注释**: 删除所选范围
-    > 这里的 `iw` 的 `w` 是 `text object`
-    - `dd`（删除当前行，delete line）。
-    - `i` inner
-        - `diw`（删除单词内部，delete inner word）。
-        - `di"`（删除引号内的内容，delete inner quote）。
-    - `a` around
-        - `daw`（删除单词外部，delete around word）。
-- **注意事项**：
-  - 删除的内容存储在默认寄存器（`""`），可以使用 `p` 粘贴。
-  - 使用 `"_d` 删除到黑洞寄存器，不影响默认寄存器。
+*参考 Vim 官方文档 motion.txt 和 change.txt*
 
-## 修改操作（`c` change）
-- **定义**：删除指定范围的文本并进入 Insert Mode。
-- **`+ motions`**
-- `0`
-    - `c0` 删除到行首并进入`Insert Mode`
-- `^`
-    - `c^` 删除到此行第一个非空字符并进入`Insert Mode`
-- `$`
-    - `c$` 删除到行尾并进入`Insert Mode`
-- **`+ scope + text objects`**
-    - `cc`（修改当前行，change line）。
-    - `i` inner
-        - `ciw`（修改单词，change inner word）。
-        - `ci(`（修改括号内部内容，change inner parenthesis）
-    - `a` around
-        - `ca[`（修改整个括号，包括括号本身，change around bracket）
+## 概述 (Overview)
 
-- **注意事项**：
-  - 修改后直接进入 Insert Mode，适合快速编辑。
-  - 删除的内容存储在默认寄存器（`""`）。
+操作符是在 Vim 中对文本进行操作的命令。它们可以单独使用，也可以与动作命令 (motions) 或文本对象 (text objects) 结合使用来精确控制操作范围。
 
-## 复制操作（`y` yank）
-- **定义**：复制指定范围的文本。
-- **`+ motions`**
-- `H` 跳到屏幕顶部，high
-    - `yH` 复制到屏幕顶部
-- `M` 跳到屏幕中间，middle
-    - `yM` 复制到屏幕中间，middle
-- `L` 跳到屏幕底部，low
-    - `yL` 复制到屏幕底部，low
-- **`+ scope + text objects`**
-    - `yy`（复制当前行，yank line）。
-    - `i` inner
-        - `yip` 复制段落，yank inner paragraph
-    - `a` around
-        - `yab`/`yab` 复制整个小括号(及其内容，包括括号小本身 yank around bracket
-        - `ya[`/`ya[` 复制整个中括号[及其内容，包括括号中本身 yank around bracket
-        - `yaB`/`ya{` 复制整个大括号{及其内容，包括括号大本身 yank around bracket
-- **注意事项**：
-  - 复制的内容存储在默认寄存器（`""`），可以使用 `p` 粘贴。
-  - 使用 `"+y` 复制到系统剪贴板。
+### 操作符的分类
 
+1. **直接操作符** - 可以直接使用的操作符
+2. **与动作结合的操作符** - 必须与动作命令结合使用
+3. **与文本对象结合的操作符** - 与文本对象结合使用
 
-## 选择操作（`v` visual）
-- **定义**：用于在Vim中选择文本，支持字符、行和块级别的选择，可用于剪切、复制等操作。
-- **`+ motions`**
-    - `h` 向左移动一个字符
-        - `vh` 选择到左侧一个字符，visual to left character
-    - `l` 向右移动一个字符
-        - `vl` 选择到右侧一个字符，visual to right character
-    - `+` 移动到下一行的首个非空字符
-        - `v+` 选择到下一行的首个非空字符，visual to next line start
-    - `-` 移动到上一行的首个非空字符
-        - `v-` 选择到上一行的首个非空字符，visual to previous line start
-    - `|` 移动到当前行的指定列
-        - `v10|` 选择到第10列，visual to column 10
-    - `)` 移动到下一个句子结尾
-        - `v)` 选择到下一个句子，visual to next sentence
-    - `(` 移动到上一个句子开头
-        - `v(` 选择到上一个句子，visual to previous sentence
-- **`+ scope + text objects`**
-    - `V`（选择当前行，visual line）。
-    - `Ctrl+v`（进入可视块模式，visual block）。
-    - `i` inner
-        - `viw`（选择单词内部，visual inner word）。
-        - `vi"`（选择引号内的内容，visual inner quote）。
-    - `a` around
-        - `vaw`（选择单词外部，visual around word）。
-- **注意事项**：
-  - 进入可视模式后，可以使用 `d`（删除）、`y`（复制）等操作处理选定文本。
-  - 使用 `o` 可以在选择模式中切换光标起点和终点。
-  - 可视模式下按 `:` 可以对选定区域执行命令，如 `:'<,'>s/foo/bar/g` 进行替换。
+### 操作符语法
 
-## 粘贴操作（`p` paste）
-- **定义**：粘贴寄存器中的内容。
-- **基本用法**：
-  - `p`（在光标后粘贴，paste after）。
-  - `P`（在光标前粘贴，paste before）。
-- **注意事项**：
-  - 粘贴的内容来自默认寄存器（`""`），可以使用 `"ap` 从寄存器 a 粘贴。
-  - 行级粘贴（如 `yy`）会插入新行，字符级粘贴（如 `yw`）会插入在光标位置。
+```
+{operator}                    # 直接使用
+{operator}{motion}           # 操作符 + 动作
+{operator}{count}{motion}    # 操作符 + 计数 + 动作
+{operator}{scope}{text-object} # 操作符 + 作用域 + 文本对象
+```
 
-## 缩进操作（`>` 和 `<`）
-- **定义**：调整文本缩进。
-- **基本用法**：
-  - `>`（当前行增加缩进，shift right）。
-  - `<`（当前行减少缩进，shift left）。
-    - visual mode
-    - motion
-        - 作用与当前行
-        - `>2j` 增加当前行和下面 2 行的缩进。
-    - scope + operator
-  - `>>`（当前行增加缩进，shift right）。
-  - `<<`（当前行减少缩进，shift left）。
-- **注意事项**：
-  - 缩进宽度由 `:set tabstop` 和 `:set shiftwidth` 控制。
-  - 在 Visual Mode 下，选择多行后按 `>` 或 `<` 调整缩进。
+## 核心操作符 (Core Operators)
 
-## 大小写转换（`gU` 和 `gu`）
-- **定义**：转换文本大小写。
-- **基本用法**：
-    - Available in visual mode
-        - `u` 所选内容转小写
-        - `U` 所选内容转大写
-        - `~` 切换当前字符/所选内容的大小写。
-    - Use with `motion` |`scope + operator`
-        - visual mode
-        - motion
-            - `gU$`（到行尾转为大写，uppercase to end of line）。
-        - scope + operator
-            - `gUip`（段落转为大写，uppercase inner paragraph）。
-            - `guip`（段落转为小写，lowercase inner paragraph）。
+### 删除操作符 (`d` - delete)
 
-## 折叠操作（`zf` fold）
-- **定义**：折叠代码块以隐藏部分内容。
-- **基本用法**：
-  - `zf`（创建折叠，fold）。
-  - visual mode
-  - motion
-    `zf2j`（向下折叠两行，fold two lines）。
-  - scope + operator
-    - `zfap`（折叠一个段落，fold around paragraph）。
-  - `zo`（打开折叠，open fold）。
-  - `zc`（关闭折叠，close fold）。
-  - `zR`（打开所有折叠，open all folds）。
-  - `zM`（关闭所有折叠，close all folds）。
-- **示例**：
-  - 在代码块中，按 `zf}` 创建折叠，然后按 `zo` 打开。
-  - 按 `zM` 关闭所有折叠，然后按 `zR` 打开。
-- **注意事项**：
-  - 折叠需要 `:set foldmethod` 设置折叠方式（如 `indent`、`syntax`）。
-  - 适合处理大文件，隐藏不相关内容。
+删除文本但不修改编辑模式。
+
+#### 基本删除命令
+- `x` - 删除当前字符 (等同于 `dl`)
+- `X` - 删除前一个字符 (等同于 `dh`)
+- `dd` - 删除整行
+- `D` - 删除到行尾 (等同于 `d$`)
+
+#### 与动作结合
+- `dw` - 删除到下一个单词开始
+- `de` - 删除到当前单词结束
+- `db` - 删除到当前单词开始
+- `d0` - 删除到行首
+- `d^` - 删除到行首非空字符
+- `d$` - 删除到行尾
+- `dG` - 删除到文件末尾
+- `dgg` - 删除到文件开头
+- `d}` - 删除到段落末尾
+- `d{` - 删除到段落开始
+
+#### 与文本对象结合
+- `diw` - 删除单词内部 (inner word)
+- `daw` - 删除整个单词 (around word)
+- `dis` - 删除句子内部 (inner sentence)
+- `das` - 删除整个句子 (around sentence)
+- `dip` - 删除段落内部 (inner paragraph)
+- `dap` - 删除整个段落 (around paragraph)
+- `di(` / `di)` / `dib` - 删除圆括号内容
+- `da(` / `da)` / `dab` - 删除包括圆括号的内容
+- `di[` / `di]` - 删除方括号内容
+- `da[` / `da]` - 删除包括方括号的内容
+- `di{` / `di}` / `diB` - 删除大括号内容
+- `da{` / `da}` / `daB` - 删除包括大括号的内容
+- `di"` - 删除双引号内容
+- `da"` - 删除包括双引号的内容
+- `di'` - 删除单引号内容
+- `da'` - 删除包括单引号的内容
+
+### 修改操作符 (`c` - change)
+
+删除文本并进入插入模式。
+
+#### 基本修改命令
+- `s` - 修改当前字符 (等同于 `cl`)
+- `S` - 修改整行 (等同于 `cc`)
+- `cc` - 修改整行
+- `C` - 修改到行尾 (等同于 `c$`)
+
+#### 与动作结合
+- `cw` - 修改到下一个单词 (特殊行为：不包含空格)
+- `ce` - 修改到当前单词结束
+- `cb` - 修改到当前单词开始
+- `c0` - 修改到行首
+- `c^` - 修改到行首非空字符
+- `c$` - 修改到行尾
+
+#### 与文本对象结合
+- `ciw` - 修改单词内部
+- `caw` - 修改整个单词
+- `cis` - 修改句子内部
+- `cas` - 修改整个句子
+- `cip` - 修改段落内部
+- `cap` - 修改整个段落
+- `ci(` / `ca(` - 修改圆括号内容/包括括号
+- `ci[` / `ca[` - 修改方括号内容/包括括号
+- `ci{` / `ca{` - 修改大括号内容/包括括号
+- `ci"` / `ca"` - 修改双引号内容/包括引号
+
+### 复制操作符 (`y` - yank)
+
+复制文本到寄存器。
+
+#### 基本复制命令
+- `yy` - 复制整行
+- `Y` - 复制整行 (等同于 `yy`)
+
+#### 与动作结合
+- `yw` - 复制到下一个单词
+- `ye` - 复制到当前单词结束
+- `yb` - 复制到当前单词开始
+- `y0` - 复制到行首
+- `y^` - 复制到行首非空字符
+- `y$` - 复制到行尾
+- `yG` - 复制到文件末尾
+- `ygg` - 复制到文件开头
+
+#### 与文本对象结合
+- `yiw` / `yaw` - 复制单词内部/整个单词
+- `yis` / `yas` - 复制句子内部/整个句子
+- `yip` / `yap` - 复制段落内部/整个段落
+- `yi(` / `ya(` - 复制圆括号内容/包括括号
+- `yi[` / `ya[` - 复制方括号内容/包括括号
+- `yi{` / `ya{` - 复制大括号内容/包括括号
+
+### 粘贴操作 (`p`/`P` - put)
+
+- `p` - 在光标后粘贴
+- `P` - 在光标前粘贴
+- `]p` - 粘贴并调整缩进 (光标后)
+- `[P` - 粘贴并调整缩进 (光标前)
+
+### 替换操作符 (`r`/`R` - replace)
+
+- `r{char}` - 替换当前字符为 {char}
+- `R` - 进入替换模式 (覆盖模式)
+- `gr{char}` - 虚拟替换 (考虑 Tab 宽度)
+- `gR` - 进入虚拟替换模式
+
+## 高级操作符 (Advanced Operators)
+
+### 缩进操作符 (`>`/`<` - shift)
+
+#### 增加缩进 (`>`)
+- `>>` - 当前行向右缩进
+- `>{motion}` - 对动作范围向右缩进
+- `>{count}{motion}` - 对指定行数向右缩进
+
+#### 减少缩进 (`<`)
+- `<<` - 当前行向左缩进
+- `<{motion}` - 对动作范围向左缩进
+- `<{count}{motion}` - 对指定行数向左缩进
+
+#### 示例
+- `>2j` - 当前行和下两行向右缩进
+- `<ip` - 段落向左缩进
+- `>G` - 从当前行到文件末尾向右缩进
+
+### 大小写转换操作符
+
+#### 切换大小写 (`~`)
+- `~` - 切换当前字符大小写并移动光标 (当 `'tildeop'` 关闭时)
+- `~{motion}` - 切换动作范围的大小写 (当 `'tildeop'` 开启时)
+- `g~{motion}` - 切换动作范围的大小写
+
+#### 转换为小写 (`gu`)
+- `gu{motion}` - 转换动作范围为小写
+- `guu` / `gugu` - 当前行转小写
+
+#### 转换为大写 (`gU`)
+- `gU{motion}` - 转换动作范围为大写
+- `gUU` / `gUgU` - 当前行转大写
+
+#### 示例
+- `g~iw` - 切换当前单词大小写
+- `gUap` - 当前段落转大写
+- `guG` - 从当前行到文件末尾转小写
+
+### 连接操作符 (`J`)
+
+- `J` - 连接当前行和下一行 (插入空格)
+- `gJ` - 连接当前行和下一行 (不插入空格)
+- `{count}J` - 连接 count 行
+
+### 格式化操作符 (`gq`)
+
+- `gq{motion}` - 格式化动作范围的文本
+- `gqq` - 格式化当前行
+- `gqap` - 格式化当前段落
+- `gw{motion}` - 格式化文本但保持光标位置
+
+### 排序操作符
+
+- `!{motion}` - 通过外部程序过滤文本
+- `={motion}` - 格式化/自动缩进
+- `!!{filter}` - 当前行通过外部程序过滤
+
+### 折叠操作符 (`zf`)
+
+- `zf{motion}` - 创建折叠
+- `zfap` - 折叠当前段落
+- `zf}` - 折叠到段落末尾
+
+## 可视模式操作符 (Visual Mode Operators)
+
+在可视模式中选择文本后，可以应用以下操作符：
+
+### 基本操作
+- `d` / `x` / `<Del>` - 删除选中文本
+- `c` / `s` - 修改选中文本
+- `y` - 复制选中文本
+- `p` - 用寄存器内容替换选中文本
+
+### 大小写转换
+- `u` - 选中文本转小写
+- `U` - 选中文本转大写
+- `~` - 切换选中文本大小写
+
+### 缩进操作
+- `>` - 选中行向右缩进
+- `<` - 选中行向左缩进
+
+### 其他操作
+- `J` - 连接选中行
+- `gJ` - 连接选中行 (不插入空格)
+- `=` - 自动缩进选中行
+- `gq` - 格式化选中文本
+
+## 操作符与计数 (Operators with Count)
+
+计数可以与操作符和动作结合使用：
+
+- `{count}{operator}` - 重复操作符
+- `{operator}{count}{motion}` - 应用于计数动作
+- `{count1}{operator}{count2}{motion}` - 总计数为 count1 × count2
+
+### 示例
+- `2dd` - 删除 2 行
+- `d2w` - 删除 2 个单词
+- `3c2w` - 修改 6 个单词 (3 × 2)
+- `2yy` - 复制 2 行
+
+## 寄存器与操作符 (Registers with Operators)
+
+可以指定寄存器来存储或检索文本：
+
+### 语法
+- `"{register}{operator}` - 使用指定寄存器
+
+### 常用寄存器
+- `""` - 默认寄存器
+- `"0` - 复制寄存器 (只存储 y 操作的内容)
+- `"1` - 删除寄存器 (存储 d、c 操作的内容)
+- `"a-z` - 命名寄存器 (小写覆盖)
+- `"A-Z` - 命名寄存器 (大写追加)
+- `"+` - 系统剪贴板
+- `"*` - 选择缓冲区
+- `"_` - 黑洞寄存器 (丢弃内容)
+
+### 示例
+- `"ayy` - 复制当前行到寄存器 a
+- `"Ayy` - 追加当前行到寄存器 a
+- `"ap` - 粘贴寄存器 a 的内容
+- `"+yy` - 复制当前行到系统剪贴板
+- `"_dd` - 删除行但不存储到任何寄存器
+
+## 特殊情况和技巧 (Special Cases and Tips)
+
+### `cw` 的特殊行为
+- `cw` 在单词上时不包含后续空格 (改为 change-word 语义)
+- 如果需要包含空格，使用 `caw` 或创建映射：`:map cw dwi`
+
+### 强制运动类型
+可以强制改变运动的类型：
+- `dv{motion}` - 强制字符级删除
+- `dV{motion}` - 强制行级删除
+- `d<C-V>{motion}` - 强制块级删除
+
+### 重复操作
+- `.` - 重复上一个操作 (操作符 + 动作)
+- `@@` - 重复上一个宏
+
+### 撤销和重做
+- `u` - 撤销上一个更改
+- `<C-r>` - 重做
+- `U` - 撤销整行的所有更改
+
+## 实践示例 (Practical Examples)
+
+### 编辑代码
+```vim
+" 删除函数内容
+di{
+" 修改函数参数
+ci(
+" 复制整个函数
+ya}
+" 格式化段落
+gqap
+" 注释掉代码块
+>ip
+```
+
+### 文本处理
+```vim
+" 删除到下一个句号
+dt.
+" 修改双引号内的内容
+ci"
+" 复制段落
+yap
+" 转换单词为大写
+gUiw
+" 连接多行
+3J
+```
+
+### 批量操作
+```vim
+" 删除多行
+5dd
+" 复制到文件末尾
+yG
+" 缩进代码块
+>}
+" 格式化多个段落
+gq}
+```
+
+## 配置建议 (Configuration Tips)
+
+### 相关设置
+```vim
+" 设置操作符等待时间
+set timeoutlen=1000
+
+" 启用操作符倾斜模式
+set tildeop
+
+" 设置缩进宽度
+set shiftwidth=4
+set tabstop=4
+
+" 启用自动缩进
+set autoindent
+set smartindent
+
+" 设置格式化选项
+set formatoptions=tcqj
+```
+
+### 有用的映射
+```vim
+" 快速删除到行尾
+nnoremap D d$
+
+" Y 行为与 D 和 C 一致
+nnoremap Y y$
+
+" 快速选择段落
+nnoremap <leader>p vip
+```
+
+这个重新设计的操作符文档按照 Vim 官方文档的结构组织，提供了完整的操作符体系介绍，包括核心概念、具体用法、高级技巧和实践示例。内容更加系统化和实用性导向。
